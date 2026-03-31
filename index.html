@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlowoRH — Automatisez. Formez. Scalez.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #060A12;
+  --bg2:      #0D1420;
+  --bg3:      #111927;
+  --mint:     #00E5B4;
+  --mint2:    #00C49A;
+  --orange:   #FF6B35;
+  --blue:     #3D8EFF;
+  --text:     #EEF2FF;
+  --muted:    #7B8BAA;
+  --border:   rgba(255,255,255,0.07);
+  --glass:    rgba(255,255,255,0.04);
+  --glass2:   rgba(255,255,255,0.08);
+  --r:        14px;
+  --r2:       20px;
+  --shadow:   0 24px 64px rgba(0,0,0,0.5);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;line-height:1.65;overflow-x:hidden}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--mint);border-radius:2px}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;height:70px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(6,10,18,0.8);border-bottom:1px solid var(--border);transition:all .3s}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-icon{width:36px;height:36px;flex-shrink:0}
+.logo-text{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:var(--text);letter-spacing:-0.02em}
+.logo-text span{color:var(--mint)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--mint);color:#060A12;padding:.55rem 1.3rem;border-radius:8px;font-weight:600;font-size:.875rem;text-decoration:none;transition:all .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--mint2);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.mobile-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:1.5rem 5vw;flex-direction:column;gap:1rem;z-index:99}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:1rem;font-weight:500;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.mobile-menu.open{display:flex}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:120px 5vw 80px}
+.hero-mesh{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(0,229,180,0.08) 0%,transparent 60%),radial-gradient(ellipse 60% 50% at 20% 70%,rgba(61,142,255,0.06) 0%,transparent 55%),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(255,107,53,0.05) 0%,transparent 50%);animation:meshPulse 8s ease-in-out infinite}
+@keyframes meshPulse{0%,100%{opacity:1}50%{opacity:.7}}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.4}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orbFloat 6s ease-in-out infinite}
+.orb1{width:400px;height:400px;background:rgba(0,229,180,0.06);top:-100px;right:-50px;animation-delay:0s}
+.orb2{width:300px;height:300px;background:rgba(61,142,255,0.05);bottom:-80px;left:-80px;animation-delay:3s}
+@keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-20px) scale(1.05)}}
+.hero-content{position:relative;max-width:900px;text-align:center;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,229,180,0.1);border:1px solid rgba(0,229,180,0.25);border-radius:50px;padding:.4rem 1rem;font-size:.8rem;font-weight:600;color:var(--mint);margin-bottom:2rem;animation:fadeUp .8s ease both}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--mint);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:800;line-height:1.05;letter-spacing:-0.03em;margin-bottom:1.5rem;animation:fadeUp .8s .1s ease both}
+h1 .accent{color:var(--mint);display:inline-block}
+h1 .typewriter-wrap{display:inline-block;min-width:300px}
+#typewriter{color:var(--orange);border-right:3px solid var(--orange);padding-right:4px;animation:blink .7s infinite}
+@keyframes blink{0%,100%{border-color:var(--orange)}50%{border-color:transparent}}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--muted);max-width:600px;margin:0 auto 2.5rem;line-height:1.7;animation:fadeUp .8s .2s ease both}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .8s .3s ease both}
+.btn-primary{background:var(--mint);color:#060A12;padding:.85rem 2rem;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary:hover{background:var(--mint2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,229,180,0.3)}
+.btn-secondary{background:transparent;color:var(--text);padding:.85rem 2rem;border-radius:10px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--border);transition:all .25s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-secondary:hover{border-color:var(--mint);color:var(--mint);transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--muted);font-size:.75rem;animation:fadeIn 1s 1s ease both}
+.scroll-line{width:1px;height:40px;background:linear-gradient(var(--mint),transparent);animation:scrollLine 2s infinite}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ── STATS ── */
+#stats{padding:5rem 5vw;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;max-width:900px;margin:0 auto;text-align:center}
+.stat-item{}
+.stat-num{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:800;color:var(--mint);line-height:1;display:block}
+.stat-label{color:var(--muted);font-size:.9rem;margin-top:.4rem}
+
+/* ── SECTIONS ── */
+section{padding:6rem 5vw}
+.section-tag{display:inline-block;background:rgba(0,229,180,0.1);border:1px solid rgba(0,229,180,0.2);border-radius:50px;padding:.3rem .9rem;font-size:.78rem;font-weight:600;color:var(--mint);letter-spacing:.05em;text-transform:uppercase;margin-bottom:1.2rem}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin-bottom:1rem}
+.section-sub{color:var(--muted);font-size:1.05rem;max-width:560px;line-height:1.7}
+.text-center{text-align:center}
+.text-center .section-sub{margin:0 auto}
+
+/* ── SERVICES ── */
+#services{}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:3.5rem}
+.service-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);padding:2rem;position:relative;overflow:hidden;transition:all .3s;cursor:default}
+.service-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,229,180,0.05),transparent);opacity:0;transition:opacity .3s}
+.service-card:hover{border-color:rgba(0,229,180,0.25);transform:translateY(-4px);box-shadow:0 24px 60px rgba(0,229,180,0.08)}
+.service-card:hover::before{opacity:1}
+.service-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.4rem}
+.service-card h3{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:.7rem}
+.service-card p{color:var(--muted);font-size:.9rem;line-height:1.65}
+.service-price{margin-top:1.2rem;font-size:.82rem;font-weight:600;color:var(--mint);background:rgba(0,229,180,0.1);display:inline-block;padding:.25rem .75rem;border-radius:6px}
+
+/* ── HOW IT WORKS ── */
+#process{background:var(--bg2)}
+.process-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem}
+.process-steps{display:flex;flex-direction:column;gap:2rem}
+.process-step{display:flex;gap:1.2rem;align-items:flex-start;opacity:.4;transition:opacity .3s}
+.process-step.active{opacity:1}
+.step-num{width:42px;height:42px;border-radius:10px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:.85rem;color:var(--mint);flex-shrink:0;transition:all .3s}
+.process-step.active .step-num{background:var(--mint);color:#060A12;border-color:var(--mint)}
+.step-content h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:.4rem}
+.step-content p{color:var(--muted);font-size:.88rem;line-height:1.65}
+.process-visual{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);padding:2.5rem;min-height:360px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.process-mockup{width:100%;max-width:340px}
+
+/* ── WHY ── */
+#why .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:3.5rem}
+.why-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);padding:1.8rem;position:relative}
+.why-card::after{content:'';position:absolute;top:0;left:2rem;right:2rem;height:1px;background:linear-gradient(90deg,transparent,var(--mint),transparent)}
+.why-icon{font-size:1.8rem;margin-bottom:1rem;display:block}
+.why-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:.5rem}
+.why-card p{color:var(--muted);font-size:.875rem;line-height:1.65}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--bg2)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3.5rem}
+.testi-card{background:var(--glass);border:1px solid var(--border);border-radius:var(--r2);padding:2rem}
+.testi-stars{color:var(--orange);font-size:.9rem;margin-bottom:1rem;letter-spacing:2px}
+.testi-text{color:var(--text);font-size:.93rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:.8rem}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--blue));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:#060A12;flex-shrink:0}
+.testi-name{font-weight:600;font-size:.9rem}
+.testi-role{color:var(--muted);font-size:.8rem}
+
+/* ── CTA ── */
+#cta{text-align:center;position:relative;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 100% at 50% 100%,rgba(0,229,180,0.07),transparent)}
+.cta-content{position:relative;max-width:700px;margin:0 auto}
+#cta h2{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1.2rem}
+#cta p{color:var(--muted);font-size:1.05rem;margin-bottom:2.5rem;line-height:1.7}
+.cta-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-orange{background:var(--orange);color:#fff;padding:.85rem 2rem;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-orange:hover{background:#e5592a;transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,107,53,0.3)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:3rem 5vw 2rem}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border)}
+.footer-brand p{color:var(--muted);font-size:.875rem;margin-top:.8rem;max-width:280px;line-height:1.65}
+.footer-col h4{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:var(--text);margin-bottom:1.2rem;letter-spacing:.02em}
+.footer-col a{display:block;color:var(--muted);text-decoration:none;font-size:.875rem;margin-bottom:.6rem;transition:color .2s}
+.footer-col a:hover{color:var(--mint)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{color:var(--muted);font-size:.8rem}
+.footer-socials{display:flex;gap:.8rem}
+.social-btn{width:34px;height:34px;border-radius:8px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:.9rem;transition:all .2s}
+.social-btn:hover{border-color:var(--mint);color:var(--mint)}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+.reveal-delay-5{transition-delay:.5s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .process-wrap{grid-template-columns:1fr}
+  .process-visual{display:none}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .footer-top{grid-template-columns:1fr}
+  .hero-ctas{flex-direction:column;align-items:center}
+}
+
+/* ── FLOATING SHAPES ── */
+.shape{position:absolute;border-radius:50%;border:1px solid;animation:shapeFloat 7s ease-in-out infinite;pointer-events:none}
+.shape1{width:80px;height:80px;border-color:rgba(0,229,180,0.15);top:20%;left:8%;animation-delay:0s}
+.shape2{width:40px;height:40px;border-color:rgba(255,107,53,0.15);top:55%;right:10%;animation-delay:2s;border-radius:8px;transform:rotate(45deg)}
+.shape3{width:60px;height:60px;border-color:rgba(61,142,255,0.15);bottom:20%;left:15%;animation-delay:4s}
+@keyframes shapeFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-16px) rotate(8deg)}}
+.shape2{animation:shape2Float 9s ease-in-out infinite}
+@keyframes shape2Float{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(55deg) translateY(-12px)}}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="logo">
+    <svg class="logo-icon" viewBox="0 0 36 36" fill="none">
+      <rect width="36" height="36" rx="8" fill="url(#lg1)"/>
+      <path d="M10 13 C10 13 14 13 16 18 C18 23 22 23 26 23" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <path d="M10 23 C10 23 13 23 15 18 C17 13 21 10 26 13" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <circle cx="26" cy="23" r="3" fill="white"/>
+      <circle cx="10" cy="13" r="2" fill="rgba(255,255,255,0.6)"/>
+      <defs>
+        <linearGradient id="lg1" x1="0" y1="0" x2="36" y2="36">
+          <stop offset="0%" stop-color="#00E5B4"/>
+          <stop offset="100%" stop-color="#0090FF"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="logo-text">Flowo<span>RH</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#process">Méthode</a>
+    <a href="#why">Pourquoi nous</a>
+    <a href="#testimonials">Témoignages</a>
+    <a href="#cta" class="nav-cta">Audit gratuit →</a>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#process" onclick="toggleMenu()">Méthode</a>
+  <a href="#why" onclick="toggleMenu()">Pourquoi nous</a>
+  <a href="#testimonials" onclick="toggleMenu()">Témoignages</a>
+  <a href="#cta" onclick="toggleMenu()" class="nav-cta" style="text-align:center;border-radius:8px;padding:.6rem">Audit gratuit →</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">✦ Automatisation · IA · Formation · Google Workspace</div>
+    <h1>
+      Arrêtez de perdre du temps<br>
+      sur vos <span class="accent typewriter-wrap"><span id="typewriter">process</span></span>
+    </h1>
+    <p class="hero-sub">
+      Flowo conçoit des outils Google Sheets sur mesure, automatise vos processus avec Apps Script et forme vos équipes à l'IA — pour que vous puissiez vous concentrer sur ce qui compte vraiment.
+    </p>
+    <div class="hero-ctas">
+      <a href="#cta" class="btn-primary">Audit gratuit de 45 min →</a>
+      <a href="#services" class="btn-secondary">Voir les offres</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<section id="stats">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <span class="stat-num" data-target="70">0</span>
+      <div class="stat-label">heures gagnées chez un client<br>en une seule mission</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <span class="stat-num" data-target="6">0</span>
+      <div class="stat-label">offres disponibles<br>adaptées à vos besoins</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <span class="stat-num" data-prefix="100" data-target="100">0</span>
+      <div class="stat-label">% des formations finançables<br>via votre OPCO</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <span class="stat-num" data-target="30" data-suffix="j">0</span>
+      <div class="stat-label">de support inclus<br>après chaque mission</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div class="text-center reveal">
+    <div class="section-tag">Nos offres</div>
+    <h2 class="section-title">Six façons de vous faire<br>gagner du temps</h2>
+    <p class="section-sub">De l'outil sur mesure à la formation certifiante — un accompagnement complet, à chaque étape de votre croissance.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <div class="service-icon" style="background:rgba(0,229,180,0.1)">🎯</div>
+      <h3>Pack Gestion Clé en Main</h3>
+      <p>Audit de vos process, construction d'un outil Google Sheets sur mesure, installation et formation de votre équipe. Prêt en 7 jours.</p>
+      <span class="service-price">490 € · Mission one-shot</span>
+    </div>
+
+    <div class="service-card reveal reveal-delay-1">
+      <div class="service-icon" style="background:rgba(61,142,255,0.1)">⚡</div>
+      <h3>Automatisation Apps Script</h3>
+      <p>Scripts sur mesure qui connectent vos formulaires, génèrent vos documents et envoient vos emails automatiquement. Basé sur 70h économisées chez Adeo.</p>
+      <span class="service-price">350 – 2 000 € · Selon complexité</span>
+    </div>
+
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-icon" style="background:rgba(255,107,53,0.1)">📚</div>
+      <h3>Formation Collective</h3>
+      <p>Atelier 3h en présentiel ou distanciel pour les gérants de micro-crèches et TPE. Google Sheets + IA au quotidien. 6 à 10 participants max.</p>
+      <span class="service-price">190 € / participant</span>
+    </div>
+
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-icon" style="background:rgba(61,142,255,0.1)">🏢</div>
+      <h3>Formation Entreprise B2B</h3>
+      <p>Modules intra-entreprise sur Google Sheets avancé, automatisation et IA. Finançables à 100% via votre OPCO. Groupes de 6 à 15 collaborateurs.</p>
+      <span class="service-price">800 – 4 500 € · Finançable OPCO</span>
+    </div>
+
+    <div class="service-card reveal reveal-delay-4">
+      <div class="service-icon" style="background:rgba(0,229,180,0.1)">🎓</div>
+      <h3>Intervenant École Supérieure</h3>
+      <p>Cours magistraux et ateliers pratiques sur l'IA, la data et l'automatisation des processus dans les écoles de commerce et de management.</p>
+      <span class="service-price">60 – 120 €/h · Bachelor & Master</span>
+    </div>
+
+    <div class="service-card reveal reveal-delay-5">
+      <div class="service-icon" style="background:rgba(255,107,53,0.1)">🔄</div>
+      <h3>Abonnement GestionPro</h3>
+      <p>Mises à jour trimestrielles de vos outils, maintenance de vos scripts, support sous 48h. Votre système évolue avec vous.</p>
+      <span class="service-price">49 – 99 €/mois · Sans engagement</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section id="process">
+  <div class="reveal">
+    <div class="section-tag">Notre méthode</div>
+    <h2 class="section-title">Quatre étapes.<br>Un résultat concret.</h2>
+    <p class="section-sub">Pas de jargon, pas de livrable inutile. Uniquement ce qui vous fait gagner du temps.</p>
+  </div>
+  <div class="process-wrap">
+    <div class="process-steps">
+      <div class="process-step active reveal">
+        <div class="step-num">01</div>
+        <div class="step-content">
+          <h3>Audit de 45 min — offert</h3>
+          <p>On identifie ensemble vos tâches les plus chronophages et les automatisations à ROI maximal. Aucun engagement.</p>
+        </div>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">02</div>
+        <div class="step-content">
+          <h3>Construction sur mesure</h3>
+          <p>On construit votre outil ou votre automatisation directement à partir de vos données réelles. Pas de solution générique.</p>
+        </div>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">03</div>
+        <div class="step-content">
+          <h3>Installation & formation</h3>
+          <p>On forme votre équipe sur place ou en visio. Vous repartez avec votre outil, un guide PDF et une vidéo tuto.</p>
+        </div>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-num">04</div>
+        <div class="step-content">
+          <h3>30 jours de support inclus</h3>
+          <p>Corrections, ajustements, questions — on reste disponibles sous 24h pendant 30 jours après chaque livraison.</p>
+        </div>
+      </div>
+    </div>
+    <div class="process-visual">
+      <svg viewBox="0 0 320 300" fill="none" class="process-mockup">
+        <rect width="320" height="300" rx="14" fill="rgba(255,255,255,0.02)"/>
+        <rect x="16" y="16" width="288" height="36" rx="8" fill="rgba(0,229,180,0.08)" stroke="rgba(0,229,180,0.15)" stroke-width="1"/>
+        <circle cx="34" cy="34" r="6" fill="#FF6B35" opacity=".7"/>
+        <circle cx="52" cy="34" r="6" fill="#FFB800" opacity=".7"/>
+        <circle cx="70" cy="34" r="6" fill="#00E5B4" opacity=".7"/>
+        <rect x="100" y="26" width="100" height="16" rx="4" fill="rgba(255,255,255,0.06)"/>
+        <rect x="16" y="64" width="70" height="28" rx="6" fill="rgba(0,229,180,0.12)" stroke="rgba(0,229,180,0.2)" stroke-width="1"/>
+        <rect x="94" y="64" width="70" height="28" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <rect x="172" y="64" width="70" height="28" rx="6" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <rect x="250" y="64" width="54" height="28" rx="6" fill="rgba(255,107,53,0.12)" stroke="rgba(255,107,53,0.2)" stroke-width="1"/>
+        <text x="30" y="83" font-size="10" fill="rgba(0,229,180,0.9)" font-family="monospace">Planning</text>
+        <text x="104" y="83" font-size="10" fill="rgba(255,255,255,0.5)" font-family="monospace">RH</text>
+        <text x="180" y="83" font-size="10" fill="rgba(255,255,255,0.5)" font-family="monospace">Présences</text>
+        <text x="257" y="83" font-size="10" fill="rgba(255,107,53,0.8)" font-family="monospace">Factures</text>
+        <rect x="16" y="104" width="288" height="1" fill="rgba(255,255,255,0.06)"/>
+        <rect x="16" y="116" width="288" height="20" rx="4" fill="rgba(255,255,255,0.03)"/>
+        <rect x="16" y="144" width="288" height="20" rx="4" fill="rgba(0,229,180,0.05)"/>
+        <rect x="16" y="172" width="288" height="20" rx="4" fill="rgba(255,255,255,0.03)"/>
+        <rect x="16" y="200" width="288" height="20" rx="4" fill="rgba(255,255,255,0.03)"/>
+        <rect x="16" y="228" width="288" height="20" rx="4" fill="rgba(255,255,255,0.03)"/>
+        <rect x="16" y="256" width="120" height="30" rx="8" fill="rgba(0,229,180,0.15)" stroke="rgba(0,229,180,0.3)" stroke-width="1"/>
+        <text x="34" y="276" font-size="11" fill="rgba(0,229,180,0.9)" font-family="monospace" font-weight="bold">▶ Générer PDF</text>
+        <circle cx="295" cy="271" r="10" fill="rgba(61,142,255,0.2)" stroke="rgba(61,142,255,0.4)" stroke-width="1"/>
+        <text x="290" y="276" font-size="12" fill="rgba(61,142,255,0.8)">✓</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY ── -->
+<section id="why">
+  <div class="text-center reveal">
+    <div class="section-tag">Nos différences</div>
+    <h2 class="section-title">Ce qui nous distingue<br>vraiment</h2>
+    <p class="section-sub">Pas un cabinet de conseil. Pas un développeur isolé. Un praticien qui livre, documente et forme.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <span class="why-icon">📊</span>
+      <h3>ROI démontré</h3>
+      <p>70 heures récupérées sur une seule mission chez Adeo. Chaque engagement est justifié par un retour sur investissement mesurable.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-1">
+      <span class="why-icon">🗂</span>
+      <h3>Documentation complète</h3>
+      <p>Chaque livrable vient avec un dossier technique, un guide utilisateur et une FAQ. Vous n'êtes jamais dépendants.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <span class="why-icon">🎯</span>
+      <h3>Spécialisé micro-crèches</h3>
+      <p>Connaissance approfondie du secteur : taux d'encadrement, obligations CAF, OPCO Santé. Pas d'apprentissage sur votre dos.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-3">
+      <span class="why-icon">🤝</span>
+      <h3>Accompagnement équipes</h3>
+      <p>On forme, on fait adopter, on vérifie que ça tourne vraiment. La technologie n'a de valeur que si elle est utilisée.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-4">
+      <span class="why-icon">💳</span>
+      <h3>Financement facilité</h3>
+      <p>Formations finançables OPCO, dispositifs CPF, référencement OPCO Santé. Vos formations peuvent ne rien vous coûter.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-5">
+      <span class="why-icon">⚡</span>
+      <h3>100% Google Workspace</h3>
+      <p>Pas de logiciel supplémentaire à acheter. Vos outils restent dans votre environnement Google — accessible partout, sur mobile.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div class="text-center reveal">
+    <div class="section-tag">Ils en parlent</div>
+    <h2 class="section-title">Ce que disent ceux<br>qui nous ont fait confiance</h2>
+    <p class="section-sub">Lettres de recommandation et retours de partenaires qui témoignent de notre engagement et de notre professionnalisme.</p>
+  </div>
+  <div class="testi-grid">
+
+    <div class="testi-card reveal">
+      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem">
+        <div style="background:rgba(61,142,255,0.12);border:1px solid rgba(61,142,255,0.2);border-radius:8px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:#3D8EFF;letter-spacing:.04em">LETTRE DE RECOMMANDATION</div>
+      </div>
+      <p class="testi-text">"Adam Mortreu a été un de nos plus grands ambassadeurs. Il était connu et reconnu pour ses qualités relationnelles, son sens du service, sa fiabilité et sa bonne humeur constante. C'était un étudiant très jovial, sympathique, drôle et leader dans sa classe. Nous avons eu grand plaisir à l'accompagner et surtout à le recommander."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#3D8EFF,#00E5B4)">FD</div>
+        <div>
+          <div class="testi-name">Frédéric Daumont</div>
+          <div class="testi-role">Directeur UFA · EPS IWIS Lille · Jan. 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal reveal-delay-1">
+      <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:1rem">
+        <div style="background:rgba(0,229,180,0.1);border:1px solid rgba(0,229,180,0.2);border-radius:8px;padding:.3rem .7rem;font-size:.75rem;font-weight:600;color:var(--mint);letter-spacing:.04em">LETTRE DE RECOMMANDATION</div>
+      </div>
+      <p class="testi-text">"Adam Mortreu a démontré un grand professionnalisme, une excellente disponibilité et une capacité d'adaptation remarquable. Son approche rigoureuse et créative nous a permis d'obtenir un site moderne et fonctionnel. Grâce à son expertise, notre communication digitale a gagné en clarté et en impact. C'est avec enthousiasme que je le recommande."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#00E5B4,#0090FF)">ND</div>
+        <div>
+          <div class="testi-name">Nicolas Durand</div>
+          <div class="testi-role">Directeur Général · All U Need · Mars 2025</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card reveal reveal-delay-2">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Au-delà de ses compétences techniques, Adam s'est distingué par son esprit d'équipe et sa capacité à travailler en collaboration avec les différents acteurs du projet. Il sait écouter, proposer des solutions adaptées et ajuster son travail en fonction des retours — ce qui en fait un interlocuteur de confiance."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,#FF6B35,#FFB800)">ND</div>
+        <div>
+          <div class="testi-name">Nicolas Durand</div>
+          <div class="testi-role">Directeur Général · All U Need · EdTech & Sales Training</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bandeau de logos partenaires -->
+  <div style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border);text-align:center">
+    <p style="color:var(--muted);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.8rem">Ils nous ont fait confiance</p>
+    <div style="display:flex;justify-content:center;align-items:center;gap:3rem;flex-wrap:wrap;opacity:.5;filter:grayscale(1)">
+      <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--text)">EPSI · WIS</div>
+      <div style="width:1px;height:24px;background:var(--border)"></div>
+      <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--text)">All U Need.</div>
+      <div style="width:1px;height:24px;background:var(--border)"></div>
+      <div style="font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text)">Adeo Group</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-content reveal">
+    <div class="section-tag">On démarre quand vous voulez</div>
+    <h2>Prêt à récupérer<br>vos <span style="color:var(--mint)">heures perdues</span> ?</h2>
+    <p>Un audit de 45 minutes gratuit, sans engagement. On identifie ensemble où vous perdez le plus de temps — et ce qu'on peut automatiser dès cette semaine.</p>
+    <div class="cta-actions">
+      <a href="mailto:contact@floworh.fr" class="btn-orange">Réserver mon audit gratuit →</a>
+      <a href="#services" class="btn-secondary">Voir toutes les offres</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+          <rect width="36" height="36" rx="8" fill="url(#lg2)"/>
+          <path d="M10 13 C10 13 14 13 16 18 C18 23 22 23 26 23" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+          <path d="M10 23 C10 23 13 23 15 18 C17 13 21 10 26 13" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <circle cx="26" cy="23" r="3" fill="white"/>
+          <defs><linearGradient id="lg2" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#00E5B4"/><stop offset="100%" stop-color="#0090FF"/></linearGradient></defs>
+        </svg>
+        <span class="logo-text">Flowo<span>RH</span></span>
+      </a>
+      <p>Automatisation Google Workspace, formation IA et outils de gestion sur mesure pour les micro-crèches, PME et petites structures.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Pack Clé en Main</a>
+      <a href="#services">Automatisation</a>
+      <a href="#services">Formation Entreprise</a>
+      <a href="#services">Abonnement</a>
+    </div>
+    <div class="footer-col">
+      <h4>À propos</h4>
+      <a href="#process">Notre méthode</a>
+      <a href="#why">Nos différences</a>
+      <a href="#testimonials">Témoignages</a>
+      <a href="#cta">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:contact@flowrh.fr">contact@floworh.fr</a>
+      <a href="https://linkedin.com">LinkedIn</a>
+      <a href="#cta">Audit gratuit</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 FlowoRH — Tous droits réservés · Hauts-de-France</p>
+    <div class="footer-socials">
+      <a href="#" class="social-btn" title="LinkedIn">in</a>
+      <a href="#" class="social-btn" title="Email">@</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── TYPEWRITER ──
+const words=['process','tâches admin','plannings','factures','emails','présences','outils de gestion'];
+let wi=0,ci=0,del=false;
+function type(){
+  const t=document.getElementById('typewriter');
+  const w=words[wi];
+  if(!del){
+    t.textContent=w.slice(0,++ci);
+    if(ci===w.length){del=true;setTimeout(type,1800);return}
+  }else{
+    t.textContent=w.slice(0,--ci);
+    if(ci===0){del=false;wi=(wi+1)%words.length;setTimeout(type,300);return}
+  }
+  setTimeout(type,del?60:90);
+}
+setTimeout(type,1200);
+
+// ── SCROLL REVEAL ──
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// ── COUNTER ──
+function animateCounter(el){
+  const target=+el.dataset.target;
+  const suffix=el.dataset.suffix||'';
+  const prefix=el.dataset.prefix||'';
+  let current=0;
+  const step=target/60;
+  const t=setInterval(()=>{
+    current=Math.min(current+step,target);
+    el.textContent=Math.round(current)+suffix;
+    if(current>=target){el.textContent=target+suffix;clearInterval(t)}
+  },20);
+}
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){animateCounter(e.target);cObs.unobserve(e.target)}
+  });
+},{threshold:.5});
+document.querySelectorAll('.stat-num[data-target]').forEach(el=>cObs.observe(el));
+
+// ── PROCESS ACTIVE STEPS ──
+const steps=document.querySelectorAll('.process-step');
+let si=0;
+setInterval(()=>{
+  steps.forEach((s,i)=>s.classList.toggle('active',i===si));
+  si=(si+1)%steps.length;
+},2500);
+
+// ── HAMBURGER ──
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ── NAV SCROLL EFFECT ──
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.height=window.scrollY>50?'60px':'70px';
+});
+</script>
+</body>
+</html>
