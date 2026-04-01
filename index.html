@@ -283,6 +283,56 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
 .offer-sticky-cta .label strong{color:var(--text);font-weight:600}
 .offer-sticky-cta .actions{display:flex;gap:.6rem;flex-wrap:wrap}
 
+/* ═══ APPROACH STEPS ═══ */
+.approach-step{display:flex;gap:1.1rem;padding:1.3rem 0;border-bottom:1px solid var(--bd);transition:padding-left .2s}
+.approach-step:last-child{border-bottom:none}
+.approach-step:hover{padding-left:.5rem}
+.ap-num{font-family:'Fraunces',serif;font-size:.72rem;font-weight:700;color:var(--coral);opacity:.45;flex-shrink:0;margin-top:.28rem;letter-spacing:.04em}
+.approach-step:hover .ap-num{opacity:1}
+.ap-body h3{font-family:'Fraunces',serif;font-weight:600;font-size:1rem;margin-bottom:.35rem;color:var(--text)}
+.ap-body p{color:var(--muted);font-size:.855rem;line-height:1.65}
+
+/* ═══ DASHBOARD CAROUSEL ═══ */
+.dash-slide{position:absolute;inset:0;opacity:0;transform:translateX(30px);transition:opacity .5s ease,transform .5s ease;pointer-events:none}
+.dash-slide.active{opacity:1;transform:translateX(0);pointer-events:auto}
+.dash-slide.exit{opacity:0;transform:translateX(-30px)}
+.dash-inner{padding:1rem 1.1rem;height:100%;display:flex;flex-direction:column;gap:.45rem}
+.dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.2rem}
+.dash-title{font-family:monospace;font-size:.78rem;font-weight:600;color:rgba(238,233,224,.7)}
+.dash-live{font-family:monospace;font-size:.68rem;color:var(--sage);opacity:.8}
+.dtrow{display:flex;gap:.4rem;padding:.42rem .4rem;border-radius:5px;font-family:monospace;font-size:.72rem}
+.dtrow.header{background:rgba(224,92,58,.08);font-size:.67rem;letter-spacing:.04em;text-transform:uppercase;color:rgba(122,133,153,.7);font-weight:600}
+.dtrow.alt{background:rgba(255,255,255,.025)}
+.dtcol{color:rgba(122,133,153,.7);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ds-badge{font-size:.68rem;font-weight:600;padding:.14rem .5rem;border-radius:50px;white-space:nowrap}
+.ds-badge.sage{background:rgba(74,154,138,.18);color:#4A9A8A;border:1px solid rgba(74,154,138,.25)}
+.ds-badge.coral{background:rgba(224,92,58,.18);color:#E05C3A;border:1px solid rgba(224,92,58,.25)}
+.ds-badge.gold{background:rgba(201,152,74,.18);color:#C9984A;border:1px solid rgba(201,152,74,.25)}
+.dash-bottom{display:flex;justify-content:space-between;align-items:center;padding:.65rem .4rem 0;border-top:1px solid rgba(255,255,255,.05);margin-top:auto}
+.auto-badge{background:rgba(224,92,58,.12);border:1px solid rgba(224,92,58,.25);color:#E05C3A;font-size:.7rem;font-weight:600;padding:.25rem .7rem;border-radius:7px;font-family:monospace;white-space:nowrap}
+.prog-track{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;border-radius:3px}
+.plan-day-h{text-align:center;font-size:.67rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:rgba(122,133,153,.6);padding:.3rem;background:rgba(255,255,255,.03);border-radius:4px}
+.plan-name{display:flex;align-items:center;font-size:.7rem;color:rgba(122,133,153,.8);font-family:monospace;padding:.3rem}
+.plan-cell{padding:.28rem .2rem;border-radius:5px;font-size:.66rem;text-align:center;font-family:monospace;font-weight:500}
+.plan-cell.c1{background:rgba(224,92,58,.15);color:#E05C3A}
+.plan-cell.c2{background:rgba(201,152,74,.15);color:#C9984A}
+.plan-cell.c3{background:rgba(74,154,138,.15);color:#4A9A8A}
+.plan-cell.c4{background:rgba(100,120,255,.15);color:#8899FF}
+.plan-off{padding:.28rem .2rem;font-size:.66rem;text-align:center;font-family:monospace;color:rgba(122,133,153,.35)}
+.rh-card{display:flex;justify-content:space-between;align-items:center;padding:.6rem .5rem;border-radius:8px;background:rgba(255,255,255,.025)}
+.rh-card.alt{background:rgba(255,255,255,.015)}
+.rh-info{display:flex;align-items:center;gap:.6rem}
+.rh-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:.7rem;flex-shrink:0}
+.kpi-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:.65rem .7rem}
+.kpi-label{font-size:.67rem;color:rgba(122,133,153,.7);font-family:monospace;margin-bottom:.2rem}
+.kpi-val{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;line-height:1;margin-bottom:.35rem}
+.kpi-val.coral{color:#E05C3A}.kpi-val.gold{color:#C9984A}.kpi-val.sage{color:#4A9A8A}
+.kpi-bar{height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.dash-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:all .25s}
+.dash-dot.active{background:var(--coral);width:20px;border-radius:4px}
+#approche{padding:clamp(3.5rem,7vw,6rem) clamp(1rem,4vw,2.5rem)}
+
 /* ═══════════ ANIMATIONS & CURSOR ═══════════ */
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -312,6 +362,7 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
   .footer-grid{grid-template-columns:1fr 1fr}
   .related-grid{grid-template-columns:1fr 1fr}
   .deliv-grid{grid-template-columns:1fr 1fr}
+  #approche>div{grid-template-columns:1fr!important;gap:2.5rem!important}
 }
 @media(max-width:768px){
   .nav-links{display:none}
@@ -445,6 +496,285 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
   </section>
 
   <!-- Why -->
+  <!-- ── NOTRE APPROCHE avec carousel dashboards ── -->
+  <section id="approche" style="background:var(--ink2)">
+    <div style="max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:5rem;align-items:center">
+
+      <!-- Left: steps -->
+      <div>
+        <div class="reveal"><div class="s-tag">Notre approche</div><h2 class="s-title">On écoute <em>avant de construire</em></h2></div>
+        <div style="display:flex;flex-direction:column;margin-top:1.8rem">
+          <div class="approach-step reveal rd1">
+            <div class="ap-num">01</div>
+            <div class="ap-body">
+              <h3>Audit terrain — offert</h3>
+              <p>45 minutes pour cartographier vos tâches chronophages et évaluer le potentiel de gain. Aucun engagement, diagnostic honnête.</p>
+            </div>
+          </div>
+          <div class="approach-step reveal rd2">
+            <div class="ap-num">02</div>
+            <div class="ap-body">
+              <h3>Co-construction de l'outil</h3>
+              <p>Vous validez chaque choix. L'outil est bâti sur vos données réelles, avec votre vocabulaire, selon vos habitudes de travail.</p>
+            </div>
+          </div>
+          <div class="approach-step reveal rd3">
+            <div class="ap-num">03</div>
+            <div class="ap-body">
+              <h3>Installation & formation</h3>
+              <p>On installe, configure les droits, forme vos équipes en faisant faire. Documentation complète remise systématiquement.</p>
+            </div>
+          </div>
+          <div class="approach-step reveal rd4">
+            <div class="ap-num">04</div>
+            <div class="ap-body">
+              <h3>Accompagnement durable</h3>
+              <p>30 jours de support inclus, bilan à J+30, proposition d'évolution. On construit une relation, pas une transaction.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: animated dashboard carousel -->
+      <div class="reveal rd2" style="position:relative">
+        <div id="dash-carousel" style="position:relative;border-radius:20px;overflow:hidden;background:#0D1420;border:1px solid rgba(255,255,255,0.1);box-shadow:0 32px 80px rgba(0,0,0,.5)">
+          <!-- Browser chrome -->
+          <div style="display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.06)">
+            <div style="width:10px;height:10px;border-radius:50%;background:#E05C3A;opacity:.7"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:#C9984A;opacity:.7"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:#4A9A8A;opacity:.45"></div>
+            <div style="flex:1;background:rgba(255,255,255,0.05);border-radius:5px;height:18px;margin-left:.5rem;display:flex;align-items:center;padding:0 .6rem">
+              <span id="dash-url" style="font-family:monospace;font-size:.65rem;color:rgba(255,255,255,.25);transition:opacity .3s">workspace.google.com</span>
+            </div>
+          </div>
+
+          <!-- Carousel slides -->
+          <div style="position:relative;height:320px;overflow:hidden">
+
+            <!-- SLIDE 1 — Outil de gestion -->
+            <div class="dash-slide active" id="ds1">
+              <div class="dash-inner">
+                <div class="dash-header">
+                  <span class="dash-title">📊 Outil de gestion — Micro-crèche</span>
+                  <span class="dash-live">● live</span>
+                </div>
+                <!-- Table header -->
+                <div class="dtrow header">
+                  <div class="dtcol" style="width:28%">Enfant</div>
+                  <div class="dtcol" style="width:18%;text-align:center">Contrat</div>
+                  <div class="dtcol" style="width:18%;text-align:center">Réalisé</div>
+                  <div class="dtcol" style="width:18%;text-align:center">Écart</div>
+                  <div class="dtcol" style="width:18%;text-align:right">Statut</div>
+                </div>
+                <!-- Rows -->
+                <div class="dtrow">
+                  <div class="dtcol" style="width:28%;color:rgba(238,233,224,.85);font-weight:500">Emma Dupont</div>
+                  <div class="dtcol" style="width:18%;text-align:center">40h</div>
+                  <div class="dtcol" style="width:18%;text-align:center">38h</div>
+                  <div class="dtcol" style="width:18%;text-align:center;color:rgba(74,154,138,.8)">−2h</div>
+                  <div class="dtcol" style="width:18%;text-align:right"><span class="ds-badge sage">✓ OK</span></div>
+                </div>
+                <div class="dtrow alt">
+                  <div class="dtcol" style="width:28%;color:rgba(238,233,224,.85);font-weight:500">Lucas Martin</div>
+                  <div class="dtcol" style="width:18%;text-align:center">35h</div>
+                  <div class="dtcol" style="width:18%;text-align:center">35h</div>
+                  <div class="dtcol" style="width:18%;text-align:center;color:rgba(74,154,138,.8)">0h</div>
+                  <div class="dtcol" style="width:18%;text-align:right"><span class="ds-badge sage">✓ OK</span></div>
+                </div>
+                <div class="dtrow">
+                  <div class="dtcol" style="width:28%;color:rgba(238,233,224,.85);font-weight:500">Léa Bernard</div>
+                  <div class="dtcol" style="width:18%;text-align:center">40h</div>
+                  <div class="dtcol" style="width:18%;text-align:center">42h</div>
+                  <div class="dtcol" style="width:18%;text-align:center;color:rgba(224,92,58,.8)">+2h</div>
+                  <div class="dtcol" style="width:18%;text-align:right"><span class="ds-badge coral">⚠ +2h</span></div>
+                </div>
+                <div class="dtrow alt">
+                  <div class="dtcol" style="width:28%;color:rgba(238,233,224,.85);font-weight:500">Noah Petit</div>
+                  <div class="dtcol" style="width:18%;text-align:center">30h</div>
+                  <div class="dtcol" style="width:18%;text-align:center">29h</div>
+                  <div class="dtcol" style="width:18%;text-align:center;color:rgba(74,154,138,.8)">−1h</div>
+                  <div class="dtcol" style="width:18%;text-align:right"><span class="ds-badge sage">✓ OK</span></div>
+                </div>
+                <!-- Bottom bar -->
+                <div class="dash-bottom">
+                  <div style="flex:1">
+                    <div style="font-size:.68rem;color:rgba(255,255,255,.3);margin-bottom:.4rem;font-family:monospace">Taux d'occupation</div>
+                    <div class="prog-track"><div class="prog-fill" style="width:76%;background:linear-gradient(90deg,#E05C3A,#C9984A)"></div></div>
+                    <div style="font-size:.72rem;color:rgba(201,152,74,.7);margin-top:.3rem;font-family:monospace">76%</div>
+                  </div>
+                  <div class="auto-badge">⚡ Auto-calculé</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 2 — Planning hebdomadaire -->
+            <div class="dash-slide" id="ds2">
+              <div class="dash-inner">
+                <div class="dash-header">
+                  <span class="dash-title">📅 Planning hebdomadaire</span>
+                  <span class="dash-live">● semaine 24</span>
+                </div>
+                <!-- Week grid -->
+                <div style="display:grid;grid-template-columns:80px repeat(5,1fr);gap:3px;font-family:monospace;font-size:.7rem">
+                  <div style="padding:.35rem;color:rgba(255,255,255,.25)"></div>
+                  <div class="plan-day-h">Lun</div>
+                  <div class="plan-day-h">Mar</div>
+                  <div class="plan-day-h">Mer</div>
+                  <div class="plan-day-h">Jeu</div>
+                  <div class="plan-day-h">Ven</div>
+
+                  <div class="plan-name">Marie L.</div>
+                  <div class="plan-cell c1">8h–16h</div>
+                  <div class="plan-cell c1">8h–16h</div>
+                  <div class="plan-off">Congé</div>
+                  <div class="plan-cell c1">8h–16h</div>
+                  <div class="plan-cell c1">8h–16h</div>
+
+                  <div class="plan-name">Sophie K.</div>
+                  <div class="plan-cell c2">9h–17h</div>
+                  <div class="plan-off">—</div>
+                  <div class="plan-cell c2">9h–17h</div>
+                  <div class="plan-cell c2">9h–17h</div>
+                  <div class="plan-cell c2">9h–17h</div>
+
+                  <div class="plan-name">Théo R.</div>
+                  <div class="plan-off">—</div>
+                  <div class="plan-cell c3">10h–18h</div>
+                  <div class="plan-cell c3">10h–18h</div>
+                  <div class="plan-cell c3">10h–18h</div>
+                  <div class="plan-cell c3">10h–18h</div>
+
+                  <div class="plan-name">Clara D.</div>
+                  <div class="plan-cell c4">8h–16h</div>
+                  <div class="plan-cell c4">8h–16h</div>
+                  <div class="plan-cell c4">8h–16h</div>
+                  <div class="plan-off">Congé</div>
+                  <div class="plan-off">—</div>
+                </div>
+                <div class="dash-bottom">
+                  <div style="display:flex;gap:.6rem;align-items:center">
+                    <span class="ds-badge sage">✓ Taux encadrement OK</span>
+                    <span class="ds-badge gold">4 présents</span>
+                  </div>
+                  <div class="auto-badge">⚡ Alertes auto</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 3 — Suivi RH -->
+            <div class="dash-slide" id="ds3">
+              <div class="dash-inner">
+                <div class="dash-header">
+                  <span class="dash-title">👥 Suivi RH — Équipe</span>
+                  <span class="dash-live">● temps réel</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:.5rem">
+                  <div class="rh-card">
+                    <div class="rh-info">
+                      <div class="rh-av" style="background:rgba(224,92,58,.2);color:#E05C3A">ML</div>
+                      <div>
+                        <div style="font-size:.82rem;font-weight:600;color:rgba(238,233,224,.9)">Marie Laurent</div>
+                        <div style="font-size:.7rem;color:rgba(122,133,153,.8)">CDI · Éducatrice · 3 ans ancienneté</div>
+                      </div>
+                    </div>
+                    <div style="display:flex;gap:.5rem;align-items:center;flex-shrink:0">
+                      <span class="ds-badge sage">12j CP</span>
+                      <span class="ds-badge gold">Contrat OK</span>
+                    </div>
+                  </div>
+                  <div class="rh-card alt">
+                    <div class="rh-info">
+                      <div class="rh-av" style="background:rgba(201,152,74,.2);color:#C9984A">SK</div>
+                      <div>
+                        <div style="font-size:.82rem;font-weight:600;color:rgba(238,233,224,.9)">Sophie Kowalski</div>
+                        <div style="font-size:.7rem;color:rgba(122,133,153,.8)">CDD · Auxiliaire · Exp. 30/09/25</div>
+                      </div>
+                    </div>
+                    <div style="display:flex;gap:.5rem;align-items:center;flex-shrink:0">
+                      <span class="ds-badge coral">⚠ Exp. 90j</span>
+                      <span class="ds-badge sage">8j CP</span>
+                    </div>
+                  </div>
+                  <div class="rh-card">
+                    <div class="rh-info">
+                      <div class="rh-av" style="background:rgba(74,154,138,.2);color:#4A9A8A">TR</div>
+                      <div>
+                        <div style="font-size:.82rem;font-weight:600;color:rgba(238,233,224,.9)">Théo Renard</div>
+                        <div style="font-size:.7rem;color:rgba(122,133,153,.8)">CDI · Directeur adjoint · 5 ans</div>
+                      </div>
+                    </div>
+                    <div style="display:flex;gap:.5rem;align-items:center;flex-shrink:0">
+                      <span class="ds-badge sage">18j CP</span>
+                      <span class="ds-badge gold">Contrat OK</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="dash-bottom">
+                  <div><span style="font-size:.7rem;color:rgba(122,133,153,.7);font-family:monospace">1 alerte renouvellement · 2 contrats OK</span></div>
+                  <div class="auto-badge">⚡ Alertes 30j auto</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 4 — Dashboard KPIs -->
+            <div class="dash-slide" id="ds4">
+              <div class="dash-inner">
+                <div class="dash-header">
+                  <span class="dash-title">📈 Dashboard KPIs — Mensuel</span>
+                  <span class="dash-live">● Juin 2025</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.6rem">
+                  <div class="kpi-card">
+                    <div class="kpi-label">Taux d'occupation</div>
+                    <div class="kpi-val coral">76%</div>
+                    <div class="kpi-bar"><div style="height:100%;width:76%;background:linear-gradient(90deg,#E05C3A,#C9984A);border-radius:2px"></div></div>
+                  </div>
+                  <div class="kpi-card">
+                    <div class="kpi-label">Heures réalisées</div>
+                    <div class="kpi-val gold">1 248 h</div>
+                    <div class="kpi-bar"><div style="height:100%;width:88%;background:linear-gradient(90deg,#C9984A,#E8B870);border-radius:2px"></div></div>
+                  </div>
+                  <div class="kpi-card">
+                    <div class="kpi-label">Facturation mois</div>
+                    <div class="kpi-val sage">4 820 €</div>
+                    <div class="kpi-bar"><div style="height:100%;width:65%;background:linear-gradient(90deg,#4A9A8A,#6DBFAF);border-radius:2px"></div></div>
+                  </div>
+                  <div class="kpi-card">
+                    <div class="kpi-label">Alertes actives</div>
+                    <div class="kpi-val coral">2</div>
+                    <div style="display:flex;gap:.3rem;margin-top:.4rem">
+                      <span class="ds-badge coral" style="font-size:.62rem">Contrat</span>
+                      <span class="ds-badge gold" style="font-size:.62rem">Taux</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="dash-bottom">
+                  <span style="font-size:.7rem;color:rgba(122,133,153,.7);font-family:monospace">Rapport PDF généré le 01/06/2025 à 08h00</span>
+                  <div class="auto-badge">⚡ Rapport auto</div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- end slides container -->
+
+          <!-- Dot pagination -->
+          <div style="display:flex;justify-content:center;gap:.5rem;padding:.75rem 0;background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.05)">
+            <div class="dash-dot active" onclick="goSlide(0)"></div>
+            <div class="dash-dot" onclick="goSlide(1)"></div>
+            <div class="dash-dot" onclick="goSlide(2)"></div>
+            <div class="dash-dot" onclick="goSlide(3)"></div>
+          </div>
+        </div>
+
+        <!-- Slide label below -->
+        <div style="text-align:center;margin-top:.85rem">
+          <span id="dash-label" style="font-size:.75rem;color:var(--muted);font-family:monospace;letter-spacing:.04em">Outil de gestion</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <section id="why" style="background:var(--ink2)">
     <div class="container reveal tc"><div class="s-tag">Nos engagements</div><h2 class="s-title">L'humain <em>d'abord</em></h2><p class="s-sub">La technologie n'a de valeur que si elle est adoptée. C'est pourquoi chaque outil est conçu avec vos équipes, pas imposé à elles.</p></div>
     <div class="why-grid">
@@ -1288,6 +1618,55 @@ function closeMenu(){
   document.getElementById('mobDrawer').classList.remove('open');
   document.getElementById('hbg').classList.remove('open');
 }
+
+/* ═══ DASHBOARD CAROUSEL ═══ */
+(function(){
+  const slides=[
+    {id:'ds1',label:'Outil de gestion',url:'sheets.google.com · Gestion Micro-Crèche'},
+    {id:'ds2',label:'Planning hebdomadaire',url:'sheets.google.com · Planning Équipe'},
+    {id:'ds3',label:'Suivi RH',url:'sheets.google.com · Suivi RH'},
+    {id:'ds4',label:'Dashboard KPIs',url:'sheets.google.com · Dashboard Mensuel'}
+  ];
+  let cur=0, timer;
+
+  function goSlide(n){
+    const allSlides=document.querySelectorAll('.dash-slide');
+    const allDots=document.querySelectorAll('.dash-dot');
+    if(!allSlides.length) return;
+    // Exit current
+    allSlides[cur].classList.remove('active');
+    allSlides[cur].classList.add('exit');
+    setTimeout(()=>{ allSlides[cur]?.classList.remove('exit') }, 500);
+    // Activate next
+    cur = (n !== undefined) ? n : (cur+1) % slides.length;
+    allSlides[cur].classList.add('active');
+    // Dots
+    allDots.forEach((d,i)=>d.classList.toggle('active',i===cur));
+    // Label + URL
+    const lbl=document.getElementById('dash-label');
+    const url=document.getElementById('dash-url');
+    if(lbl) lbl.textContent=slides[cur].label;
+    if(url){ url.style.opacity='0'; setTimeout(()=>{ url.textContent=slides[cur].url; url.style.opacity='1' },150) }
+  }
+
+  // Expose goSlide globally for onclick
+  window.goSlide=goSlide;
+
+  function startTimer(){
+    clearInterval(timer);
+    timer=setInterval(()=>goSlide(),3200);
+  }
+
+  // Pause on hover
+  const carousel=document.getElementById('dash-carousel');
+  if(carousel){
+    carousel.addEventListener('mouseenter',()=>clearInterval(timer));
+    carousel.addEventListener('mouseleave',()=>startTimer());
+  }
+
+  // Init after page load
+  setTimeout(startTimer, 1200);
+})();
 
 /* ═══ CURSOR ═══ */
 (function(){
