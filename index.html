@@ -40,7 +40,7 @@ nav.scrolled{background:rgba(14,18,25,.96);backdrop-filter:blur(20px);-webkit-ba
 .nav-links>a:hover,.nav-links>a.active{color:var(--text);background:var(--gl2)}
 /* Dropdown */
 .nav-dropdown{position:relative}
-.nav-dropdown>a{display:flex;align-items:center;gap:.3rem}
+.nav-dropdown>a{display:flex;align-items:center;gap:.3rem;color:var(--muted);text-decoration:none;font-size:.855rem;font-weight:700;padding:.45rem .8rem;border-radius:8px;transition:color .2s,background .2s;white-space:nowrap}
 .nav-dropdown>a::after{content:'';width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
 .nav-dropdown:hover>a::after{transform:rotate(225deg) translateY(-2px)}
 .dropdown-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%);background:var(--ink2);border:1px solid var(--bd2);border-radius:var(--r2);padding:.6rem;min-width:260px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;transform:translateX(-50%) translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
@@ -293,9 +293,9 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
 .ap-body p{color:var(--muted);font-size:.855rem;line-height:1.65}
 
 /* ═══ DASHBOARD CAROUSEL ═══ */
-.dash-slide{position:absolute;inset:0;opacity:0;transform:translateX(30px);transition:opacity .5s ease,transform .5s ease;pointer-events:none}
+.dash-slide{position:absolute;inset:0;opacity:0;transform:translateX(40px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1);pointer-events:none;will-change:transform,opacity}
 .dash-slide.active{opacity:1;transform:translateX(0);pointer-events:auto}
-.dash-slide.exit{opacity:0;transform:translateX(-30px)}
+.dash-slide.exit{opacity:0;transform:translateX(-40px);transition:opacity .5s cubic-bezier(.4,0,.2,1),transform .5s cubic-bezier(.4,0,.2,1)}
 .dash-inner{padding:1rem 1.1rem;height:100%;display:flex;flex-direction:column;gap:.45rem}
 .dash-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.2rem}
 .dash-title{font-family:monospace;font-size:.78rem;font-weight:600;color:rgba(238,233,224,.7)}
@@ -1627,45 +1627,79 @@ function closeMenu(){
     {id:'ds3',label:'Suivi RH',url:'sheets.google.com · Suivi RH'},
     {id:'ds4',label:'Dashboard KPIs',url:'sheets.google.com · Dashboard Mensuel'}
   ];
-  let cur=0, timer;
+  let cur=0, timer=null, transitioning=false;
 
   function goSlide(n){
+    if(transitioning) return;
     const allSlides=document.querySelectorAll('.dash-slide');
     const allDots=document.querySelectorAll('.dash-dot');
     if(!allSlides.length) return;
-    // Exit current
-    allSlides[cur].classList.remove('active');
-    allSlides[cur].classList.add('exit');
-    setTimeout(()=>{ allSlides[cur]?.classList.remove('exit') }, 500);
-    // Activate next
-    cur = (n !== undefined) ? n : (cur+1) % slides.length;
+
+    transitioning=true;
+    const prev=cur;
+    cur=(n!==undefined)?n:((cur+1)%slides.length);
+    if(cur===prev){transitioning=false;return}
+
+    // Exit previous
+    allSlides[prev].classList.remove('active');
+    allSlides[prev].classList.add('exit');
+
+    // Enter next immediately (slight delay for overlap feel)
+    setTimeout(()=>{
+      allSlides[prev].classList.remove('exit');
+      transitioning=false;
+    },550);
+
     allSlides[cur].classList.add('active');
+
     // Dots
     allDots.forEach((d,i)=>d.classList.toggle('active',i===cur));
-    // Label + URL
+
+    // Label fade
     const lbl=document.getElementById('dash-label');
+    if(lbl){
+      lbl.style.opacity='0';
+      lbl.style.transform='translateY(4px)';
+      setTimeout(()=>{
+        lbl.textContent=slides[cur].label;
+        lbl.style.opacity='1';
+        lbl.style.transform='translateY(0)';
+      },200);
+    }
+
+    // URL fade
     const url=document.getElementById('dash-url');
-    if(lbl) lbl.textContent=slides[cur].label;
-    if(url){ url.style.opacity='0'; setTimeout(()=>{ url.textContent=slides[cur].url; url.style.opacity='1' },150) }
+    if(url){
+      url.style.opacity='0';
+      setTimeout(()=>{
+        url.textContent=slides[cur].url;
+        url.style.opacity='1';
+      },180);
+    }
   }
 
-  // Expose goSlide globally for onclick
+  // Style the label transition
+  const lbl=document.getElementById('dash-label');
+  if(lbl) lbl.style.transition='opacity .3s ease, transform .3s ease';
+
   window.goSlide=goSlide;
 
   function startTimer(){
     clearInterval(timer);
-    timer=setInterval(()=>goSlide(),3200);
+    timer=setInterval(()=>goSlide(),3600);
   }
+  function stopTimer(){ clearInterval(timer) }
 
-  // Pause on hover
   const carousel=document.getElementById('dash-carousel');
   if(carousel){
-    carousel.addEventListener('mouseenter',()=>clearInterval(timer));
-    carousel.addEventListener('mouseleave',()=>startTimer());
+    carousel.addEventListener('mouseenter',stopTimer);
+    carousel.addEventListener('mouseleave',startTimer);
+    carousel.addEventListener('touchstart',stopTimer,{passive:true});
+    carousel.addEventListener('touchend',()=>setTimeout(startTimer,2000),{passive:true});
   }
 
-  // Init after page load
-  setTimeout(startTimer, 1200);
+  // Start after a short delay so page is settled
+  setTimeout(startTimer,1400);
 })();
 
 /* ═══ CURSOR ═══ */
