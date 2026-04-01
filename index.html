@@ -3,626 +3,335 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="HumanTechRH — Outils de gestion Google Workspace sur mesure, IA & automatisation, formation et accompagnement RH pour micro-crèches, PME et TPE des Hauts-de-France.">
+<meta name="description" content="HumanTechRH — Outils de gestion Google Workspace sur mesure, IA & automatisation, formation et accompagnement RH.">
 <title>HumanTechRH — Outils sur mesure · IA & Automatisation · Formation</title>
-
-<!-- Favicon SVG inline -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Crect x='7' y='8' width='3' height='16' rx='1.5' fill='white' opacity='.95'/%3E%3Crect x='7' y='14.5' width='8.5' height='2.5' rx='1.2' fill='white' opacity='.95'/%3E%3Crect x='12.5' y='8' width='3' height='16' rx='1.5' fill='white' opacity='.95'/%3E%3Crect x='18' y='8' width='9' height='2.5' rx='1.2' fill='white' opacity='.75'/%3E%3Crect x='21' y='8' width='3' height='16' rx='1.5' fill='white' opacity='.75'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='32' y2='32'%3E%3Cstop offset='0%25' stop-color='%23E05C3A'/%3E%3Cstop offset='100%25' stop-color='%23C9984A'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='url(%23g)'/%3E%3Crect x='38' y='44' width='18' height='92' rx='8' fill='white'/%3E%3Crect x='38' y='80' width='48' height='16' rx='7' fill='white'/%3E%3Crect x='72' y='44' width='18' height='92' rx='8' fill='white'/%3E%3Crect x='100' y='44' width='52' height='16' rx='7' fill='white' opacity='.8'/%3E%3Crect x='118' y='44' width='18' height='92' rx='8' fill='white' opacity='.8'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='180' y2='180'%3E%3Cstop offset='0%25' stop-color='%23E05C3A'/%3E%3Cstop offset='100%25' stop-color='%23C9984A'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E">
-
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Crect x='7' y='8' width='3' height='16' rx='1.5' fill='white'/%3E%3Crect x='7' y='14.5' width='8.5' height='2.5' rx='1.2' fill='white'/%3E%3Crect x='12.5' y='8' width='3' height='16' rx='1.5' fill='white'/%3E%3Crect x='18' y='8' width='9' height='2.5' rx='1.2' fill='white' opacity='.8'/%3E%3Crect x='21' y='8' width='3' height='16' rx='1.5' fill='white' opacity='.8'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='32' y2='32'%3E%3Cstop offset='0%25' stop-color='%23E05C3A'/%3E%3Cstop offset='100%25' stop-color='%23C9984A'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-/* ═══════════════ TOKENS ═══════════════ */
-:root {
-  --ink:    #0E1219;
-  --ink2:   #141B27;
-  --ink3:   #1C2535;
-  --coral:  #E05C3A;
-  --coral2: #C44D2E;
-  --gold:   #C9984A;
-  --sage:   #4A9A8A;
-  --text:   #EEE9E0;
-  --muted:  #7A8599;
-  --muted2: #4E5870;
-  --bd:     rgba(255,255,255,0.07);
-  --bd2:    rgba(255,255,255,0.12);
-  --gl:     rgba(255,255,255,0.03);
-  --gl2:    rgba(255,255,255,0.06);
-  --nav-h:  68px;
-  --r:      10px;
-  --r2:     16px;
-  --r3:     22px;
-  --maxw:   1200px;
+/* ═══════════ TOKENS ═══════════ */
+:root{
+  --ink:#0E1219; --ink2:#141B27; --ink3:#1C2535;
+  --coral:#E05C3A; --coral2:#C44D2E;
+  --gold:#C9984A; --gold2:#A87B38;
+  --sage:#4A9A8A;
+  --text:#EEE9E0; --muted:#7A8599; --muted2:#4E5870;
+  --bd:rgba(255,255,255,.07); --bd2:rgba(255,255,255,.12);
+  --gl:rgba(255,255,255,.03); --gl2:rgba(255,255,255,.06);
+  --nav-h:68px; --r:10px; --r2:16px; --r3:22px; --maxw:1180px;
 }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;line-height:1.65;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--ink)}
+::-webkit-scrollbar-thumb{background:var(--coral);border-radius:2px}
 
-*,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
-html { scroll-behavior:smooth }
-body { background:var(--ink); color:var(--text); font-family:'Plus Jakarta Sans',sans-serif; line-height:1.65; overflow-x:hidden }
-::-webkit-scrollbar { width:3px }
-::-webkit-scrollbar-track { background:var(--ink) }
-::-webkit-scrollbar-thumb { background:var(--coral); border-radius:2px }
+/* ═══════════ NAV ═══════════ */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:300;display:flex;align-items:center;padding:0 clamp(1rem,4vw,2.5rem);gap:1.5rem;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(14,18,25,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom-color:var(--bd);box-shadow:0 4px 32px rgba(0,0,0,.3)}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}
+.logo svg{width:34px;height:34px}
+.logo-name{font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;color:var(--text);letter-spacing:-.02em;line-height:1}
+.logo-name em{color:var(--coral);font-style:normal}
+.logo-sub{display:block;font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:.1rem;margin-left:auto}
+.nav-links>a{color:var(--muted);text-decoration:none;font-size:.855rem;font-weight:500;padding:.45rem .8rem;border-radius:8px;transition:color .2s,background .2s;white-space:nowrap}
+.nav-links>a:hover,.nav-links>a.active{color:var(--text);background:var(--gl2)}
+/* Dropdown */
+.nav-dropdown{position:relative}
+.nav-dropdown>a{display:flex;align-items:center;gap:.3rem}
+.nav-dropdown>a::after{content:'';width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .2s}
+.nav-dropdown:hover>a::after{transform:rotate(225deg) translateY(-2px)}
+.dropdown-menu{position:absolute;top:calc(100% + .5rem);left:50%;transform:translateX(-50%);background:var(--ink2);border:1px solid var(--bd2);border-radius:var(--r2);padding:.6rem;min-width:260px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;transform:translateX(-50%) translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.nav-dropdown:hover .dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
+.dropdown-menu a{display:flex;align-items:center;gap:.7rem;padding:.65rem .85rem;border-radius:8px;text-decoration:none;color:var(--muted);font-size:.84rem;font-weight:500;transition:all .18s}
+.dropdown-menu a:hover{background:var(--gl2);color:var(--text)}
+.dropdown-menu a .dm-icon{font-size:1rem;flex-shrink:0;width:24px;text-align:center}
+.dropdown-menu a .dm-price{margin-left:auto;font-size:.72rem;color:var(--coral);font-weight:600}
+.nav-cta{background:var(--coral)!important;color:#fff!important;padding:.5rem 1.15rem!important;border-radius:8px;font-weight:600!important;margin-left:.4rem;transition:background .2s,transform .2s!important}
+.nav-cta:hover{background:var(--coral2)!important;transform:translateY(-1px)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;margin-left:auto;padding:6px;border:none;background:none}
+.hamburger span{display:block;width:20px;height:1.5px;background:var(--text);border-radius:2px;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mob-drawer{display:none;position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--ink2);z-index:290;flex-direction:column;padding:1.2rem clamp(1rem,4vw,2.5rem);gap:.25rem;overflow-y:auto;border-top:1px solid var(--bd)}
+.mob-drawer.open{display:flex}
+.mob-drawer a{color:var(--muted);text-decoration:none;font-size:1rem;font-weight:500;padding:.75rem .9rem;border-radius:var(--r);transition:all .2s}
+.mob-drawer a:hover{color:var(--text);background:var(--gl2)}
+.mob-drawer .mob-section{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted2);padding:.9rem .9rem .3rem;margin-top:.5rem}
+.mob-cta{background:var(--coral)!important;color:#fff!important;text-align:center;font-weight:600!important;border-radius:var(--r);margin-top:.5rem}
 
-/* ═══════════════ TOP NAV ═══════════════ */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: var(--nav-h);
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  padding: 0 clamp(1rem, 4vw, 3rem);
-  gap: 2rem;
-  transition: background .3s, border-color .3s, box-shadow .3s;
-  border-bottom: 1px solid transparent;
-}
-nav.scrolled {
-  background: rgba(14,18,25,.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom-color: var(--bd);
-  box-shadow: 0 4px 32px rgba(0,0,0,.3);
-}
+/* ═══════════ PAGE SYSTEM ═══════════ */
+.page{display:none;opacity:0;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease}
+.page.active{display:block}
+.page.visible{opacity:1;transform:translateY(0)}
+main{padding-top:var(--nav-h)}
 
-/* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-.logo-icon { width: 36px; height: 36px }
-.logo-name {
-  font-family: 'Fraunces', serif;
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: var(--text);
-  letter-spacing: -.02em;
-  line-height: 1;
-}
-.logo-name em { color: var(--coral); font-style: normal }
-.logo-sub {
-  display: block;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: .6rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 2px;
-}
-
-/* Nav links — desktop */
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: .15rem;
-  margin-left: auto;
-}
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: .875rem;
-  font-weight: 500;
-  padding: .5rem .85rem;
-  border-radius: 8px;
-  transition: color .2s, background .2s;
-  white-space: nowrap;
-}
-.nav-links a:hover { color: var(--text); background: var(--gl2) }
-.nav-links a.active { color: var(--coral) }
-
-.nav-cta {
-  background: var(--coral);
-  color: #fff !important;
-  padding: .55rem 1.2rem !important;
-  border-radius: 8px;
-  font-weight: 600 !important;
-  font-size: .85rem !important;
-  transition: background .2s, transform .2s !important;
-  margin-left: .5rem;
-}
-.nav-cta:hover { background: var(--coral2) !important; transform: translateY(-1px); background: var(--coral2) !important }
-
-/* Hamburger */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  margin-left: auto;
-  padding: 6px;
-  border: none;
-  background: none;
-}
-.hamburger span {
-  display: block;
-  width: 22px; height: 1.5px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: all .3s;
-}
-.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg) }
-.hamburger.open span:nth-child(2) { opacity: 0 }
-.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg) }
-
-/* Mobile drawer */
-.mob-drawer {
-  display: none;
-  position: fixed;
-  top: var(--nav-h); left: 0; right: 0; bottom: 0;
-  background: var(--ink2);
-  z-index: 190;
-  flex-direction: column;
-  padding: 1.5rem clamp(1rem,4vw,3rem);
-  gap: .3rem;
-  overflow-y: auto;
-  border-top: 1px solid var(--bd);
-}
-.mob-drawer.open { display: flex }
-.mob-drawer a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 1.05rem;
-  font-weight: 500;
-  padding: .85rem 1rem;
-  border-radius: var(--r);
-  transition: all .2s;
-  border-bottom: 1px solid var(--bd);
-}
-.mob-drawer a:hover { color: var(--text); background: var(--gl2) }
-.mob-drawer a:last-child { border: none }
-.mob-cta {
-  background: var(--coral) !important;
-  color: #fff !important;
-  text-align: center;
-  border-radius: var(--r) !important;
-  font-weight: 600 !important;
-  margin-top: .5rem;
-  border-bottom: none !important;
-}
-.mob-cta:hover { background: var(--coral2) !important }
-
-/* ═══════════════ LAYOUT ═══════════════ */
-main { padding-top: var(--nav-h) }
-.container { max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(1rem,4vw,2.5rem) }
-section { padding: clamp(4rem,8vw,7rem) clamp(1rem,4vw,2.5rem) }
-section > * { max-width: var(--maxw); margin-left: auto; margin-right: auto }
-
-/* ═══════════════ SHARED ═══════════════ */
-.s-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--coral);
-  margin-bottom: .9rem;
-}
-.s-tag::before { content:''; width:16px; height:1.5px; background:var(--coral) }
-.s-title {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(1.9rem, 3.5vw, 2.9rem);
-  font-weight: 700;
-  letter-spacing: -.025em;
-  line-height: 1.1;
-  margin-bottom: .85rem;
-}
-.s-title em { font-style:italic; font-weight:300; opacity:.75 }
-.s-sub { color:var(--muted); font-size:clamp(.9rem,1.5vw,1rem); max-width:520px; line-height:1.8 }
-.tc { text-align:center }
-.tc .s-tag::before,.tc .s-tag::after { display:none }
-.tc .s-sub { margin:0 auto }
-.reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease, transform .65s ease }
-.reveal.vis { opacity:1; transform:none }
+/* ═══════════ SHARED ATOMS ═══════════ */
+.container{max-width:var(--maxw);margin:0 auto;padding:0 clamp(1rem,4vw,2.5rem)}
+.s-tag{display:inline-flex;align-items:center;gap:.45rem;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--coral);margin-bottom:.85rem}
+.s-tag::before{content:'';width:14px;height:1.5px;background:var(--coral)}
+.s-title{font-family:'Fraunces',serif;font-size:clamp(1.8rem,3.2vw,2.8rem);font-weight:700;letter-spacing:-.025em;line-height:1.1;margin-bottom:.8rem}
+.s-title em{font-style:italic;font-weight:300;opacity:.75}
+.s-sub{color:var(--muted);font-size:clamp(.88rem,1.4vw,.98rem);max-width:500px;line-height:1.8}
+.tc{text-align:center}
+.tc .s-tag{justify-content:center}
+.tc .s-tag::before{display:none}
+.tc .s-sub{margin:0 auto}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.vis{opacity:1;transform:none}
 .rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}
-.rd4{transition-delay:.32s}.rd5{transition-delay:.4s}
+.rd4{transition-delay:.32s}.rd5{transition-delay:.4s}.rd6{transition-delay:.48s}
+.btn-coral{display:inline-flex;align-items:center;gap:.4rem;background:var(--coral);color:#fff;padding:.78rem 1.6rem;border-radius:var(--r);font-weight:600;font-size:.88rem;text-decoration:none;transition:all .25s;cursor:pointer;border:none}
+.btn-coral:hover{background:var(--coral2);transform:translateY(-2px);box-shadow:0 10px 28px rgba(224,92,58,.28)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.4rem;background:transparent;color:var(--text);padding:.78rem 1.6rem;border-radius:var(--r);font-weight:500;font-size:.88rem;text-decoration:none;border:1px solid var(--bd2);transition:all .25s}
+.btn-ghost:hover{border-color:var(--coral);color:var(--coral);transform:translateY(-2px)}
+.tag{display:inline-block;font-size:.7rem;font-weight:600;padding:.2rem .65rem;border-radius:50px}
+.tc{color:var(--coral);background:rgba(224,92,58,.1);border:1px solid rgba(224,92,58,.18)}
+.tg{color:var(--gold);background:rgba(201,152,74,.1);border:1px solid rgba(201,152,74,.18)}
+.ts{color:var(--sage);background:rgba(74,154,138,.1);border:1px solid rgba(74,154,138,.2)}
+section{padding:clamp(3.5rem,7vw,6rem) clamp(1rem,4vw,2.5rem)}
 
-/* Buttons */
-.btn-coral {
-  display:inline-flex; align-items:center; gap:.45rem;
-  background:var(--coral); color:#fff;
-  padding:.8rem 1.7rem; border-radius:var(--r);
-  font-weight:600; font-size:.9rem; text-decoration:none;
-  transition:all .25s;
-}
-.btn-coral:hover { background:var(--coral2); transform:translateY(-2px); box-shadow:0 10px 30px rgba(224,92,58,.28) }
-.btn-ghost {
-  display:inline-flex; align-items:center; gap:.45rem;
-  background:transparent; color:var(--text);
-  padding:.8rem 1.7rem; border-radius:var(--r);
-  font-weight:500; font-size:.9rem; text-decoration:none;
-  border:1px solid var(--bd2); transition:all .25s;
-}
-.btn-ghost:hover { border-color:var(--coral); color:var(--coral); transform:translateY(-2px) }
+/* ═══════════ HOME — HERO ═══════════ */
+.home-hero{min-height:calc(100vh - var(--nav-h));display:grid;grid-template-columns:1fr auto;align-items:center;gap:3rem;padding:clamp(3rem,7vw,5.5rem) clamp(1rem,4vw,2.5rem);max-width:var(--maxw);margin:0 auto;position:relative}
+.hero-bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(ellipse 60% 50% at 70% 30%,rgba(224,92,58,.07),transparent 55%),radial-gradient(ellipse 50% 50% at 15% 75%,rgba(74,154,138,.05),transparent 50%);animation:bgP 12s ease-in-out infinite}
+.hero-grid{position:fixed;inset:0;z-index:-1;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:48px 48px}
+@keyframes bgP{0%,100%{opacity:1}50%{opacity:.55}}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(224,92,58,.08);border:1px solid rgba(224,92,58,.2);border-radius:50px;padding:.32rem .9rem;font-size:.72rem;font-weight:600;color:var(--coral);letter-spacing:.05em;text-transform:uppercase;margin-bottom:1.5rem;animation:fadeUp .7s ease both}
+.ed{width:6px;height:6px;background:var(--coral);border-radius:50%;animation:edP 2s infinite}
+@keyframes edP{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.8);opacity:.3}}
+h1.hh1{font-family:'Fraunces',serif;font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:700;line-height:1.06;letter-spacing:-.03em;margin-bottom:1.4rem;animation:fadeUp .7s .1s ease both}
+h1.hh1 .l2{font-style:italic;font-weight:300;opacity:.8}
+h1.hh1 .ac{color:var(--coral)}
+.hero-desc{font-size:clamp(.92rem,1.4vw,1.05rem);color:var(--muted);max-width:520px;line-height:1.8;margin-bottom:2rem;animation:fadeUp .7s .2s ease both}
+.tw-pill{display:inline-block;background:rgba(201,152,74,.1);border:1px solid rgba(201,152,74,.2);border-radius:5px;padding:.06rem .42rem;color:var(--gold)}
+#tw{border-right:2px solid var(--gold);padding-right:2px;animation:twB .7s infinite}
+@keyframes twB{0%,100%{border-color:var(--gold)}50%{border-color:transparent}}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap;animation:fadeUp .7s .3s ease both}
+.hero-cards{display:flex;flex-direction:column;gap:.75rem;animation:fadeUp .7s .45s ease both}
+.hcard{background:var(--gl2);border:1px solid var(--bd2);border-radius:var(--r2);padding:.9rem 1.2rem;min-width:185px;backdrop-filter:blur(12px);transition:transform .3s}
+.hcard:hover{transform:translateX(-4px)}
+.hcard-l{font-size:.67rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:.22rem}
+.hcard-v{font-family:'Fraunces',serif;font-size:1.45rem;font-weight:700;color:var(--text);line-height:1}
+.hcard-s{font-size:.7rem;color:var(--muted);margin-top:.18rem}
+.hcard-bar{height:2px;border-radius:1px;margin-top:.6rem;background:var(--gl2);overflow:hidden}
+.hcard-fill{height:100%;border-radius:1px;animation:bFill 1.8s 1s ease both}
+@keyframes bFill{from{width:0}}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.35rem;color:var(--muted2);font-size:.67rem;letter-spacing:.08em;text-transform:uppercase;animation:fadeIn 1s 1.5s ease both}
+.sm{width:17px;height:27px;border:1.5px solid var(--muted2);border-radius:9px;display:flex;align-items:flex-start;justify-content:center;padding-top:4px}
+.sw{width:2px;height:5px;background:var(--muted2);border-radius:1px;animation:swAnim 1.6s infinite}
+@keyframes swAnim{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(8px)}}
 
-/* Tags */
-.tag { display:inline-block; font-size:.72rem; font-weight:600; padding:.22rem .7rem; border-radius:50px }
-.tag-coral { background:rgba(224,92,58,.1); color:var(--coral); border:1px solid rgba(224,92,58,.18) }
-.tag-gold  { background:rgba(201,152,74,.1); color:var(--gold);  border:1px solid rgba(201,152,74,.18) }
-.tag-sage  { background:rgba(74,154,138,.1); color:var(--sage);  border:1px solid rgba(74,154,138,.2) }
+/* ═══════════ HOME — STATS ═══════════ */
+.stats-bar{padding:2.8rem clamp(1rem,4vw,2.5rem);background:var(--ink2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bd);border-radius:var(--r2);overflow:hidden;max-width:var(--maxw);margin:0 auto}
+.sc{background:var(--ink2);padding:1.6rem 1.2rem;text-align:center;position:relative}
+.sc::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;background:linear-gradient(90deg,transparent,var(--coral),transparent);opacity:0;transition:opacity .3s}
+.sc:hover::after{opacity:1}
+.sn{font-family:'Fraunces',serif;font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:700;color:var(--text);line-height:1;display:block}
+.sn .sf{color:var(--coral);font-size:.65em}
+.sl{color:var(--muted);font-size:.78rem;margin-top:.32rem;line-height:1.4}
 
-/* ═══════════════ HERO ═══════════════ */
-#hero {
-  min-height: calc(100vh - var(--nav-h));
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 4rem;
-  padding: clamp(3rem,8vw,6rem) clamp(1rem,4vw,2.5rem);
-  max-width: var(--maxw);
-  margin: 0 auto;
-  position: relative;
-}
-.hero-bg {
-  position: fixed; inset: 0; z-index: -1;
-  background:
-    radial-gradient(ellipse 60% 50% at 70% 30%, rgba(224,92,58,.07), transparent 55%),
-    radial-gradient(ellipse 50% 50% at 15% 75%, rgba(74,154,138,.05), transparent 50%),
-    radial-gradient(ellipse 40% 40% at 85% 80%, rgba(201,152,74,.04), transparent 45%);
-  animation: bgPulse 12s ease-in-out infinite;
-}
-@keyframes bgPulse { 0%,100%{opacity:1} 50%{opacity:.6} }
-.hero-grid-bg {
-  position: fixed; inset: 0; z-index: -1;
-  background-image:
-    linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
+/* ═══════════ HOME — OFFERS GRID ═══════════ */
+.offers-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:3rem;max-width:var(--maxw);margin-left:auto;margin-right:auto}
+.offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border-radius:var(--r3);overflow:hidden;max-width:var(--maxw);margin:0 auto}
+.oc{background:var(--ink2);padding:1.7rem 1.5rem;transition:background .25s,transform .15s;cursor:pointer;position:relative;text-decoration:none;color:inherit;display:block}
+.oc:hover{background:var(--ink3)}
+.oc::after{content:'→';position:absolute;bottom:1.4rem;right:1.4rem;font-size:.9rem;color:var(--coral);opacity:0;transition:opacity .2s,transform .2s}
+.oc:hover::after{opacity:1;transform:translateX(3px)}
+.oc.ft{background:var(--ink3);outline:1px solid rgba(224,92,58,.18)}
+.on{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:900;color:rgba(255,255,255,.04);line-height:1;margin-bottom:.4rem}
+.oi{font-size:1.3rem;margin-bottom:.85rem;display:block}
+.oc h3{font-family:'Fraunces',serif;font-size:1.03rem;font-weight:600;margin-bottom:.5rem;line-height:1.25}
+.oc p{color:var(--muted);font-size:.83rem;line-height:1.65;margin-bottom:1rem}
 
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: .55rem;
-  background: rgba(224,92,58,.08); border: 1px solid rgba(224,92,58,.2);
-  border-radius: 50px; padding: .35rem 1rem;
-  font-size: .75rem; font-weight: 600; color: var(--coral);
-  letter-spacing: .05em; text-transform: uppercase;
-  margin-bottom: 1.6rem; animation: fadeUp .7s ease both;
-}
-.eyebrow-dot { width:6px; height:6px; background:var(--coral); border-radius:50%; animation:dotPulse 2s infinite }
-@keyframes dotPulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.8);opacity:.35} }
+/* ═══════════ HOME — WHY + TESTI ═══════════ */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;max-width:var(--maxw);margin:2.5rem auto 0}
+.why-cards{display:flex;flex-direction:column;gap:.9rem}
+.wc{background:var(--gl);border:1px solid var(--bd);border-radius:var(--r2);padding:1.4rem;transition:all .25s;position:relative;overflow:hidden}
+.wc::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--coral);opacity:0;transition:opacity .25s}
+.wc:hover{border-color:rgba(224,92,58,.2);transform:translateX(4px)}
+.wc:hover::before{opacity:1}
+.wc h3{font-family:'Fraunces',serif;font-weight:600;font-size:.96rem;margin-bottom:.35rem}
+.wc p{color:var(--muted);font-size:.84rem;line-height:1.65}
+.proof-box{position:sticky;top:calc(var(--nav-h) + 1.5rem);background:var(--ink2);border:1px solid var(--bd);border-radius:var(--r3);padding:1.8rem}
+.proof-box h3{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;margin-bottom:1rem;line-height:1.3}
+.ps{display:flex;justify-content:space-between;align-items:center;padding:.8rem 0;border-bottom:1px solid var(--bd)}
+.ps:last-of-type{border-bottom:none;margin-bottom:1.1rem}
+.ps-l{color:var(--muted);font-size:.82rem}
+.ps-v{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--coral)}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;max-width:var(--maxw);margin:2.5rem auto 0}
+.tcrd{background:var(--ink3);border:1px solid var(--bd);border-radius:var(--r2);padding:1.7rem;transition:all .25s}
+.tcrd:hover{border-color:rgba(224,92,58,.2);transform:translateY(-3px)}
+.tcrd.wide{grid-column:1/-1;background:var(--gl);border-color:rgba(201,152,74,.18);display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
+.tb{display:inline-flex;align-items:center;gap:.33rem;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.2rem .6rem;border-radius:50px;margin-bottom:.85rem}
+.tbg{background:rgba(201,152,74,.1);color:var(--gold);border:1px solid rgba(201,152,74,.2)}
+.tbc{background:rgba(224,92,58,.08);color:var(--coral);border:1px solid rgba(224,92,58,.15)}
+blockquote{font-size:.9rem;line-height:1.78;color:var(--text);opacity:.82;font-style:italic;margin-bottom:1.3rem}
+blockquote::before{content:'\201C'}blockquote::after{content:'\201D'}
+.tsig{display:flex;align-items:center;gap:.7rem}
+.tav{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:.82rem;flex-shrink:0}
+.avc{background:rgba(224,92,58,.18);color:var(--coral);border:1px solid rgba(224,92,58,.3)}
+.avg{background:rgba(201,152,74,.18);color:var(--gold);border:1px solid rgba(201,152,74,.3)}
+.avs{background:rgba(74,154,138,.18);color:var(--sage);border:1px solid rgba(74,154,138,.3)}
+.tn{font-weight:600;font-size:.87rem}
+.tr{color:var(--muted);font-size:.74rem;margin-top:.1rem}
+.qd{font-family:'Fraunces',serif;font-size:3.5rem;font-weight:900;color:rgba(201,152,74,.12);line-height:1;flex-shrink:0}
+.partners{margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--bd);display:flex;align-items:center;gap:2.5rem;justify-content:center;flex-wrap:wrap;opacity:.38;filter:grayscale(1);max-width:var(--maxw);margin-left:auto;margin-right:auto}
+.pl{font-family:'Fraunces',serif;font-size:.98rem;font-weight:700;color:var(--text)}
 
-h1.hero-h1 {
-  font-family: 'Fraunces', serif;
-  font-size: clamp(2.8rem, 6vw, 5rem);
-  font-weight: 700;
-  line-height: 1.06;
-  letter-spacing: -.03em;
-  margin-bottom: 1.5rem;
-  animation: fadeUp .7s .1s ease both;
-}
-h1.hero-h1 .line2 { font-style:italic; font-weight:300; opacity:.8 }
-h1.hero-h1 .accent { color:var(--coral) }
+/* ═══════════ HOME — CTA ═══════════ */
+.home-cta{text-align:center;position:relative;overflow:hidden}
+.cta-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 100%,rgba(224,92,58,.07),transparent);pointer-events:none}
+.cta-inner{position:relative;z-index:2;max-width:620px;margin:0 auto}
+.cta-btns{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
+.btn-cream{display:inline-flex;align-items:center;gap:.4rem;background:#EDE8DE;color:var(--ink);padding:.82rem 1.7rem;border-radius:var(--r);font-weight:700;font-size:.9rem;text-decoration:none;transition:all .25s}
+.btn-cream:hover{background:#E2DDD3;transform:translateY(-2px)}
 
-.hero-desc {
-  font-size: clamp(.95rem, 1.5vw, 1.1rem);
-  color: var(--muted);
-  max-width: 540px;
-  line-height: 1.8;
-  margin-bottom: 2.2rem;
-  animation: fadeUp .7s .2s ease both;
-}
-.tw-pill {
-  display: inline-block;
-  background: rgba(201,152,74,.1); border: 1px solid rgba(201,152,74,.2);
-  border-radius: 5px; padding: .08rem .45rem; color: var(--gold);
-}
-#tw { border-right: 2px solid var(--gold); padding-right: 2px; animation: twBlink .7s infinite }
-@keyframes twBlink { 0%,100%{border-color:var(--gold)} 50%{border-color:transparent} }
+/* ═══════════ FOOTER ═══════════ */
+footer{background:var(--ink2);border-top:1px solid var(--bd);padding:clamp(2.5rem,5vw,3.5rem) clamp(1rem,4vw,2.5rem) 1.5rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;max-width:var(--maxw);margin:0 auto;padding-bottom:2rem;border-bottom:1px solid var(--bd)}
+.fbdesc{color:var(--muted);font-size:.82rem;margin-top:.7rem;max-width:250px;line-height:1.7}
+.fc h4{font-family:'Fraunces',serif;font-weight:600;font-size:.9rem;margin-bottom:.95rem}
+.fc a{display:block;color:var(--muted);text-decoration:none;font-size:.82rem;margin-bottom:.48rem;transition:color .2s}
+.fc a:hover{color:var(--coral)}
+.footer-bot{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;flex-wrap:wrap;gap:.75rem;max-width:var(--maxw);margin:0 auto}
+.footer-bot p{color:var(--muted2);font-size:.74rem}
+.fsoc{display:flex;gap:.45rem}
+.soc{width:28px;height:28px;border-radius:7px;background:var(--gl2);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;font-size:.75rem;font-weight:700;transition:all .2s}
+.soc:hover{border-color:var(--coral);color:var(--coral)}
 
-.hero-btns { display:flex; gap:.8rem; flex-wrap:wrap; animation: fadeUp .7s .3s ease both }
+/* ═══════════ OFFER PAGES ═══════════ */
+.offer-hero{position:relative;overflow:hidden;padding:clamp(4rem,8vw,6rem) clamp(1rem,4vw,2.5rem) clamp(3rem,6vw,5rem);background:linear-gradient(180deg,var(--ink2) 0%,var(--ink) 100%);border-bottom:1px solid var(--bd)}
+.offer-hero-inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.offer-hero-bg{position:absolute;inset:0;pointer-events:none}
+.offer-back{display:inline-flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.8rem;font-weight:500;text-decoration:none;margin-bottom:1.5rem;transition:color .2s;cursor:pointer;background:none;border:none;padding:0}
+.offer-back:hover{color:var(--coral)}
+.offer-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(224,92,58,.1);border:1px solid rgba(224,92,58,.2);border-radius:50px;padding:.3rem .85rem;font-size:.72rem;font-weight:600;color:var(--coral);letter-spacing:.05em;text-transform:uppercase;margin-bottom:1.3rem}
+h1.oh1{font-family:'Fraunces',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:700;line-height:1.07;letter-spacing:-.03em;margin-bottom:1.2rem}
+h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
+.offer-desc{font-size:clamp(.92rem,1.4vw,1.05rem);color:var(--muted);max-width:500px;line-height:1.8;margin-bottom:2rem}
+.offer-price-badge{display:inline-flex;align-items:baseline;gap:.4rem;background:var(--gl2);border:1px solid var(--bd2);border-radius:var(--r);padding:.65rem 1.1rem;margin-bottom:1.8rem}
+.opb-price{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;color:var(--text)}
+.opb-note{font-size:.78rem;color:var(--muted)}
+.offer-btns{display:flex;gap:.75rem;flex-wrap:wrap}
+/* Mockup container */
+.offer-mockup{border-radius:var(--r3);overflow:hidden;background:var(--ink3);border:1px solid var(--bd);position:relative;min-height:320px;display:flex;align-items:center;justify-content:center;padding:1.5rem}
 
-/* Hero right — data cards */
-.hero-cards {
-  display: flex;
-  flex-direction: column;
-  gap: .8rem;
-  animation: fadeUp .7s .45s ease both;
-}
-.h-card {
-  background: var(--gl2);
-  border: 1px solid var(--bd2);
-  border-radius: var(--r2);
-  padding: 1rem 1.3rem;
-  min-width: 190px;
-  backdrop-filter: blur(12px);
-  transition: transform .3s;
-}
-.h-card:hover { transform: translateX(-4px) }
-.h-card-label { font-size: .68rem; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: .25rem }
-.h-card-val { font-family:'Fraunces',serif; font-size: 1.5rem; font-weight: 700; color: var(--text); line-height: 1 }
-.h-card-sub { font-size: .72rem; color: var(--muted); margin-top: .2rem }
-.h-card-bar { height: 2px; border-radius: 1px; margin-top: .65rem; background: var(--gl2); overflow: hidden }
-.h-card-fill { height: 100%; border-radius: 1px; animation: fillBar 1.8s 1s ease both }
-@keyframes fillBar { from{width:0} }
+/* Offer body sections */
+.offer-section{padding:clamp(3rem,6vw,5rem) clamp(1rem,4vw,2.5rem);background:var(--ink)}
+.offer-section.alt{background:var(--ink2)}
+.offer-section-inner{max-width:var(--maxw);margin:0 auto}
 
-/* Scroll hint */
-.hero-scroll {
-  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: .4rem;
-  color: var(--muted2); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
-  animation: fadeIn 1s 1.4s ease both;
-}
-.scroll-mouse { width:18px; height:28px; border:1.5px solid var(--muted2); border-radius:9px; display:flex; align-items:flex-start; justify-content:center; padding-top:4px }
-.scroll-wheel { width:2px; height:5px; background:var(--muted2); border-radius:1px; animation:scrollW 1.6s infinite }
-@keyframes scrollW { 0%{opacity:1;transform:translateY(0)} 100%{opacity:0;transform:translateY(8px)} }
+/* Deliverables grid */
+.deliv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2rem}
+.deliv-card{background:var(--ink3);border:1px solid var(--bd);border-radius:var(--r2);padding:1.4rem;transition:all .25s;position:relative;overflow:hidden}
+.deliv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--coral),transparent);opacity:0;transition:opacity .3s}
+.deliv-card:hover{border-color:rgba(224,92,58,.2);transform:translateY(-3px)}
+.deliv-card:hover::before{opacity:1}
+.deliv-icon{font-size:1.6rem;margin-bottom:.8rem;display:block}
+.deliv-card h3{font-family:'Fraunces',serif;font-weight:600;font-size:.98rem;margin-bottom:.4rem}
+.deliv-card p{color:var(--muted);font-size:.82rem;line-height:1.65}
 
-/* ═══════════════ STATS ═══════════════ */
-#stats { padding: 3rem clamp(1rem,4vw,2.5rem); background: var(--ink2); border-top:1px solid var(--bd); border-bottom:1px solid var(--bd) }
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--bd);
-  border-radius: var(--r2);
-  overflow: hidden;
-  max-width: var(--maxw);
-  margin: 0 auto;
-}
-.stat-cell { background:var(--ink2); padding:1.8rem 1.4rem; text-align:center; position:relative }
-.stat-cell::after { content:''; position:absolute; bottom:0; left:20%; right:20%; height:2px; background:linear-gradient(90deg,transparent,var(--coral),transparent); opacity:0; transition:opacity .3s }
-.stat-cell:hover::after { opacity:1 }
-.stat-n { font-family:'Fraunces',serif; font-size:clamp(2rem,4vw,3rem); font-weight:700; color:var(--text); line-height:1; display:block }
-.stat-n .suf { color:var(--coral); font-size:.65em }
-.stat-l { color:var(--muted); font-size:.8rem; margin-top:.35rem; line-height:1.4 }
+/* Timeline */
+.timeline{display:flex;flex-direction:column;gap:0;margin-top:2rem;max-width:700px}
+.tl-item{display:flex;gap:1.2rem;position:relative;padding-bottom:1.8rem}
+.tl-item:last-child{padding-bottom:0}
+.tl-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-dot{width:36px;height:36px;border-radius:50%;background:rgba(224,92,58,.15);border:1.5px solid rgba(224,92,58,.3);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:.75rem;font-weight:700;color:var(--coral);flex-shrink:0;z-index:1}
+.tl-line{width:1.5px;flex:1;background:var(--bd);margin-top:4px}
+.tl-item:last-child .tl-line{display:none}
+.tl-body{padding-top:.3rem;padding-bottom:0}
+.tl-body h3{font-family:'Fraunces',serif;font-weight:600;font-size:1rem;margin-bottom:.4rem;color:var(--text)}
+.tl-body p{color:var(--muted);font-size:.85rem;line-height:1.65}
+.tl-tag{display:inline-block;margin-top:.5rem;font-size:.7rem;color:var(--muted2);background:var(--gl2);border-radius:5px;padding:.15rem .5rem}
 
-/* ═══════════════ SERVICES ═══════════════ */
-#services { background:var(--ink) }
-.services-head {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  margin-bottom: 3.5rem;
-  max-width: var(--maxw);
-  margin-left: auto;
-  margin-right: auto;
-}
-.offer-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--bd);
-  border-radius: var(--r3);
-  overflow: hidden;
-  max-width: var(--maxw);
-  margin: 0 auto;
-}
-.offer-card {
-  background: var(--ink2);
-  padding: 1.8rem 1.5rem;
-  transition: background .25s;
-  position: relative;
-}
-.offer-card:hover { background: var(--ink3) }
-.offer-card.ft { background: var(--ink3); outline: 1px solid rgba(224,92,58,.18) }
-.offer-num { font-family:'Fraunces',serif; font-size:2.5rem; font-weight:900; color:rgba(255,255,255,.04); line-height:1; margin-bottom:.4rem }
-.offer-icon { font-size:1.4rem; margin-bottom:.9rem; display:block }
-.offer-card h3 { font-family:'Fraunces',serif; font-size:1.05rem; font-weight:600; margin-bottom:.55rem; line-height:1.25 }
-.offer-card p { color:var(--muted); font-size:.85rem; line-height:1.65; margin-bottom:1.1rem }
+/* Pricing table */
+.price-table{width:100%;border-collapse:collapse;margin-top:1.8rem}
+.price-table th{text-align:left;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);padding:.75rem 1rem;border-bottom:1px solid var(--bd)}
+.price-table td{padding:.9rem 1rem;border-bottom:1px solid var(--bd);font-size:.88rem;color:var(--muted);vertical-align:top}
+.price-table td:first-child{color:var(--text);font-weight:500}
+.price-table td:last-child{text-align:right;color:var(--coral);font-weight:600;font-family:'Fraunces',serif;font-size:.98rem;white-space:nowrap}
+.price-table tr:last-child td{border-bottom:none}
+.price-table tr.featured td{background:rgba(224,92,58,.04)}
 
-/* ═══════════════ PROCESS ═══════════════ */
-#process { background: var(--ink2) }
-.process-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 5rem;
-  align-items: center;
-  max-width: var(--maxw);
-  margin: 2.5rem auto 0;
-}
-.process-steps { display:flex; flex-direction:column }
-.ps {
-  display: flex; gap: 1.1rem;
-  padding: 1.4rem 0;
-  border-bottom: 1px solid var(--bd);
-  transition: padding-left .2s;
-}
-.ps:last-child { border:none }
-.ps:hover { padding-left: .5rem }
-.ps-n { font-family:'Fraunces',serif; font-size:.72rem; font-weight:700; color:var(--coral); opacity:.45; flex-shrink:0; margin-top:.25rem; letter-spacing:.04em }
-.ps:hover .ps-n { opacity:1 }
-.ps h3 { font-family:'Fraunces',serif; font-weight:600; font-size:1rem; margin-bottom:.35rem }
-.ps p { color:var(--muted); font-size:.855rem; line-height:1.65 }
-.process-visual {
-  background: var(--ink3); border:1px solid var(--bd); border-radius:var(--r3);
-  padding: 2rem; display:flex; align-items:center; justify-content:center;
-  position:relative; overflow:hidden;
-}
-.pv-glow { position:absolute; inset:0; background:radial-gradient(ellipse 80% 80% at 50% 50%, rgba(224,92,58,.04), transparent) }
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:.6rem;margin-top:2rem;max-width:720px;margin-left:auto;margin-right:auto}
+.faq-item{background:var(--ink3);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;transition:border-color .25s}
+.faq-item.open{border-color:rgba(224,92,58,.2)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.3rem;cursor:pointer;gap:1rem}
+.faq-q span{font-weight:600;font-size:.92rem;color:var(--text)}
+.faq-q::after{content:'+';color:var(--coral);font-size:1.3rem;flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 1.3rem}
+.faq-item.open .faq-a{max-height:200px;padding:0 1.3rem 1.2rem}
+.faq-a p{color:var(--muted);font-size:.87rem;line-height:1.75}
 
-/* ═══════════════ WHY ═══════════════ */
-#why { background:var(--ink) }
-.why-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-  max-width: var(--maxw);
-  margin: 2.5rem auto 0;
-}
-.why-cards { display:flex; flex-direction:column; gap:1rem }
-.why-card {
-  background: var(--gl);
-  border: 1px solid var(--bd);
-  border-radius: var(--r2);
-  padding: 1.5rem;
-  transition: all .25s;
-  position: relative;
-  overflow: hidden;
-}
-.why-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--coral); opacity:0; transition:opacity .25s }
-.why-card:hover { border-color:rgba(224,92,58,.2); transform:translateX(4px) }
-.why-card:hover::before { opacity:1 }
-.why-card h3 { font-family:'Fraunces',serif; font-weight:600; font-size:.98rem; margin-bottom:.4rem }
-.why-card p { color:var(--muted); font-size:.855rem; line-height:1.65 }
-.proof-box {
-  position: sticky; top: calc(var(--nav-h) + 1.5rem);
-  background:var(--ink2); border:1px solid var(--bd); border-radius:var(--r3); padding:2rem;
-}
-.proof-box h3 { font-family:'Fraunces',serif; font-size:1.2rem; font-weight:600; margin-bottom:1.1rem; line-height:1.3 }
-.proof-stat { display:flex; justify-content:space-between; align-items:center; padding:.85rem 0; border-bottom:1px solid var(--bd) }
-.proof-stat:last-of-type { border-bottom:none; margin-bottom:1.2rem }
-.proof-stat-l { color:var(--muted); font-size:.83rem }
-.proof-stat-v { font-family:'Fraunces',serif; font-size:1.2rem; font-weight:600; color:var(--coral) }
+/* Related offers */
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.8rem}
+.rel-card{background:var(--ink3);border:1px solid var(--bd);border-radius:var(--r2);padding:1.3rem;text-decoration:none;color:inherit;transition:all .25s;display:block}
+.rel-card:hover{border-color:rgba(224,92,58,.2);transform:translateY(-3px)}
+.rel-icon{font-size:1.2rem;margin-bottom:.6rem;display:block}
+.rel-card h4{font-family:'Fraunces',serif;font-weight:600;font-size:.92rem;margin-bottom:.35rem}
+.rel-card p{color:var(--muted);font-size:.78rem;line-height:1.6}
 
-/* ═══════════════ TESTIMONIALS ═══════════════ */
-#testimonials { background:var(--ink2) }
-.testi-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-  max-width: var(--maxw);
-  margin: 2.5rem auto 0;
-}
-.testi-card {
-  background:var(--ink3); border:1px solid var(--bd); border-radius:var(--r2);
-  padding:1.8rem; transition:all .25s;
-}
-.testi-card:hover { border-color:rgba(224,92,58,.2); transform:translateY(-3px) }
-.testi-card.wide {
-  grid-column: 1 / -1;
-  background:var(--gl);
-  border-color:rgba(201,152,74,.18);
-  display:grid; grid-template-columns: 1fr auto; gap:2rem; align-items:center;
-}
-.t-badge {
-  display:inline-flex; align-items:center; gap:.35rem;
-  font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  padding:.22rem .65rem; border-radius:50px; margin-bottom:.9rem;
-}
-.tb-gold { background:rgba(201,152,74,.1); color:var(--gold); border:1px solid rgba(201,152,74,.2) }
-.tb-coral { background:rgba(224,92,58,.08); color:var(--coral); border:1px solid rgba(224,92,58,.15) }
-blockquote { font-size:.92rem; line-height:1.78; color:var(--text); opacity:.82; font-style:italic; margin-bottom:1.4rem }
-blockquote::before { content:'\201C' } blockquote::after { content:'\201D' }
-.t-sig { display:flex; align-items:center; gap:.75rem }
-.t-av {
-  width:40px; height:40px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Fraunces',serif; font-weight:700; font-size:.85rem; flex-shrink:0;
-}
-.av-c { background:rgba(224,92,58,.18); color:var(--coral); border:1px solid rgba(224,92,58,.3) }
-.av-g { background:rgba(201,152,74,.18); color:var(--gold); border:1px solid rgba(201,152,74,.3) }
-.av-s { background:rgba(74,154,138,.18); color:var(--sage); border:1px solid rgba(74,154,138,.3) }
-.t-name { font-weight:600; font-size:.88rem }
-.t-role { color:var(--muted); font-size:.76rem; margin-top:.1rem }
-.quote-deco { font-family:'Fraunces',serif; font-size:4rem; font-weight:900; color:rgba(201,152,74,.12); line-height:1; flex-shrink:0 }
-.partners { margin-top:3.5rem; padding-top:2.5rem; border-top:1px solid var(--bd); display:flex; align-items:center; gap:2.5rem; justify-content:center; flex-wrap:wrap; opacity:.4; filter:grayscale(1); max-width:var(--maxw); margin-left:auto; margin-right:auto }
-.p-logo { font-family:'Fraunces',serif; font-size:1rem; font-weight:700; color:var(--text) }
+/* Sticky offer CTA */
+.offer-sticky-cta{position:sticky;bottom:0;background:rgba(14,18,25,.96);backdrop-filter:blur(16px);border-top:1px solid var(--bd);padding:.9rem clamp(1rem,4vw,2.5rem);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;z-index:100}
+.offer-sticky-cta .label{font-size:.85rem;color:var(--muted)}
+.offer-sticky-cta .label strong{color:var(--text);font-weight:600}
+.offer-sticky-cta .actions{display:flex;gap:.6rem;flex-wrap:wrap}
 
-/* ═══════════════ CTA ═══════════════ */
-#cta { text-align:center; position:relative; overflow:hidden }
-.cta-glow { position:absolute; inset:0; background:radial-gradient(ellipse 60% 80% at 50% 100%, rgba(224,92,58,.07), transparent); pointer-events:none }
-.cta-inner { position:relative; z-index:2; max-width:640px; margin:0 auto }
-#cta .s-title { font-size:clamp(2rem,4vw,3.2rem) }
-#cta .s-sub { margin:0 auto 2.2rem; font-size:1rem }
-.cta-btns { display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap }
-.btn-cream {
-  display:inline-flex; align-items:center; gap:.45rem;
-  background:#EDE8DE; color:var(--ink);
-  padding:.85rem 1.8rem; border-radius:var(--r);
-  font-weight:700; font-size:.9rem; text-decoration:none;
-  transition:all .25s;
-}
-.btn-cream:hover { background:#E2DDD3; transform:translateY(-2px); box-shadow:0 10px 30px rgba(237,232,222,.12) }
-
-/* ═══════════════ FOOTER ═══════════════ */
-footer { background:var(--ink2); border-top:1px solid var(--bd); padding:clamp(2.5rem,5vw,3.5rem) clamp(1rem,4vw,2.5rem) 1.5rem }
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--bd);
-}
-.footer-brand-desc { color:var(--muted); font-size:.83rem; margin-top:.75rem; max-width:260px; line-height:1.7 }
-.footer-col h4 { font-family:'Fraunces',serif; font-weight:600; font-size:.92rem; margin-bottom:1rem }
-.footer-col a { display:block; color:var(--muted); text-decoration:none; font-size:.83rem; margin-bottom:.5rem; transition:color .2s }
-.footer-col a:hover { color:var(--coral) }
-.footer-bot {
-  display: flex; justify-content:space-between; align-items:center;
-  padding-top: 1.2rem; flex-wrap:wrap; gap:.75rem;
-  max-width: var(--maxw); margin:0 auto;
-}
-.footer-bot p { color:var(--muted2); font-size:.76rem }
-.f-socials { display:flex; gap:.5rem }
-.soc {
-  width:30px; height:30px; border-radius:7px;
-  background:var(--gl2); border:1px solid var(--bd);
-  display:flex; align-items:center; justify-content:center;
-  color:var(--muted); text-decoration:none; font-size:.78rem; font-weight:700;
-  transition:all .2s;
-}
-.soc:hover { border-color:var(--coral); color:var(--coral) }
-
-/* ═══════════════ ANIMATIONS ═══════════════ */
-@keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
-@keyframes fadeIn { from{opacity:0} to{opacity:1} }
-
-/* ═══════════════ CURSOR ═══════════════ */
+/* ═══════════ ANIMATIONS & CURSOR ═══════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @media(pointer:fine){
-  *{ cursor:none !important }
-  #cdot {
-    position:fixed; top:0; left:0; z-index:9999;
-    width:7px; height:7px; border-radius:50%;
-    background:var(--coral); pointer-events:none;
-    transform:translate(-50%,-50%);
-    transition:width .15s,height .15s,background .2s;
-    will-change:transform;
-  }
-  #cring {
-    position:fixed; top:0; left:0; z-index:9998;
-    width:34px; height:34px; border-radius:50%;
-    border:1.5px solid rgba(224,92,58,.45); pointer-events:none;
-    transform:translate(-50%,-50%);
-    transition:width .3s cubic-bezier(.4,0,.2,1),height .3s cubic-bezier(.4,0,.2,1),border-color .25s;
-    will-change:transform;
-  }
-  body.ch #cdot { width:5px; height:5px; background:var(--gold) }
-  body.ch #cring { width:48px; height:48px; border-color:rgba(201,152,74,.55) }
-  body.cc #cdot { width:4px; height:4px; background:#fff }
-  body.cc #cring { width:22px; height:22px }
-  body.ct #cdot { width:2px; height:18px; border-radius:1px }
-  body.ct #cring { opacity:0 }
+  *{cursor:none!important}
+  #cdot{position:fixed;top:0;left:0;z-index:9999;width:7px;height:7px;border-radius:50%;background:var(--coral);pointer-events:none;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .2s;will-change:transform}
+  #cring{position:fixed;top:0;left:0;z-index:9998;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(224,92,58,.42);pointer-events:none;transform:translate(-50%,-50%);transition:width .3s cubic-bezier(.4,0,.2,1),height .3s,border-color .25s;will-change:transform}
+  body.ch #cdot{width:5px;height:5px;background:var(--gold)}
+  body.ch #cring{width:46px;height:46px;border-color:rgba(201,152,74,.5)}
+  body.cc #cdot{width:4px;height:4px;background:#fff}
+  body.cc #cring{width:20px;height:20px}
+  body.ct #cdot{width:2px;height:17px;border-radius:1px}
+  body.ct #cring{opacity:0}
 }
 
-/* ═══════════════ RESPONSIVE ═══════════════ */
+/* ═══════════ RESPONSIVE ═══════════ */
 @media(max-width:1024px){
-  #hero { grid-template-columns:1fr; gap:2rem }
-  .hero-cards { flex-direction:row; flex-wrap:wrap }
-  .h-card { min-width:150px; flex:1 }
-  .services-head { grid-template-columns:1fr }
-  .offer-grid { grid-template-columns:1fr 1fr }
-  .process-layout { grid-template-columns:1fr }
-  .process-visual { display:none }
-  .why-layout { grid-template-columns:1fr }
-  .proof-box { position:static }
-  .footer-grid { grid-template-columns:1fr 1fr }
+  .home-hero{grid-template-columns:1fr;gap:2rem}
+  .hero-cards{flex-direction:row;flex-wrap:wrap}
+  .hcard{min-width:148px;flex:1}
+  .offers-intro{grid-template-columns:1fr}
+  .offers-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+  .proof-box{position:static}
+  .offer-hero-inner{grid-template-columns:1fr}
+  .offer-mockup{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .related-grid{grid-template-columns:1fr 1fr}
+  .deliv-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-  .nav-links { display:none }
-  .hamburger { display:flex }
-  #hero { min-height:auto; padding-top:3rem }
-  .hero-cards { display:none }
-  .stats-row { grid-template-columns:1fr 1fr }
-  .offer-grid { grid-template-columns:1fr }
-  .testi-grid { grid-template-columns:1fr }
-  .testi-card.wide { grid-template-columns:1fr }
-  .quote-deco { display:none }
-  .footer-grid { grid-template-columns:1fr 1fr }
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .home-hero{min-height:auto;padding-top:2.5rem}
+  .hero-cards{display:none}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .offers-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .tcrd.wide{grid-template-columns:1fr}
+  .qd{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .deliv-grid{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:1fr}
 }
 @media(max-width:480px){
-  .stats-row { grid-template-columns:1fr 1fr }
-  .footer-grid { grid-template-columns:1fr }
-  .hero-btns { flex-direction:column }
-  .hero-btns .btn-ghost { display:none }
-  .cta-btns { flex-direction:column; align-items:center }
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-btns,.offer-btns,.cta-btns{flex-direction:column;align-items:flex-start}
+  .offer-sticky-cta{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -632,37 +341,37 @@ footer { background:var(--ink2); border-top:1px solid var(--bd); padding:clamp(2
 <div id="cdot"></div>
 <div id="cring"></div>
 
-<!-- ═══════════════════════════════════
-     TOP NAV
-═══════════════════════════════════ -->
+<!-- ═══════════════════ NAV ═══════════════════ -->
 <nav id="navbar">
-  <a href="#hero" class="logo">
-    <svg class="logo-icon" viewBox="0 0 36 36" fill="none">
-      <rect width="36" height="36" rx="9" fill="url(#nl1)"/>
-      <rect x="8"  y="9"  width="3"   height="18" rx="1.4" fill="white" opacity=".95"/>
-      <rect x="8"  y="16.5" width="8.5" height="2.5" rx="1.2" fill="white" opacity=".95"/>
-      <rect x="13.5" y="9" width="3"   height="18" rx="1.4" fill="white" opacity=".95"/>
-      <rect x="19" y="9"  width="9"   height="2.5" rx="1.2" fill="white" opacity=".78"/>
+  <a href="#home" class="logo" onclick="navigate('home')">
+    <svg viewBox="0 0 36 36" fill="none">
+      <rect width="36" height="36" rx="9" fill="url(#nl)"/>
+      <rect x="8" y="9" width="3" height="18" rx="1.4" fill="white" opacity=".95"/>
+      <rect x="8" y="16.5" width="8.5" height="2.5" rx="1.2" fill="white" opacity=".95"/>
+      <rect x="13.5" y="9" width="3" height="18" rx="1.4" fill="white" opacity=".95"/>
+      <rect x="19" y="9" width="9" height="2.5" rx="1.2" fill="white" opacity=".78"/>
       <rect x="21.75" y="9" width="3" height="18" rx="1.4" fill="white" opacity=".78"/>
-      <defs>
-        <linearGradient id="nl1" x1="0" y1="0" x2="36" y2="36">
-          <stop offset="0%" stop-color="#E05C3A"/>
-          <stop offset="100%" stop-color="#C9984A"/>
-        </linearGradient>
-      </defs>
+      <defs><linearGradient id="nl" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#E05C3A"/><stop offset="100%" stop-color="#C9984A"/></linearGradient></defs>
     </svg>
-    <div>
-      <span class="logo-name">HumanTech<em>RH</em></span>
-      <span class="logo-sub">Outils · IA & Automatisation · Formation</span>
-    </div>
+    <div><span class="logo-name">HumanTech<em>RH</em></span><span class="logo-sub">Outils · IA & Automatisation · Formation</span></div>
   </a>
 
   <div class="nav-links">
-    <a href="#services">Nos offres</a>
-    <a href="#process">Notre approche</a>
-    <a href="#why">Engagements</a>
-    <a href="#testimonials">Témoignages</a>
-    <a href="#cta" class="nav-cta">Audit gratuit →</a>
+    <a href="#home" onclick="navigate('home')">Accueil</a>
+    <div class="nav-dropdown">
+      <a href="#">Nos offres</a>
+      <div class="dropdown-menu">
+        <a href="#offre-1" onclick="navigate('offre-1')"><span class="dm-icon">🎯</span>Pack Clé en Main<span class="dm-price">490€</span></a>
+        <a href="#offre-2" onclick="navigate('offre-2')"><span class="dm-icon">⚡</span>Automatisation<span class="dm-price">350–2000€</span></a>
+        <a href="#offre-3" onclick="navigate('offre-3')"><span class="dm-icon">📚</span>Formation collective<span class="dm-price">190€/pers</span></a>
+        <a href="#offre-4" onclick="navigate('offre-4')"><span class="dm-icon">🏢</span>Formation B2B<span class="dm-price">800–4500€</span></a>
+        <a href="#offre-5" onclick="navigate('offre-5')"><span class="dm-icon">🎓</span>Intervenant École<span class="dm-price">60–120€/h</span></a>
+        <a href="#offre-6" onclick="navigate('offre-6')"><span class="dm-icon">🔄</span>Abonnement GestionPro<span class="dm-price">49–99€/mois</span></a>
+      </div>
+    </div>
+    <a href="#home" onclick="navigate('home');setTimeout(()=>scrollTo('#why'),100)">Engagements</a>
+    <a href="#home" onclick="navigate('home');setTimeout(()=>scrollTo('#testimonials'),100)">Témoignages</a>
+    <a href="mailto:contact@humantechrh.fr" class="nav-cta">Audit gratuit →</a>
   </div>
 
   <button class="hamburger" id="hbg" onclick="toggleMenu()" aria-label="Menu">
@@ -672,394 +381,905 @@ footer { background:var(--ink2); border-top:1px solid var(--bd); padding:clamp(2
 
 <!-- Mobile drawer -->
 <div class="mob-drawer" id="mobDrawer">
-  <a href="#services"      onclick="closeMenu()">Nos offres</a>
-  <a href="#process"       onclick="closeMenu()">Notre approche</a>
-  <a href="#why"           onclick="closeMenu()">Nos engagements</a>
-  <a href="#testimonials"  onclick="closeMenu()">Témoignages</a>
-  <a href="#cta"           onclick="closeMenu()" class="mob-cta">Audit gratuit — 45 min →</a>
+  <a href="#home" onclick="navigate('home');closeMenu()">Accueil</a>
+  <div class="mob-section">Nos offres</div>
+  <a href="#offre-1" onclick="navigate('offre-1');closeMenu()">🎯 Pack Clé en Main — 490€</a>
+  <a href="#offre-2" onclick="navigate('offre-2');closeMenu()">⚡ Automatisation — 350–2000€</a>
+  <a href="#offre-3" onclick="navigate('offre-3');closeMenu()">📚 Formation collective — 190€/pers</a>
+  <a href="#offre-4" onclick="navigate('offre-4');closeMenu()">🏢 Formation B2B — 800–4500€</a>
+  <a href="#offre-5" onclick="navigate('offre-5');closeMenu()">🎓 Intervenant École — 60–120€/h</a>
+  <a href="#offre-6" onclick="navigate('offre-6');closeMenu()">🔄 Abonnement — 49–99€/mois</a>
+  <a href="mailto:contact@humantechrh.fr" class="mob-cta">Audit gratuit — 45 min →</a>
 </div>
 
-<!-- ═══════════════════════════════════
-     MAIN
-═══════════════════════════════════ -->
+<!-- ═══════════════════ PAGES ═══════════════════ -->
 <main>
 
-<!-- BG EFFECTS -->
-<div class="hero-bg"></div>
-<div class="hero-grid-bg"></div>
+<!-- ▓▓▓ PAGE HOME ▓▓▓ -->
+<div class="page" id="page-home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
 
-<!-- ── HERO ── -->
-<section id="hero" style="padding-top:clamp(3rem,6vw,5rem)">
-
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <div class="eyebrow-dot"></div>
-      Outils sur mesure · IA & Automatisation · Formation · Accompagnement RH
+  <div class="home-hero">
+    <div>
+      <div class="eyebrow"><div class="ed"></div>Outils sur mesure · IA & Automatisation · Formation · Accompagnement RH</div>
+      <h1 class="hh1">Des outils conçus<br><span class="l2">pour VOUS,</span><br><span class="ac">pas pour les autres.</span></h1>
+      <p class="hero-desc">HumanTechRH crée vos outils de gestion Google Workspace sur mesure, automatise vos processus grâce à l'IA et forme vos équipes — pour que chaque structure dispose d'outils à <span class="tw-pill"><span id="tw">sa mesure</span></span>.</p>
+      <div class="hero-btns">
+        <a href="mailto:contact@humantechrh.fr" class="btn-coral">Audit gratuit de 45 min →</a>
+        <a href="#offre-1" class="btn-ghost" onclick="navigate('offre-1')">Voir les offres</a>
+      </div>
     </div>
+    <div class="hero-cards">
+      <div class="hcard"><div class="hcard-l">Heures récupérées</div><div class="hcard-v">70 h</div><div class="hcard-s">sur une seule mission</div><div class="hcard-bar"><div class="hcard-fill" style="width:95%;background:var(--coral)"></div></div></div>
+      <div class="hcard"><div class="hcard-l">Financement OPCO</div><div class="hcard-v">100%</div><div class="hcard-s">formations prises en charge</div><div class="hcard-bar"><div class="hcard-fill" style="width:100%;background:var(--gold)"></div></div></div>
+      <div class="hcard"><div class="hcard-l">Support inclus</div><div class="hcard-v">30 j</div><div class="hcard-s">après chaque livraison</div><div class="hcard-bar"><div class="hcard-fill" style="width:75%;background:var(--sage)"></div></div></div>
+    </div>
+    <div class="hero-scroll"><div class="sm"><div class="sw"></div></div><span>Défiler</span></div>
+  </div>
 
-    <h1 class="hero-h1">
-      Des outils conçus<br>
-      <span class="line2">pour VOUS,</span><br>
-      <span class="accent">pas pour les autres.</span>
-    </h1>
-
-    <p class="hero-desc">
-      HumanTechRH crée vos outils de gestion Google Workspace sur mesure, automatise vos processus grâce à l'IA et forme vos équipes — pour que chaque structure dispose d'outils à
-      <span class="tw-pill"><span id="tw">sa mesure</span></span>.
-    </p>
-
-    <div class="hero-btns">
-      <a href="#cta" class="btn-coral">Démarrer l'audit gratuit →</a>
-      <a href="#services" class="btn-ghost">Découvrir les offres</a>
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stats-grid">
+      <div class="sc reveal"><span class="sn"><span class="cnt" data-t="70">0</span><span class="sf">h</span></span><div class="sl">récupérées sur une seule mission</div></div>
+      <div class="sc reveal rd1"><span class="sn"><span class="cnt" data-t="100">0</span><span class="sf">%</span></span><div class="sl">formations finançables OPCO</div></div>
+      <div class="sc reveal rd2"><span class="sn"><span class="cnt" data-t="6">0</span></span><div class="sl">offres complémentaires</div></div>
+      <div class="sc reveal rd3"><span class="sn"><span class="cnt" data-t="30">0</span><span class="sf">j</span></span><div class="sl">de support inclus</div></div>
     </div>
   </div>
 
-  <div class="hero-cards">
-    <div class="h-card">
-      <div class="h-card-label">Heures récupérées</div>
-      <div class="h-card-val">70 h</div>
-      <div class="h-card-sub">sur une seule mission</div>
-      <div class="h-card-bar"><div class="h-card-fill" style="width:95%;background:var(--coral)"></div></div>
+  <!-- Offers -->
+  <section id="services" style="background:var(--ink)">
+    <div class="offers-intro">
+      <div class="reveal"><div class="s-tag">Nos offres</div><h2 class="s-title">Un outil qui vous <em>ressemble</em></h2></div>
+      <p class="s-sub reveal rd1">Chaque structure est différente. Ses processus, ses équipes, ses contraintes le sont aussi. Nous construisons vos outils à partir de votre réalité terrain.</p>
     </div>
-    <div class="h-card">
-      <div class="h-card-label">Financement OPCO</div>
-      <div class="h-card-val">100%</div>
-      <div class="h-card-sub">formations prises en charge</div>
-      <div class="h-card-bar"><div class="h-card-fill" style="width:100%;background:var(--gold)"></div></div>
+    <div class="offers-grid">
+      <a href="#offre-1" class="oc reveal" onclick="navigate('offre-1')"><div class="on">01</div><span class="oi">🎯</span><h3>Pack Gestion Clé en Main</h3><p>Audit, outil Sheets sur mesure, installation, formation équipe. Livré en 7 jours, documenté, accompagné.</p><span class="tag tc">490 € · One-shot</span></a>
+      <a href="#offre-2" class="oc ft reveal rd1" onclick="navigate('offre-2')"><div class="on">02</div><span class="oi">⚡</span><h3>Automatisation Apps Script</h3><p>Connexion formulaires, génération auto de documents, alertes intelligentes. Basé sur 70h économisées réelles.</p><span class="tag tc">350 – 2 000 €</span></a>
+      <a href="#offre-3" class="oc reveal rd2" onclick="navigate('offre-3')"><div class="on">03</div><span class="oi">📚</span><h3>Formation collective</h3><p>Atelier 3h présentiel ou visio. Outils Sheets + IA au quotidien. 6 à 10 participants max.</p><span class="tag ts">190 € / participant</span></a>
+      <a href="#offre-4" class="oc reveal rd3" onclick="navigate('offre-4')"><div class="on">04</div><span class="oi">🏢</span><h3>Formation Entreprise B2B</h3><p>Modules intra-entreprise, finançables OPCO à 100%. Groupes de 6 à 15 collaborateurs.</p><span class="tag tc">800 – 4 500 € · OPCO</span></a>
+      <a href="#offre-5" class="oc reveal rd4" onclick="navigate('offre-5')"><div class="on">05</div><span class="oi">🎓</span><h3>Intervenant École supérieure</h3><p>Cours magistraux et ateliers IA, data et automatisation dans les écoles de commerce.</p><span class="tag ts">60 – 120 €/h</span></a>
+      <a href="#offre-6" class="oc reveal rd5" onclick="navigate('offre-6')"><div class="on">06</div><span class="oi">🔄</span><h3>Abonnement GestionPro</h3><p>Mises à jour trimestrielles, maintenance scripts, support 48h. Sans engagement.</p><span class="tag tg">49 – 99 €/mois</span></a>
     </div>
-    <div class="h-card">
-      <div class="h-card-label">Support inclus</div>
-      <div class="h-card-val">30 j</div>
-      <div class="h-card-sub">après chaque livraison</div>
-      <div class="h-card-bar"><div class="h-card-fill" style="width:75%;background:var(--sage)"></div></div>
+  </section>
+
+  <!-- Why -->
+  <section id="why" style="background:var(--ink2)">
+    <div class="container reveal tc"><div class="s-tag">Nos engagements</div><h2 class="s-title">L'humain <em>d'abord</em></h2><p class="s-sub">La technologie n'a de valeur que si elle est adoptée. C'est pourquoi chaque outil est conçu avec vos équipes, pas imposé à elles.</p></div>
+    <div class="why-grid">
+      <div class="why-cards">
+        <div class="wc reveal"><h3>🛠 Sur mesure, toujours</h3><p>Chaque outil est construit à partir de vos données réelles, de votre vocabulaire et de vos contraintes. Zéro template générique.</p></div>
+        <div class="wc reveal rd1"><h3>📋 Documentation systématique</h3><p>Dossier technique, guide utilisateur et FAQ remis avec chaque livraison. Vous n'êtes jamais dépendants.</p></div>
+        <div class="wc reveal rd2"><h3>🤝 Accompagnement réel</h3><p>On forme vos équipes en faisant faire. On reste 30 jours après chaque mission.</p></div>
+        <div class="wc reveal rd3"><h3>💳 Financements facilités</h3><p>Formations finançables OPCO, CPF, référencement OPCO Santé pour micro-crèches.</p></div>
+        <div class="wc reveal rd4"><h3>🤖 IA intégrée à votre réalité</h3><p>ChatGPT, Gemini, Apps Script — l'IA est intégrée là où elle crée vraiment de la valeur.</p></div>
+      </div>
+      <div class="reveal rd2">
+        <div class="proof-box">
+          <h3>La preuve par les faits</h3>
+          <div class="ps"><span class="ps-l">Heures gagnées · Mission Adeo</span><span class="ps-v">70 h</span></div>
+          <div class="ps"><span class="ps-l">Délai de livraison moyen</span><span class="ps-v">7 j</span></div>
+          <div class="ps"><span class="ps-l">Support post-livraison</span><span class="ps-v">30 j</span></div>
+          <div class="ps"><span class="ps-l">Formations finançables OPCO</span><span class="ps-v">100%</span></div>
+          <a href="mailto:contact@humantechrh.fr" class="btn-coral" style="width:100%;justify-content:center;margin-top:1.3rem">Réserver mon audit →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" style="background:var(--ink)">
+    <div class="container tc reveal"><div class="s-tag">Ils en parlent</div><h2 class="s-title">Des partenaires qui <em>recommandent</em></h2></div>
+    <div class="testi-grid">
+      <div class="tcrd wide reveal">
+        <div><div class="tb tbg">✦ Lettre officielle</div><blockquote>"Adam Mortreu a été un de nos plus grands ambassadeurs. Connu et reconnu pour ses qualités relationnelles, son sens du service, sa fiabilité et sa bonne humeur constante. Un étudiant très jovial, sympathique et leader dans sa classe. Nous avons eu grand plaisir à le recommander à nos entreprises partenaires grâce à son excellent savoir être."</blockquote><div class="tsig"><div class="tav avc">FD</div><div><div class="tn">Frédéric Daumont</div><div class="tr">Directeur UFA · EPS IWIS Lille · Janvier 2025</div></div></div></div>
+        <div class="qd">"</div>
+      </div>
+      <div class="tcrd reveal rd1"><div class="tb tbg">✦ Lettre de recommandation</div><blockquote>"Adam Mortreu a démontré un grand professionnalisme, une excellente disponibilité et une capacité d'adaptation remarquable. Son approche rigoureuse et créative nous a permis d'obtenir un site moderne, parfaitement aligné avec nos besoins stratégiques."</blockquote><div class="tsig"><div class="tav avg">ND</div><div><div class="tn">Nicolas Durand</div><div class="tr">Directeur Général · All U Need · Mars 2025</div></div></div></div>
+      <div class="tcrd reveal rd2"><div class="tb tbc">★★★★★</div><blockquote>"Au-delà de ses compétences techniques, Adam s'est distingué par son esprit d'équipe et sa capacité à travailler avec les différents acteurs. Il sait écouter, proposer des solutions adaptées — un interlocuteur de confiance."</blockquote><div class="tsig"><div class="tav avs">ND</div><div><div class="tn">Nicolas Durand</div><div class="tr">All U Need · EdTech consulting & Sales Training</div></div></div></div>
+    </div>
+    <div class="partners reveal"><span class="pl">EPSI · WIS Lille</span><div style="width:1px;height:18px;background:var(--bd)"></div><span class="pl">All U Need.</span><div style="width:1px;height:18px;background:var(--bd)"></div><span class="pl">Adeo Group</span></div>
+  </section>
+
+  <!-- Home CTA -->
+  <section class="home-cta" style="background:var(--ink2)">
+    <div class="cta-glow"></div>
+    <div class="cta-inner reveal">
+      <div class="s-tag" style="justify-content:center">Passons à l'action</div>
+      <h2 class="s-title">Votre premier outil <em>prêt en 7 jours</em></h2>
+      <p class="s-sub">Un audit de 45 minutes gratuit pour cartographier vos process, identifier les gains rapides et construire votre feuille de route.</p>
+      <div class="cta-btns" style="margin-top:2rem">
+        <a href="mailto:contact@humantechrh.fr" class="btn-coral">Réserver l'audit gratuit →</a>
+        <a href="#offre-1" class="btn-ghost" onclick="navigate('offre-1')">Voir les offres</a>
+      </div>
+    </div>
+  </section>
+</div><!-- end home -->
+
+<!-- ▓▓▓ OFFRE 1 — PACK CLÉ EN MAIN ▓▓▓ -->
+<div class="page" id="page-offre-1">
+  <div class="offer-hero">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 80% 50%,rgba(224,92,58,.07),transparent);pointer-events:none"></div>
+    <div class="offer-hero-inner">
+      <div>
+        <button class="offer-back" onclick="navigate('home')">← Retour aux offres</button>
+        <div class="offer-badge">🎯 Offre 01 · Porte d'entrée</div>
+        <h1 class="oh1">Pack Gestion<br><em>Clé en Main</em></h1>
+        <p class="offer-desc">Audit de vos processus, construction d'un outil Google Sheets 100% personnalisé, installation complète et formation de votre équipe. Livré en 7 jours, documenté, accompagné 30 jours.</p>
+        <div class="offer-price-badge"><span class="opb-price">490 €</span><span class="opb-note">mission one-shot · tout inclus</span></div>
+        <div class="offer-btns">
+          <a href="mailto:contact@humantechrh.fr?subject=Pack Clé en Main" class="btn-coral">Démarrer ma mission →</a>
+          <a href="mailto:contact@humantechrh.fr?subject=Audit Pack Clé en Main" class="btn-ghost">Audit gratuit d'abord</a>
+        </div>
+      </div>
+      <div class="offer-mockup">
+        <svg viewBox="0 0 400 300" fill="none" width="100%">
+          <rect x="10" y="10" width="380" height="280" rx="12" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <rect x="10" y="10" width="380" height="38" rx="12" fill="rgba(255,255,255,0.04)"/>
+          <rect x="10" y="36" width="380" height="12" fill="rgba(255,255,255,0.04)"/>
+          <circle cx="30" cy="29" r="5" fill="#E05C3A" opacity=".6"/>
+          <circle cx="46" cy="29" r="5" fill="#C9984A" opacity=".6"/>
+          <circle cx="62" cy="29" r="5" fill="#4A9A8A" opacity=".45"/>
+          <text x="100" y="33" font-size="10" fill="rgba(255,255,255,0.3)" font-family="monospace">Gestion Micro-Crèche — Sur mesure</text>
+          <!-- Header row -->
+          <rect x="20" y="58" width="370" height="24" rx="4" fill="rgba(224,92,58,0.1)" stroke="rgba(224,92,58,0.15)" stroke-width="1"/>
+          <text x="28" y="75" font-size="9" fill="rgba(224,92,58,0.8)" font-family="monospace" font-weight="bold">Enfant</text>
+          <text x="110" y="75" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">Heures contrat</text>
+          <text x="210" y="75" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">Heures réalisées</text>
+          <text x="320" y="75" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">Statut</text>
+          <!-- Data rows -->
+          <rect x="20" y="88" width="370" height="18" rx="2" fill="rgba(255,255,255,0.02)"/>
+          <text x="28" y="101" font-size="9" fill="rgba(255,255,255,0.7)" font-family="monospace">Emma Dupont</text>
+          <text x="130" y="101" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">40h</text>
+          <text x="225" y="101" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">38h</text>
+          <rect x="320" y="91" width="52" height="14" rx="7" fill="rgba(74,154,138,0.2)"/>
+          <text x="333" y="102" font-size="8" fill="#4A9A8A" font-family="monospace">✓ OK</text>
+          <rect x="20" y="112" width="370" height="18" rx="2" fill="rgba(201,152,74,0.04)"/>
+          <text x="28" y="125" font-size="9" fill="rgba(255,255,255,0.7)" font-family="monospace">Lucas Martin</text>
+          <text x="130" y="125" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">35h</text>
+          <text x="225" y="125" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">35h</text>
+          <rect x="320" y="115" width="52" height="14" rx="7" fill="rgba(74,154,138,0.2)"/>
+          <text x="333" y="126" font-size="8" fill="#4A9A8A" font-family="monospace">✓ OK</text>
+          <rect x="20" y="136" width="370" height="18" rx="2" fill="rgba(224,92,58,0.04)"/>
+          <text x="28" y="149" font-size="9" fill="rgba(255,255,255,0.7)" font-family="monospace">Léa Bernard</text>
+          <text x="130" y="149" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">40h</text>
+          <text x="225" y="149" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">42h</text>
+          <rect x="320" y="139" width="60" height="14" rx="7" fill="rgba(224,92,58,0.2)"/>
+          <text x="328" y="150" font-size="8" fill="#E05C3A" font-family="monospace">⚠ +2h sup</text>
+          <!-- Dashboard bottom -->
+          <rect x="20" y="168" width="175" height="58" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <text x="32" y="185" font-size="8.5" fill="rgba(255,255,255,0.35)" font-family="monospace">Taux d'occupation</text>
+          <rect x="32" y="192" width="148" height="7" rx="3.5" fill="rgba(255,255,255,0.05)"/>
+          <rect x="32" y="192" width="112" height="7" rx="3.5" fill="url(#pg1)"/>
+          <text x="32" y="218" font-size="9" fill="rgba(201,152,74,0.9)" font-family="monospace" font-weight="bold">76%</text>
+          <rect x="205" y="168" width="185" height="58" rx="8" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <text x="217" y="185" font-size="8.5" fill="rgba(255,255,255,0.35)" font-family="monospace">Facturation mois</text>
+          <text x="217" y="208" font-size="18" fill="rgba(224,92,58,0.85)" font-family="monospace" font-weight="bold">4 820 €</text>
+          <!-- Auto badge -->
+          <rect x="272" y="238" width="118" height="26" rx="8" fill="rgba(224,92,58,0.12)" stroke="rgba(224,92,58,0.28)" stroke-width="1"/>
+          <text x="290" y="256" font-size="10" fill="rgba(224,92,58,0.9)" font-family="monospace" font-weight="bold">⚡ Auto-calculé</text>
+          <defs><linearGradient id="pg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#E05C3A"/><stop offset="100%" stop-color="#C9984A"/></linearGradient></defs>
+        </svg>
+      </div>
     </div>
   </div>
 
-  <div class="hero-scroll">
-    <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
-    <span>Défiler</span>
+  <!-- Deliverables -->
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Ce qui est inclus</div><h2 class="s-title">Tout ce dont vous avez besoin, <em>rien de superflu</em></h2></div>
+      <div class="deliv-grid">
+        <div class="deliv-card reveal"><span class="deliv-icon">🔍</span><h3>Audit terrain offert</h3><p>45 minutes pour cartographier vos tâches chronophages et identifier les gains rapides avant toute construction.</p></div>
+        <div class="deliv-card reveal rd1"><span class="deliv-icon">📊</span><h3>Outil Sheets sur mesure</h3><p>Construit sur vos données réelles. Planning, RH, présences ou facturation selon vos besoins prioritaires identifiés à l'audit.</p></div>
+        <div class="deliv-card reveal rd2"><span class="deliv-icon">⚙️</span><h3>Installation & paramétrage</h3><p>Partage de fichier, droits configurés, raccourcis mobile, import de vos données existantes. Opérationnel immédiatement.</p></div>
+        <div class="deliv-card reveal rd3"><span class="deliv-icon">🎓</span><h3>Formation équipe (1h30)</h3><p>En présentiel ou visio. On fait faire, pas juste montrer. Toute l'équipe repart autonome dès la première session.</p></div>
+        <div class="deliv-card reveal rd4"><span class="deliv-icon">📄</span><h3>Guide PDF personnalisé</h3><p>Captures d'écran de VOTRE fichier, pas un guide générique. Votre équipe peut l'utiliser sans vous appeler.</p></div>
+        <div class="deliv-card reveal rd5"><span class="deliv-icon">🛡️</span><h3>30 jours de support</h3><p>Questions, ajustements, petites corrections — réponse sous 24h pendant 30 jours. Bilan de satisfaction à J+30.</p></div>
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- ── STATS ── -->
-<div id="stats">
-  <div class="stats-row">
-    <div class="stat-cell reveal">
-      <span class="stat-n"><span class="cnt" data-t="70">0</span><span class="suf">h</span></span>
-      <div class="stat-l">récupérées sur une seule mission</div>
+  <!-- Timeline -->
+  <div class="offer-section alt">
+    <div class="offer-section-inner">
+      <div class="reveal"><div class="s-tag">Déroulé de la mission</div><h2 class="s-title">De l'audit à la <em>livraison en 7 jours</em></h2></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:2rem">
+        <div class="timeline reveal">
+          <div class="tl-item"><div class="tl-left"><div class="tl-dot">01</div><div class="tl-line"></div></div><div class="tl-body"><h3>Audit de 45 min — offert</h3><p>Appel ou visite. 10 questions ciblées. On identifie le problème n°1 et les 2-3 priorités. Aucun engagement.</p><span class="tl-tag">J0 · Gratuit</span></div></div>
+          <div class="tl-item"><div class="tl-left"><div class="tl-dot">02</div><div class="tl-line"></div></div><div class="tl-body"><h3>Recueil & validation</h3><p>Vous envoyez vos fichiers existants. On cartographie les flux, on valide les priorités ensemble avant de construire.</p><span class="tl-tag">J1 · 30 min</span></div></div>
+          <div class="tl-item"><div class="tl-left"><div class="tl-dot">03</div><div class="tl-line"></div></div><div class="tl-body"><h3>Build de l'outil</h3><p>Construction en autonomie à partir de vos données. Structure, formules, protection, mise en forme conditionnelle.</p><span class="tl-tag">J2-J4 · 2-4h</span></div></div>
+          <div class="tl-item"><div class="tl-left"><div class="tl-dot">04</div><div class="tl-line"></div></div><div class="tl-body"><h3>Installation + formation</h3><p>Session de 1h30. On installe, configure, importe vos données et forme votre équipe en conditions réelles.</p><span class="tl-tag">J5 · 1h30</span></div></div>
+          <div class="tl-item"><div class="tl-left"><div class="tl-dot">05</div></div><div class="tl-body"><h3>30 jours de support inclus</h3><p>Questions, ajustements, corrections. À J+30 : appel bilan et proposition d'évolution si pertinent.</p><span class="tl-tag">J6 – J36</span></div></div>
+        </div>
+        <div style="background:var(--ink);border:1px solid var(--bd);border-radius:var(--r3);padding:2rem" class="reveal rd2">
+          <div class="s-tag">Modules disponibles</div>
+          <div style="display:flex;flex-direction:column;gap:.7rem;margin-top:.5rem">
+            <div style="display:flex;gap:.8rem;align-items:flex-start;padding:.85rem;background:var(--gl2);border-radius:var(--r);border:1px solid rgba(224,92,58,0.12)"><span style="font-size:1.1rem;flex-shrink:0">📅</span><div><div style="font-weight:600;font-size:.88rem;margin-bottom:.22rem">Planning & Présences</div><div style="color:var(--muted);font-size:.8rem">Planning hebdo, absences auto, taux d'encadrement</div></div></div>
+            <div style="display:flex;gap:.8rem;align-items:flex-start;padding:.85rem;background:var(--gl2);border-radius:var(--r);border:1px solid var(--bd)"><span style="font-size:1.1rem;flex-shrink:0">👥</span><div><div style="font-weight:600;font-size:.88rem;margin-bottom:.22rem">Suivi RH</div><div style="color:var(--muted);font-size:.8rem">Congés, contrats, heures sup, alertes échéances</div></div></div>
+            <div style="display:flex;gap:.8rem;align-items:flex-start;padding:.85rem;background:var(--gl2);border-radius:var(--r);border:1px solid var(--bd)"><span style="font-size:1.1rem;flex-shrink:0">👶</span><div><div style="font-weight:600;font-size:.88rem;margin-bottom:.22rem">Enfants & facturation</div><div style="color:var(--muted);font-size:.8rem">Présences, heures contractuelles vs réalisées, récap facturation</div></div></div>
+            <div style="display:flex;gap:.8rem;align-items:flex-start;padding:.85rem;background:var(--gl2);border-radius:var(--r);border:1px solid var(--bd)"><span style="font-size:1.1rem;flex-shrink:0">📊</span><div><div style="font-weight:600;font-size:.88rem;margin-bottom:.22rem">Dashboard de pilotage</div><div style="color:var(--muted);font-size:.8rem">KPIs auto, taux d'occupation, rapports mensuels</div></div></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="stat-cell reveal rd1">
-      <span class="stat-n"><span class="cnt" data-t="100">0</span><span class="suf">%</span></span>
-      <div class="stat-l">formations finançables OPCO</div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Tarification</div><h2 class="s-title">Simple, transparent, <em>sans surprise</em></h2></div>
+      <table class="price-table reveal" style="max-width:700px;margin-left:auto;margin-right:auto">
+        <thead><tr><th>Ce qui est inclus</th><th>Détail</th><th>Prix</th></tr></thead>
+        <tbody>
+          <tr class="featured"><td>Pack Clé en Main complet</td><td>Audit + outil sur mesure + installation + formation 1h30 + guide PDF + 30j support</td><td>490 €</td></tr>
+          <tr><td>Module supplémentaire</td><td>Ajout d'un onglet ou d'un module au fichier existant</td><td>90 – 150 €</td></tr>
+          <tr><td>Formation équipe supplémentaire</td><td>Session 1h pour nouveaux collaborateurs</td><td>80 €</td></tr>
+          <tr><td>Upsell automatisation</td><td>Tarif fidélité si client existant offre 1</td><td>550 € (vs 650€)</td></tr>
+        </tbody>
+      </table>
+      <div style="max-width:700px;margin:1.5rem auto 0;background:rgba(224,92,58,0.06);border:1px solid rgba(224,92,58,0.15);border-radius:var(--r2);padding:1.2rem 1.4rem" class="reveal">
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.75"><strong style="color:var(--text)">Justification du prix :</strong> 490€, c'est l'équivalent de 2 à 3 jours de gestion manuelle économisés par mois. Si l'outil vous fait gagner seulement 2h par semaine, il est rentabilisé en moins d'un mois — et après, c'est du pur bénéfice.</p>
+      </div>
     </div>
-    <div class="stat-cell reveal rd2">
-      <span class="stat-n"><span class="cnt" data-t="6">0</span></span>
-      <div class="stat-l">offres complémentaires</div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="offer-section alt">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Questions fréquentes</div><h2 class="s-title">Tout ce que vous voulez <em>savoir</em></h2></div>
+      <div class="faq">
+        <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)"><span>Faut-il être à l'aise avec Google Sheets pour utiliser l'outil ?</span></div><div class="faq-a"><p>Non. L'outil est conçu pour que votre équipe l'utilise sans compétences techniques. Les parties complexes sont protégées, et la formation d'1h30 suffit pour être autonome dès le premier jour.</p></div></div>
+        <div class="faq-item reveal rd1"><div class="faq-q" onclick="toggleFaq(this)"><span>L'outil fonctionne-t-il sur téléphone mobile ?</span></div><div class="faq-a"><p>Oui. Google Sheets fonctionne sur iOS et Android via l'application Google gratuite. On configure le raccourci sur l'écran d'accueil lors de la session d'installation.</p></div></div>
+        <div class="faq-item reveal rd2"><div class="faq-q" onclick="toggleFaq(this)"><span>Que se passe-t-il si j'ai besoin d'une modification après livraison ?</span></div><div class="faq-a"><p>Les 30 jours de support inclus couvrent toutes les corrections, ajustements et oublis. Au-delà, les modifications sont facturées 90-150€ selon la complexité — ou incluses dans l'abonnement GestionPro.</p></div></div>
+        <div class="faq-item reveal rd3"><div class="faq-q" onclick="toggleFaq(this)"><span>Pouvez-vous adapter l'outil à une structure qui n'est pas une micro-crèche ?</span></div><div class="faq-a"><p>Absolument. L'audit préalable permet d'adapter l'outil à n'importe quel type de structure : association, cabinet, TPE, artisan. Chaque outil est construit à partir de vos besoins spécifiques.</p></div></div>
+        <div class="faq-item reveal rd4"><div class="faq-q" onclick="toggleFaq(this)"><span>Combien de temps me prend l'audit de 45 min ?</span></div><div class="faq-a"><p>45 minutes exactement. On peut le faire en visio ou par téléphone. Pas de préparation requise de votre côté — juste répondre à nos questions honnêtement. C'est totalement gratuit et sans engagement.</p></div></div>
+      </div>
     </div>
-    <div class="stat-cell reveal rd3">
-      <span class="stat-n"><span class="cnt" data-t="30">0</span><span class="suf">j</span></span>
-      <div class="stat-l">de support inclus</div>
+  </div>
+
+  <!-- Related -->
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal"><div class="s-tag">Aller plus loin</div><h2 class="s-title">Les offres qui <em>complètent</em> ce pack</h2></div>
+      <div class="related-grid">
+        <a href="#offre-2" class="rel-card reveal rd1" onclick="navigate('offre-2')"><span class="rel-icon">⚡</span><h4>Automatisation Apps Script</h4><p>Automatisez les présences, la facturation et les alertes. Tarif fidélité client : 550€.</p></a>
+        <a href="#offre-6" class="rel-card reveal rd2" onclick="navigate('offre-6')"><span class="rel-icon">🔄</span><h4>Abonnement GestionPro</h4><p>Mises à jour trimestrielles et support continu. Dès 49€/mois.</p></a>
+        <a href="#offre-3" class="rel-card reveal rd3" onclick="navigate('offre-3')"><span class="rel-icon">📚</span><h4>Formation collective</h4><p>Former toutes vos équipes sur Google Sheets + IA. 190€/participant.</p></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="offer-sticky-cta">
+    <div class="label"><strong>Pack Gestion Clé en Main</strong> — 490 € · Livraison 7 jours · 30j support inclus</div>
+    <div class="actions">
+      <a href="mailto:contact@humantechrh.fr?subject=Audit gratuit Pack Clé en Main" class="btn-ghost" style="padding:.6rem 1.2rem;font-size:.83rem">Audit gratuit d'abord</a>
+      <a href="mailto:contact@humantechrh.fr?subject=Commande Pack Clé en Main 490€" class="btn-coral" style="padding:.6rem 1.2rem;font-size:.83rem">Démarrer ma mission →</a>
+    </div>
+  </div>
+</div><!-- end offre-1 -->
+
+<!-- ▓▓▓ OFFRE 2 — AUTOMATISATION ▓▓▓ -->
+<div class="page" id="page-offre-2">
+  <div class="offer-hero">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 80% 50%,rgba(61,142,255,.06),transparent);pointer-events:none"></div>
+    <div class="offer-hero-inner">
+      <div>
+        <button class="offer-back" onclick="navigate('home')">← Retour aux offres</button>
+        <div class="offer-badge" style="background:rgba(61,142,255,.08);border-color:rgba(61,142,255,.2);color:#3D8EFF">⚡ Offre 02 · Différenciatrice</div>
+        <h1 class="oh1">Automatisation<br><em>Apps Script</em></h1>
+        <p class="offer-desc">Scripts sur mesure qui connectent vos formulaires, génèrent vos documents et envoient vos emails automatiquement. Basé sur 70 heures économisées en conditions réelles chez Adeo.</p>
+        <div class="offer-price-badge"><span class="opb-price">350 – 2 000 €</span><span class="opb-note">selon complexité · documentation complète incluse</span></div>
+        <div class="offer-btns">
+          <a href="mailto:contact@humantechrh.fr?subject=Automatisation Apps Script" class="btn-coral">Discuter de mon projet →</a>
+          <a href="mailto:contact@humantechrh.fr?subject=Audit automatisation" class="btn-ghost">Audit gratuit</a>
+        </div>
+      </div>
+      <div class="offer-mockup">
+        <svg viewBox="0 0 400 300" fill="none" width="100%">
+          <!-- Flow diagram -->
+          <rect x="10" y="100" width="90" height="50" rx="8" fill="rgba(61,142,255,0.12)" stroke="rgba(61,142,255,0.25)" stroke-width="1"/>
+          <text x="55" y="122" font-size="9" fill="rgba(61,142,255,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">Google Form</text>
+          <text x="55" y="137" font-size="8" fill="rgba(61,142,255,0.5)" font-family="monospace" text-anchor="middle">Parent saisit</text>
+          <!-- Arrow 1 -->
+          <line x1="100" y1="125" x2="140" y2="125" stroke="rgba(224,92,58,0.6)" stroke-width="1.5" marker-end="url(#arr1)"/>
+          <text x="120" y="118" font-size="7.5" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">trigger</text>
+          <!-- Script box -->
+          <rect x="140" y="88" width="120" height="74" rx="8" fill="rgba(224,92,58,0.1)" stroke="rgba(224,92,58,0.3)" stroke-width="1.5"/>
+          <text x="200" y="110" font-size="9" fill="rgba(224,92,58,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">⚡ Apps Script</text>
+          <rect x="152" y="116" width="96" height="8" rx="2" fill="rgba(255,255,255,0.06)"/>
+          <rect x="152" y="128" width="72" height="8" rx="2" fill="rgba(255,255,255,0.06)"/>
+          <rect x="152" y="140" width="82" height="8" rx="2" fill="rgba(255,255,255,0.06)"/>
+          <text x="155" y="123" font-size="7" fill="rgba(255,255,255,0.3)" font-family="monospace">Lit données</text>
+          <text x="155" y="135" font-size="7" fill="rgba(255,255,255,0.3)" font-family="monospace">Traite logique</text>
+          <text x="155" y="148" font-size="7" fill="rgba(255,255,255,0.3)" font-family="monospace">Génère output</text>
+          <!-- Arrow 2 top -->
+          <line x1="260" y1="105" x2="310" y2="75" stroke="rgba(201,152,74,0.6)" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <!-- Sheets -->
+          <rect x="310" y="50" width="80" height="40" rx="6" fill="rgba(74,154,138,0.12)" stroke="rgba(74,154,138,0.25)" stroke-width="1"/>
+          <text x="350" y="68" font-size="9" fill="rgba(74,154,138,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">Sheets</text>
+          <text x="350" y="82" font-size="7.5" fill="rgba(74,154,138,0.5)" font-family="monospace" text-anchor="middle">mis à jour</text>
+          <!-- Arrow 2 mid -->
+          <line x1="260" y1="125" x2="310" y2="125" stroke="rgba(201,152,74,0.6)" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <!-- Gmail -->
+          <rect x="310" y="105" width="80" height="40" rx="6" fill="rgba(224,92,58,0.12)" stroke="rgba(224,92,58,0.25)" stroke-width="1"/>
+          <text x="350" y="123" font-size="9" fill="rgba(224,92,58,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">Gmail</text>
+          <text x="350" y="137" font-size="7.5" fill="rgba(224,92,58,0.5)" font-family="monospace" text-anchor="middle">email auto</text>
+          <!-- Arrow 2 bottom -->
+          <line x1="260" y1="145" x2="310" y2="170" stroke="rgba(201,152,74,0.6)" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <!-- Docs -->
+          <rect x="310" y="155" width="80" height="40" rx="6" fill="rgba(61,142,255,0.1)" stroke="rgba(61,142,255,0.2)" stroke-width="1"/>
+          <text x="350" y="173" font-size="9" fill="rgba(61,142,255,0.85)" font-family="monospace" text-anchor="middle" font-weight="bold">Docs PDF</text>
+          <text x="350" y="187" font-size="7.5" fill="rgba(61,142,255,0.45)" font-family="monospace" text-anchor="middle">généré auto</text>
+          <!-- ROI badge -->
+          <rect x="30" y="195" width="170" height="50" rx="8" fill="rgba(201,152,74,0.08)" stroke="rgba(201,152,74,0.2)" stroke-width="1"/>
+          <text x="115" y="215" font-size="9" fill="rgba(201,152,74,0.7)" font-family="monospace" text-anchor="middle">Référence Adeo Group</text>
+          <text x="115" y="233" font-size="14" fill="rgba(201,152,74,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">70h économisées</text>
+          <defs>
+            <marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 2L8 5L2 8" stroke="rgba(224,92,58,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/></marker>
+            <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 2L8 5L2 8" stroke="rgba(201,152,74,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/></marker>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Cas d'usage</div><h2 class="s-title">Ce qu'on peut automatiser <em>pour vous</em></h2></div>
+      <div class="deliv-grid">
+        <div class="deliv-card reveal"><span class="deliv-icon">📋</span><h3>Présences automatisées</h3><p>Parents remplissent un Form → données injectées dans le planning → calcul taux d'encadrement → alerte si seuil légal franchi → rapport PDF fin de journée.</p></div>
+        <div class="deliv-card reveal rd1"><span class="deliv-icon">📨</span><h3>Facturation mensuelle auto</h3><p>Le 1er du mois : script calcule les heures par enfant → génère un Doc facture personnalisé → envoie l'email aux parents → archive dans Drive. Temps humain : 0.</p></div>
+        <div class="deliv-card reveal rd2"><span class="deliv-icon">👥</span><h3>Pipeline RH automatisé</h3><p>Formulaire candidature → fiche créée automatiquement → email de confirmation → relance à J+7 si pas de réponse → dossier Drive à la signature.</p></div>
+        <div class="deliv-card reveal rd3"><span class="deliv-icon">📊</span><h3>Dashboard data stratégique</h3><p>Collecte multi-sources → consolidation Sheets → KPIs auto : taux d'occupation, charges/recettes, heures contractuelles vs réalisées. Rapport mensuel envoyé automatiquement.</p></div>
+        <div class="deliv-card reveal rd4"><span class="deliv-icon">🔔</span><h3>Alertes intelligentes</h3><p>Script nocturne : contrats expirant dans 30j → alerte. Taux d'occupation sous 80% → alerte. Facture impayée à J+15 → relance parent automatique.</p></div>
+        <div class="deliv-card reveal rd5"><span class="deliv-icon">🗂</span><h3>Documentation technique</h3><p>Chaque script livré avec dossier technique commenté, guide utilisateur, FAQ et schéma du process. Vous n'êtes jamais dépendants — vous comprenez ce que vous avez.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offer-section alt">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Tarification</div><h2 class="s-title">Grille tarifaire <em>par complexité</em></h2></div>
+      <table class="price-table reveal" style="max-width:800px;margin-left:auto;margin-right:auto">
+        <thead><tr><th>Type de mission</th><th>Exemple concret</th><th>Temps</th><th>Prix</th></tr></thead>
+        <tbody>
+          <tr><td>Automatisation simple</td><td>1 déclencheur → 1 action (ex: Form → email)</td><td>3-5h</td><td>350 – 500 €</td></tr>
+          <tr class="featured"><td>Automatisation intermédiaire</td><td>Form → Sheets → PDF → email parents</td><td>6-10h</td><td>600 – 900 €</td></tr>
+          <tr><td>Automatisation complexe</td><td>Multi-sources + dashboard + alertes + rapports</td><td>12-20h</td><td>1 000 – 2 000 €</td></tr>
+          <tr><td>Audit process & data</td><td>Cartographie flux + identification ROI max</td><td>3h</td><td>300 – 450 €</td></tr>
+          <tr><td>Maintenance mensuelle</td><td>Corrections + nouveaux triggers + support 48h</td><td>—</td><td>79 – 149 €/mois</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">FAQ</div><h2 class="s-title">Vos questions <em>sur l'automatisation</em></h2></div>
+      <div class="faq">
+        <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)"><span>Faut-il avoir Google Workspace payant ?</span></div><div class="faq-a"><p>Non. Apps Script est accessible avec un compte Google gratuit. Pour certaines fonctionnalités avancées (envoi d'emails au nom d'un domaine personnalisé), Google Workspace Business peut être nécessaire, mais l'essentiel fonctionne sans abonnement.</p></div></div>
+        <div class="faq-item reveal rd1"><div class="faq-q" onclick="toggleFaq(this)"><span>Que se passe-t-il si le script tombe en panne ?</span></div><div class="faq-a"><p>1 mois de maintenance est inclus dans chaque mission. En cas de bug, correction sous 48h. Au-delà, la maintenance mensuelle (79-149€/mois) couvre les corrections, mises à jour et support prioritaire.</p></div></div>
+        <div class="faq-item reveal rd2"><div class="faq-q" onclick="toggleFaq(this)"><span>Est-ce que mes données restent confidentielles ?</span></div><div class="faq-a"><p>Oui. Les scripts tournent dans votre propre compte Google — nous n'avons aucun accès à vos données après livraison. Le code vous appartient intégralement et est documenté pour que vous puissiez le modifier ou le confier à quelqu'un d'autre.</p></div></div>
+        <div class="faq-item reveal rd3"><div class="faq-q" onclick="toggleFaq(this)"><span>Peut-on commencer par une petite automatisation ?</span></div><div class="faq-a"><p>Absolument — c'est même recommandé. Une automatisation simple à 350-500€ permet de valider la valeur avant d'investir dans quelque chose de plus complexe. L'audit gratuit permet d'identifier quelle automatisation aura le meilleur ROI.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offer-section alt">
+    <div class="offer-section-inner">
+      <div class="reveal"><div class="s-tag">Offres complémentaires</div><h2 class="s-title">À combiner <em>avec l'automatisation</em></h2></div>
+      <div class="related-grid">
+        <a href="#offre-1" class="rel-card reveal rd1" onclick="navigate('offre-1')"><span class="rel-icon">🎯</span><h4>Pack Clé en Main</h4><p>Commencez par l'outil Sheets avant d'automatiser. Bundle disponible à 950€.</p></a>
+        <a href="#offre-6" class="rel-card reveal rd2" onclick="navigate('offre-6')"><span class="rel-icon">🔄</span><h4>Abonnement GestionPro Pro</h4><p>Maintenance mensuelle de vos scripts. Dès 99€/mois.</p></a>
+        <a href="#offre-4" class="rel-card reveal rd3" onclick="navigate('offre-4')"><span class="rel-icon">🏢</span><h4>Formation Équipe Apps Script</h4><p>Former vos équipes à comprendre et modifier leurs scripts.</p></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="offer-sticky-cta">
+    <div class="label"><strong>Automatisation Apps Script</strong> — 350 à 2 000 € · Documentation complète · 1 mois maintenance inclus</div>
+    <div class="actions">
+      <a href="mailto:contact@humantechrh.fr?subject=Audit automatisation" class="btn-ghost" style="padding:.6rem 1.2rem;font-size:.83rem">Audit gratuit</a>
+      <a href="mailto:contact@humantechrh.fr?subject=Projet automatisation Apps Script" class="btn-coral" style="padding:.6rem 1.2rem;font-size:.83rem">Discuter de mon projet →</a>
+    </div>
+  </div>
+</div><!-- end offre-2 -->
+
+<!-- ▓▓▓ OFFRES 3-6 : pages simplifiées mais complètes ▓▓▓ -->
+
+<!-- OFFRE 3 — FORMATION COLLECTIVE -->
+<div class="page" id="page-offre-3">
+  <div class="offer-hero" style="background:linear-gradient(180deg,rgba(74,154,138,0.08) 0%,var(--ink) 100%)">
+    <div class="offer-hero-inner">
+      <div>
+        <button class="offer-back" onclick="navigate('home')">← Retour aux offres</button>
+        <div class="offer-badge" style="background:rgba(74,154,138,.1);border-color:rgba(74,154,138,.25);color:var(--sage)">📚 Offre 03 · Formation</div>
+        <h1 class="oh1">Formation<br><em>Collective</em></h1>
+        <p class="offer-desc">Atelier de 3h en présentiel ou visio pour gérants de micro-crèches et TPE. Google Sheets + IA au quotidien. 6 à 10 participants maximum. Finançable OPCO Santé.</p>
+        <div class="offer-price-badge"><span class="opb-price">190 €</span><span class="opb-note">/ participant · 6 à 10 personnes · session de 3h</span></div>
+        <div class="offer-btns">
+          <a href="mailto:contact@humantechrh.fr?subject=Formation collective" class="btn-coral">Organiser une session →</a>
+          <a href="mailto:contact@humantechrh.fr?subject=Info formation collective" class="btn-ghost">Demander le programme</a>
+        </div>
+      </div>
+      <div class="offer-mockup">
+        <svg viewBox="0 0 400 280" fill="none" width="100%">
+          <rect x="20" y="20" width="360" height="240" rx="12" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <rect x="20" y="20" width="360" height="36" rx="12" fill="rgba(74,154,138,0.1)" stroke="rgba(74,154,138,0.15)" stroke-width="1"/>
+          <text x="200" y="42" font-size="11" fill="rgba(74,154,138,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">Programme — Gérez sans y penser</text>
+          <!-- Bloc 1 -->
+          <rect x="32" y="68" width="100" height="60" rx="7" fill="rgba(224,92,58,0.1)" stroke="rgba(224,92,58,0.2)" stroke-width="1"/>
+          <text x="82" y="90" font-size="9" fill="rgba(224,92,58,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">BLOC 1</text>
+          <text x="82" y="103" font-size="8" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">Diagnostic</text>
+          <text x="82" y="118" font-size="8" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">45 min</text>
+          <!-- Bloc 2 -->
+          <rect x="150" y="68" width="100" height="60" rx="7" fill="rgba(201,152,74,0.1)" stroke="rgba(201,152,74,0.2)" stroke-width="1"/>
+          <text x="200" y="90" font-size="9" fill="rgba(201,152,74,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">BLOC 2</text>
+          <text x="200" y="103" font-size="8" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">Outils Sheets</text>
+          <text x="200" y="118" font-size="8" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">1h15</text>
+          <!-- Bloc 3 -->
+          <rect x="268" y="68" width="100" height="60" rx="7" fill="rgba(74,154,138,0.1)" stroke="rgba(74,154,138,0.2)" stroke-width="1"/>
+          <text x="318" y="90" font-size="9" fill="rgba(74,154,138,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">BLOC 3</text>
+          <text x="318" y="103" font-size="8" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">IA pratique</text>
+          <text x="318" y="118" font-size="8" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">45 min</text>
+          <!-- Participants -->
+          <text x="200" y="162" font-size="9" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">Participants</text>
+          <circle cx="108" cy="185" r="14" fill="rgba(224,92,58,0.15)" stroke="rgba(224,92,58,0.3)" stroke-width="1"/>
+          <text x="108" y="189" font-size="9" fill="rgba(224,92,58,0.9)" font-family="monospace" text-anchor="middle">ML</text>
+          <circle cx="140" cy="185" r="14" fill="rgba(201,152,74,0.15)" stroke="rgba(201,152,74,0.3)" stroke-width="1"/>
+          <text x="140" y="189" font-size="9" fill="rgba(201,152,74,0.9)" font-family="monospace" text-anchor="middle">SB</text>
+          <circle cx="172" cy="185" r="14" fill="rgba(74,154,138,0.15)" stroke="rgba(74,154,138,0.3)" stroke-width="1"/>
+          <text x="172" y="189" font-size="9" fill="rgba(74,154,138,0.9)" font-family="monospace" text-anchor="middle">TP</text>
+          <circle cx="204" cy="185" r="14" fill="rgba(224,92,58,0.15)" stroke="rgba(224,92,58,0.3)" stroke-width="1"/>
+          <text x="204" y="189" font-size="9" fill="rgba(224,92,58,0.9)" font-family="monospace" text-anchor="middle">JD</text>
+          <circle cx="236" cy="185" r="14" fill="rgba(201,152,74,0.15)" stroke="rgba(201,152,74,0.3)" stroke-width="1"/>
+          <text x="236" y="189" font-size="9" fill="rgba(201,152,74,0.9)" font-family="monospace" text-anchor="middle">AL</text>
+          <circle cx="268" cy="185" r="14" fill="rgba(74,154,138,0.15)" stroke="rgba(74,154,138,0.3)" stroke-width="1"/>
+          <text x="268" y="189" font-size="9" fill="rgba(74,154,138,0.9)" font-family="monospace" text-anchor="middle">CR</text>
+          <rect x="60" y="215" width="280" height="24" rx="6" fill="rgba(74,154,138,0.1)" stroke="rgba(74,154,138,0.2)" stroke-width="1"/>
+          <text x="200" y="231" font-size="9" fill="rgba(74,154,138,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">✓ Finançable OPCO Santé — 100%</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Programme</div><h2 class="s-title">3h qui <em>changent tout</em></h2></div>
+      <div class="deliv-grid">
+        <div class="deliv-card reveal"><span class="deliv-icon">🔍</span><h3>Bloc 1 — Diagnostic (45 min)</h3><p>Cartographie des tâches répétitives de chaque participant. Identification des gains de temps potentiels concrets et chiffrés.</p></div>
+        <div class="deliv-card reveal rd1"><span class="deliv-icon">🛠</span><h3>Bloc 2 — Outils Sheets (1h15)</h3><p>Prise en main des templates prêts à l'emploi : planning, absences, RH, facturation. On travaille sur leurs propres données.</p></div>
+        <div class="deliv-card reveal rd2"><span class="deliv-icon">🤖</span><h3>Bloc 3 — IA pratique (45 min)</h3><p>ChatGPT pour rédiger des emails aux parents, résumer des réunions, créer des documents administratifs. Démonstration live.</p></div>
+        <div class="deliv-card reveal rd3"><span class="deliv-icon">📦</span><h3>Pack ressources inclus</h3><p>3 templates Google Sheets prêts à l'emploi + guide PDF "30 minutes de gestion en moins par jour" + accès aux slides de la session.</p></div>
+        <div class="deliv-card reveal rd4"><span class="deliv-icon">✅</span><h3>Attestation de formation</h3><p>Document officiel requis pour le financement OPCO. Feuille d'émargement + attestation individuelle de fin de formation remises systématiquement.</p></div>
+        <div class="deliv-card reveal rd5"><span class="deliv-icon">💳</span><h3>Financement OPCO Santé</h3><p>Finançable à 100% via OPCO Santé pour les structures petite enfance. On vous accompagne dans les démarches de financement.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section alt">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Tarification</div><h2 class="s-title">Transparent et <em>finançable</em></h2></div>
+      <table class="price-table reveal" style="max-width:680px;margin-left:auto;margin-right:auto">
+        <thead><tr><th>Session</th><th>Participants</th><th>Total session</th></tr></thead>
+        <tbody>
+          <tr><td>Session standard</td><td>6 participants</td><td>1 140 €</td></tr>
+          <tr class="featured"><td>Session optimale</td><td>8 participants</td><td>1 520 €</td></tr>
+          <tr><td>Session maximum</td><td>10 participants</td><td>1 900 €</td></tr>
+          <tr><td>Session sur site (déplacement inclus)</td><td>6-10 participants</td><td>+100 €</td></tr>
+          <tr><td>Session de suivi à J+30</td><td>Groupe existant</td><td>300 €</td></tr>
+        </tbody>
+      </table>
+      <div style="max-width:680px;margin:1.5rem auto 0;background:rgba(74,154,138,0.06);border:1px solid rgba(74,154,138,0.15);border-radius:var(--r2);padding:1.2rem 1.4rem" class="reveal">
+        <p style="font-size:.88rem;color:var(--muted);line-height:1.75"><strong style="color:var(--text)">Financement OPCO :</strong> Via OPCO Santé (structures petite enfance) ou votre OPCO de branche, le coût peut être totalement pris en charge. Nous vous accompagnons dans la constitution du dossier.</p>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">FAQ</div><h2 class="s-title">Questions <em>sur la formation</em></h2></div>
+      <div class="faq">
+        <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)"><span>Faut-il avoir un niveau technique pour participer ?</span></div><div class="faq-a"><p>Aucun niveau requis. La formation est conçue pour des non-techniciens. Le seul prérequis est d'avoir un compte Google (Gmail) et un ordinateur ou téléphone. Le reste est expliqué dès les premières minutes.</p></div></div>
+        <div class="faq-item reveal rd1"><div class="faq-q" onclick="toggleFaq(this)"><span>Peut-on organiser une session uniquement pour notre structure ?</span></div><div class="faq-a"><p>Oui. Les sessions intra-structure sont possibles dès 4 participants. C'est même recommandé : la formation sera calibrée sur vos outils et vos cas d'usage spécifiques.</p></div></div>
+        <div class="faq-item reveal rd2"><div class="faq-q" onclick="toggleFaq(this)"><span>Comment obtenir le financement OPCO ?</span></div><div class="faq-a"><p>On vous accompagne. Dès votre inscription, on vous communique les documents requis (programme, convention de formation) et la démarche à suivre auprès de votre OPCO. Le dossier prend en général 2-3 semaines.</p></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="offer-sticky-cta">
+    <div class="label"><strong>Formation collective</strong> — 190€/participant · 3h · Finançable OPCO</div>
+    <div class="actions">
+      <a href="mailto:contact@humantechrh.fr?subject=Programme formation collective" class="btn-ghost" style="padding:.6rem 1.2rem;font-size:.83rem">Recevoir le programme</a>
+      <a href="mailto:contact@humantechrh.fr?subject=Organisation session formation collective" class="btn-coral" style="padding:.6rem 1.2rem;font-size:.83rem">Organiser une session →</a>
     </div>
   </div>
 </div>
 
-<!-- ── SERVICES ── -->
-<section id="services">
-  <div class="services-head">
-    <div class="reveal">
-      <div class="s-tag">Nos offres</div>
-      <h2 class="s-title">Un outil<br>qui vous <em>ressemble</em></h2>
-    </div>
-    <p class="s-sub reveal rd1">Chaque structure est différente. Ses processus, ses équipes, ses contraintes le sont aussi. Nous construisons vos outils à partir de votre réalité terrain — pas des templates habillés.</p>
-  </div>
-
-  <div class="offer-grid">
-    <div class="offer-card reveal">
-      <div class="offer-num">01</div>
-      <span class="offer-icon">🎯</span>
-      <h3>Pack Gestion Clé en Main</h3>
-      <p>Audit de vos processus, construction d'un outil Google Sheets sur mesure, installation complète et formation de votre équipe. Livré en 7 jours, documenté, accompagné.</p>
-      <span class="tag tag-coral">490 € · One-shot</span>
-    </div>
-    <div class="offer-card ft reveal rd1">
-      <div class="offer-num">02</div>
-      <span class="offer-icon">⚡</span>
-      <h3>Automatisation sur mesure</h3>
-      <p>Connexion formulaires, génération auto de documents, envois d'emails, alertes intelligentes et tableaux de bord. Basé sur 70h économisées en conditions réelles.</p>
-      <span class="tag tag-coral">350 – 2 000 €</span>
-    </div>
-    <div class="offer-card reveal rd2">
-      <div class="offer-num">03</div>
-      <span class="offer-icon">🔄</span>
-      <h3>Abonnement GestionPro</h3>
-      <p>Vos outils évoluent avec vous. Mises à jour trimestrielles, maintenance des scripts, support sous 48h. Sans engagement, sans surprise.</p>
-      <span class="tag tag-gold">49 – 99 €/mois</span>
-    </div>
-    <div class="offer-card reveal rd3">
-      <div class="offer-num">04</div>
-      <span class="offer-icon">📚</span>
-      <h3>Formation collective</h3>
-      <p>Atelier 3h présentiel ou visio pour gérants de micro-crèches et TPE. Outils Google Sheets + IA au quotidien. 6 à 10 participants maximum.</p>
-      <span class="tag tag-sage">190 € / participant</span>
-    </div>
-    <div class="offer-card reveal rd4">
-      <div class="offer-num">05</div>
-      <span class="offer-icon">🏢</span>
-      <h3>Formation Entreprise B2B</h3>
-      <p>Modules intra-entreprise Google Sheets avancé, automatisation et IA. Programmes personnalisés, finançables OPCO à 100%. Groupes de 6 à 15 personnes.</p>
-      <span class="tag tag-coral">800 – 4 500 € · OPCO</span>
-    </div>
-    <div class="offer-card reveal rd5">
-      <div class="offer-num">06</div>
-      <span class="offer-icon">🎓</span>
-      <h3>Intervenant École supérieure</h3>
-      <p>Cours magistraux et ateliers pratiques IA, data et automatisation en écoles de commerce et management. Approche terrain, cas réels d'entreprises.</p>
-      <span class="tag tag-sage">60 – 120 €/h</span>
-    </div>
-  </div>
-</section>
-
-<!-- ── PROCESS ── -->
-<section id="process">
-  <div style="max-width:var(--maxw);margin:0 auto" class="reveal">
-    <div class="s-tag">Notre approche</div>
-    <h2 class="s-title">On écoute<br><em>avant de construire</em></h2>
-    <p class="s-sub" style="margin-top:.6rem">Pas de solution préfabriquée. Chaque mission commence par comprendre votre réalité — puis on construit, on installe, on forme et on reste.</p>
-  </div>
-  <div class="process-layout">
-    <div class="process-steps">
-      <div class="ps reveal"><div class="ps-n">01</div><div><h3>Audit terrain — offert</h3><p>45 minutes pour cartographier vos tâches chronophages et évaluer le potentiel de gain. Aucun engagement, diagnostic honnête.</p></div></div>
-      <div class="ps reveal rd1"><div class="ps-n">02</div><div><h3>Co-construction de l'outil</h3><p>Vous validez chaque choix. L'outil est bâti sur vos données réelles, avec votre vocabulaire, selon vos habitudes de travail.</p></div></div>
-      <div class="ps reveal rd2"><div class="ps-n">03</div><div><h3>Installation & formation</h3><p>On installe, configure les droits, forme vos équipes en faisant faire. Documentation complète remise systématiquement.</p></div></div>
-      <div class="ps reveal rd3"><div class="ps-n">04</div><div><h3>Accompagnement durable</h3><p>30 jours de support inclus, bilan à J+30, proposition d'évolution. On construit une relation, pas une transaction.</p></div></div>
-    </div>
-    <div class="process-visual reveal rd2">
-      <div class="pv-glow"></div>
-      <svg viewBox="0 0 360 270" fill="none" width="100%" style="position:relative;z-index:1">
-        <rect x="16" y="8" width="328" height="254" rx="12" fill="rgba(255,255,255,.025)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
-        <rect x="16" y="8" width="328" height="36" rx="12" fill="rgba(255,255,255,.04)"/>
-        <rect x="16" y="32" width="328" height="12" fill="rgba(255,255,255,.04)"/>
-        <circle cx="36" cy="26" r="5" fill="#E05C3A" opacity=".6"/>
-        <circle cx="52" cy="26" r="5" fill="#C9984A" opacity=".6"/>
-        <circle cx="68" cy="26" r="5" fill="#4A9A8A" opacity=".45"/>
-        <rect x="108" y="19" width="144" height="14" rx="7" fill="rgba(255,255,255,.05)"/>
-        <rect x="28" y="54" width="304" height="22" rx="4" fill="rgba(224,92,58,.09)" stroke="rgba(224,92,58,.14)" stroke-width="1"/>
-        <rect x="36" y="60" width="58" height="10" rx="3" fill="rgba(224,92,58,.28)"/>
-        <rect x="112" y="60" width="46" height="10" rx="3" fill="rgba(255,255,255,.1)"/>
-        <rect x="178" y="60" width="58" height="10" rx="3" fill="rgba(255,255,255,.1)"/>
-        <rect x="258" y="60" width="66" height="10" rx="3" fill="rgba(255,255,255,.1)"/>
-        <rect x="28" y="82"  width="304" height="16" rx="3" fill="rgba(255,255,255,.02)"/>
-        <rect x="28" y="104" width="304" height="16" rx="3" fill="rgba(201,152,74,.045)"/>
-        <rect x="28" y="126" width="304" height="16" rx="3" fill="rgba(255,255,255,.02)"/>
-        <rect x="28" y="148" width="304" height="16" rx="3" fill="rgba(255,255,255,.02)"/>
-        <rect x="36" y="86"  width="46" height="8" rx="2" fill="rgba(255,255,255,.16)"/>
-        <rect x="112" y="86" width="36" height="8" rx="2" fill="rgba(255,255,255,.08)"/>
-        <rect x="178" y="86" width="50" height="8" rx="2" fill="rgba(255,255,255,.08)"/>
-        <rect x="258" y="86" width="26" height="8" rx="2" fill="rgba(74,170,156,.5)"/>
-        <rect x="36" y="108" width="54" height="8" rx="2" fill="rgba(255,255,255,.16)"/>
-        <rect x="112" y="108" width="40" height="8" rx="2" fill="rgba(255,255,255,.08)"/>
-        <rect x="178" y="108" width="42" height="8" rx="2" fill="rgba(255,255,255,.08)"/>
-        <rect x="258" y="108" width="26" height="8" rx="2" fill="rgba(224,92,58,.38)"/>
-        <rect x="28" y="178" width="304" height="44" rx="8" fill="rgba(255,255,255,.025)" stroke="rgba(255,255,255,.055)" stroke-width="1"/>
-        <rect x="40" y="190" width="172" height="7" rx="3.5" fill="rgba(255,255,255,.04)"/>
-        <rect x="40" y="190" width="130" height="7" rx="3.5" fill="url(#pg)"/>
-        <text x="40" y="216" font-size="8.5" fill="rgba(255,255,255,.3)" font-family="monospace">Taux d'occupation · 76%</text>
-        <rect x="228" y="182" width="96" height="24" rx="7" fill="rgba(224,92,58,.13)" stroke="rgba(224,92,58,.28)" stroke-width="1"/>
-        <text x="244" y="198" font-size="9.5" fill="rgba(224,92,58,.88)" font-family="monospace" font-weight="bold">⚡ Automatisé</text>
-        <defs>
-          <linearGradient id="pg" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#E05C3A"/><stop offset="100%" stop-color="#C9984A"/>
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-  </div>
-</section>
-
-<!-- ── WHY ── -->
-<section id="why">
-  <div style="max-width:var(--maxw);margin:0 auto">
-    <div class="reveal">
-      <div class="s-tag">Nos engagements</div>
-      <h2 class="s-title">L'humain<br><em>d'abord</em></h2>
-      <p class="s-sub" style="margin-top:.6rem">La technologie n'a de valeur que si elle est adoptée. C'est pourquoi chaque outil est conçu avec vos équipes, pas imposé à elles.</p>
-    </div>
-  </div>
-  <div class="why-layout">
-    <div class="why-cards">
-      <div class="why-card reveal"><h3>🛠 Sur mesure, toujours</h3><p>Chaque outil est construit à partir de vos données réelles, de votre vocabulaire et de vos contraintes. Zéro template générique.</p></div>
-      <div class="why-card reveal rd1"><h3>📋 Documentation systématique</h3><p>Chaque livraison inclut dossier technique, guide utilisateur et FAQ. Vous n'êtes jamais dépendants — vous comprenez ce que vous avez.</p></div>
-      <div class="why-card reveal rd2"><h3>🤝 Accompagnement réel</h3><p>On forme vos équipes en faisant faire. On reste 30 jours après chaque mission. On vérifie que ça tourne vraiment.</p></div>
-      <div class="why-card reveal rd3"><h3>💳 Financements facilités</h3><p>Formations finançables OPCO, CPF, référencement OPCO Santé. Nous vous accompagnons dans les démarches de financement.</p></div>
-      <div class="why-card reveal rd4"><h3>🤖 IA intégrée à votre réalité</h3><p>ChatGPT, Gemini, automatisations Apps Script — l'IA est intégrée là où elle crée vraiment de la valeur pour vos process.</p></div>
-    </div>
-    <div class="reveal rd2">
-      <div class="proof-box">
-        <h3>La preuve par les faits</h3>
-        <div class="proof-stat"><span class="proof-stat-l">Heures gagnées · Mission Adeo</span><span class="proof-stat-v">70 h</span></div>
-        <div class="proof-stat"><span class="proof-stat-l">Délai de livraison moyen</span><span class="proof-stat-v">7 j</span></div>
-        <div class="proof-stat"><span class="proof-stat-l">Support post-livraison</span><span class="proof-stat-v">30 j</span></div>
-        <div class="proof-stat"><span class="proof-stat-l">Formations finançables OPCO</span><span class="proof-stat-v">100%</span></div>
-        <a href="#cta" class="btn-coral" style="width:100%;justify-content:center;margin-top:1.4rem">Réserver mon audit →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── TESTIMONIALS ── -->
-<section id="testimonials">
-  <div style="max-width:var(--maxw);margin:0 auto" class="tc reveal">
-    <div class="s-tag" style="justify-content:center">Ils en parlent</div>
-    <h2 class="s-title">Des partenaires<br><em>qui recommandent</em></h2>
-  </div>
-  <div class="testi-grid">
-    <div class="testi-card wide reveal">
+<!-- OFFRE 4 — FORMATION B2B -->
+<div class="page" id="page-offre-4">
+  <div class="offer-hero" style="background:linear-gradient(180deg,rgba(61,142,255,0.06) 0%,var(--ink) 100%)">
+    <div class="offer-hero-inner">
       <div>
-        <div class="t-badge tb-gold">✦ Lettre de recommandation officielle</div>
-        <blockquote>"Adam Mortreu a été un de nos plus grands ambassadeurs. Il était connu et reconnu pour ses qualités relationnelles, son sens du service, sa fiabilité et sa bonne humeur constante. C'était un étudiant très jovial, sympathique et leader dans sa classe. Nous avons eu grand plaisir à l'accompagner et surtout à le recommander à nos entreprises partenaires grâce à son excellent savoir être."</blockquote>
-        <div class="t-sig">
-          <div class="t-av av-c">FD</div>
-          <div><div class="t-name">Frédéric Daumont</div><div class="t-role">Directeur UFA · EPS IWIS Lille · Janvier 2025</div></div>
+        <button class="offer-back" onclick="navigate('home')">← Retour aux offres</button>
+        <div class="offer-badge" style="background:rgba(61,142,255,.08);border-color:rgba(61,142,255,.2);color:#3D8EFF">🏢 Offre 04 · Formation Entreprise</div>
+        <h1 class="oh1">Formation<br><em>Entreprise B2B</em></h1>
+        <p class="offer-desc">Modules intra-entreprise sur Google Sheets avancé, automatisation et IA. Programmes personnalisés basés sur vos données réelles. Finançables à 100% via votre OPCO.</p>
+        <div class="offer-price-badge"><span class="opb-price">800 – 4 500 €</span><span class="opb-note">par session · 6 à 15 participants · finançable OPCO</span></div>
+        <div class="offer-btns">
+          <a href="mailto:contact@humantechrh.fr?subject=Formation entreprise B2B" class="btn-coral">Demander un devis →</a>
+          <a href="mailto:contact@humantechrh.fr?subject=Programme formation B2B" class="btn-ghost">Recevoir les programmes</a>
         </div>
       </div>
-      <div class="quote-deco">"</div>
-    </div>
-
-    <div class="testi-card reveal rd1">
-      <div class="t-badge tb-gold">✦ Lettre de recommandation</div>
-      <blockquote>"Adam Mortreu a démontré un grand professionnalisme, une excellente disponibilité et une capacité d'adaptation remarquable. Son approche rigoureuse et créative nous a permis d'obtenir un site moderne et fonctionnel, parfaitement aligné avec nos besoins stratégiques."</blockquote>
-      <div class="t-sig">
-        <div class="t-av av-g">ND</div>
-        <div><div class="t-name">Nicolas Durand</div><div class="t-role">Directeur Général · All U Need · Mars 2025</div></div>
+      <div class="offer-mockup">
+        <svg viewBox="0 0 400 280" fill="none" width="100%">
+          <rect x="20" y="20" width="170" height="90" rx="10" fill="rgba(61,142,255,0.08)" stroke="rgba(61,142,255,0.18)" stroke-width="1"/>
+          <text x="105" y="50" font-size="10" fill="rgba(61,142,255,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">Module A</text>
+          <text x="105" y="66" font-size="8.5" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">Sheets Avancé</text>
+          <text x="105" y="86" font-size="9" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">Demi-journée</text>
+          <text x="105" y="100" font-size="9" fill="rgba(201,152,74,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">800 – 1 000 €</text>
+          <rect x="210" y="20" width="170" height="90" rx="10" fill="rgba(224,92,58,0.08)" stroke="rgba(224,92,58,0.18)" stroke-width="1"/>
+          <text x="295" y="50" font-size="10" fill="rgba(224,92,58,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">Module B</text>
+          <text x="295" y="66" font-size="8.5" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">Automatisation</text>
+          <text x="295" y="86" font-size="9" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">Journée complète</text>
+          <text x="295" y="100" font-size="9" fill="rgba(201,152,74,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">1 500 – 2 000 €</text>
+          <rect x="20" y="124" width="170" height="90" rx="10" fill="rgba(74,154,138,0.08)" stroke="rgba(74,154,138,0.18)" stroke-width="1"/>
+          <text x="105" y="154" font-size="10" fill="rgba(74,154,138,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">Module C</text>
+          <text x="105" y="170" font-size="8.5" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">IA & Productivité</text>
+          <text x="105" y="190" font-size="9" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">Demi-journée</text>
+          <text x="105" y="204" font-size="9" fill="rgba(201,152,74,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">800 – 1 200 €</text>
+          <rect x="210" y="124" width="170" height="90" rx="10" fill="rgba(201,152,74,0.08)" stroke="rgba(201,152,74,0.18)" stroke-width="1"/>
+          <text x="295" y="154" font-size="10" fill="rgba(201,152,74,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">Module D</text>
+          <text x="295" y="170" font-size="8.5" fill="rgba(255,255,255,0.45)" font-family="monospace" text-anchor="middle">Data & RH</text>
+          <text x="295" y="190" font-size="9" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">Journée complète</text>
+          <text x="295" y="204" font-size="9" fill="rgba(201,152,74,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">1 800 – 2 500 €</text>
+          <rect x="80" y="228" width="240" height="28" rx="8" fill="rgba(74,154,138,0.1)" stroke="rgba(74,154,138,0.2)" stroke-width="1"/>
+          <text x="200" y="246" font-size="9.5" fill="rgba(74,154,138,0.85)" font-family="monospace" text-anchor="middle" font-weight="bold">✓ 100% finançable OPCO</text>
+        </svg>
       </div>
     </div>
-
-    <div class="testi-card reveal rd2">
-      <div class="t-badge tb-coral">★★★★★</div>
-      <blockquote>"Au-delà de ses compétences techniques, Adam s'est distingué par son esprit d'équipe et sa capacité à travailler avec les différents acteurs du projet. Il sait écouter, proposer des solutions adaptées — ce qui en fait un interlocuteur de confiance."</blockquote>
-      <div class="t-sig">
-        <div class="t-av av-s">ND</div>
-        <div><div class="t-name">Nicolas Durand</div><div class="t-role">All U Need · EdTech consulting & Sales Training</div></div>
+  </div>
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Les 4 modules</div><h2 class="s-title">Des formations ancrées <em>dans la pratique</em></h2></div>
+      <div class="deliv-grid">
+        <div class="deliv-card reveal"><span class="deliv-icon">📊</span><h3>Module A — Sheets Avancé</h3><p>Formules avancées (INDEX/MATCH, QUERY), TCD, dashboards automatiques. Basé sur les données réelles de l'entreprise. Demi-journée.</p></div>
+        <div class="deliv-card reveal rd1"><span class="deliv-icon">⚡</span><h3>Module B — Automatisation</h3><p>Introduction Apps Script : déclencher, lire données, envoyer emails auto, générer documents. Cas d'usage réels de l'entreprise. Journée complète.</p></div>
+        <div class="deliv-card reveal rd2"><span class="deliv-icon">🤖</span><h3>Module C — IA & Productivité</h3><p>ChatGPT/Gemini dans le quotidien pro : rédaction, résumés, analyse data, emails. Zéro compétence technique requise. Demi-journée.</p></div>
+        <div class="deliv-card reveal rd3"><span class="deliv-icon">📈</span><h3>Module D — Data & Pilotage RH</h3><p>Tableau de bord RH opérationnel : absences, coûts, productivité, KPIs managériaux. Connecté aux données réelles. Journée complète.</p></div>
+        <div class="deliv-card reveal rd4"><span class="deliv-icon">🎁</span><h3>Pack Transformation Digitale</h3><p>Modules A+B+C en 2 jours. Audit process offert + tout sur données réelles + outil fonctionnel livré à la fin. 3 500 – 4 500€.</p></div>
+        <div class="deliv-card reveal rd5"><span class="deliv-icon">✅</span><h3>Livrables systématiques</h3><p>Pour chaque formation : attestation individuelle, feuille d'émargement, quiz de validation des acquis, plan d'action post-formation.</p></div>
       </div>
     </div>
   </div>
-
-  <div class="partners reveal">
-    <span class="p-logo">EPSI · WIS Lille</span>
-    <div style="width:1px;height:20px;background:var(--bd)"></div>
-    <span class="p-logo">All U Need.</span>
-    <div style="width:1px;height:20px;background:var(--bd)"></div>
-    <span class="p-logo">Adeo Group</span>
-  </div>
-</section>
-
-<!-- ── CTA ── -->
-<section id="cta">
-  <div class="cta-glow"></div>
-  <div class="cta-inner reveal">
-    <div class="s-tag" style="justify-content:center">Passons à l'action</div>
-    <h2 class="s-title">Votre premier outil<br><em>prêt en 7 jours</em></h2>
-    <p class="s-sub">Un audit de 45 minutes gratuit pour cartographier vos process, identifier les gains rapides et construire votre feuille de route. Sans engagement, sans jargon.</p>
-    <div class="cta-btns">
-      <a href="mailto:contact@humantechrh.fr" class="btn-coral">Réserver l'audit gratuit →</a>
-      <a href="#services" class="btn-ghost">Voir toutes les offres</a>
+  <div class="offer-section alt">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Tarification</div><h2 class="s-title">Finançable à 100% <em>via votre OPCO</em></h2></div>
+      <table class="price-table reveal" style="max-width:760px;margin-left:auto;margin-right:auto">
+        <thead><tr><th>Formation</th><th>Durée</th><th>Groupe</th><th>Prix</th></tr></thead>
+        <tbody>
+          <tr><td>Module seul (A ou C)</td><td>Demi-journée (3h)</td><td>6-12</td><td>800 – 1 200 €</td></tr>
+          <tr><td>Module seul (B ou D)</td><td>Journée (6h)</td><td>6-12</td><td>1 500 – 2 500 €</td></tr>
+          <tr class="featured"><td>Pack 2 modules</td><td>1,5 jour</td><td>6-15</td><td>2 200 – 3 200 €</td></tr>
+          <tr><td>Pack Transformation Digitale</td><td>2 jours</td><td>6-15</td><td>3 500 – 4 500 €</td></tr>
+          <tr><td>Formation sur mesure</td><td>Sur devis</td><td>Tout groupe</td><td>Dès 2 000 €</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
-</section>
+  <div class="offer-sticky-cta">
+    <div class="label"><strong>Formation Entreprise B2B</strong> — 800 à 4 500 € · Finançable OPCO · Intra-entreprise</div>
+    <div class="actions">
+      <a href="mailto:contact@humantechrh.fr?subject=Programme formation B2B" class="btn-ghost" style="padding:.6rem 1.2rem;font-size:.83rem">Recevoir les programmes</a>
+      <a href="mailto:contact@humantechrh.fr?subject=Devis formation B2B" class="btn-coral" style="padding:.6rem 1.2rem;font-size:.83rem">Demander un devis →</a>
+    </div>
+  </div>
+</div>
 
-<!-- ── FOOTER ── -->
+<!-- OFFRE 5 — INTERVENANT ÉCOLE -->
+<div class="page" id="page-offre-5">
+  <div class="offer-hero" style="background:linear-gradient(180deg,rgba(201,152,74,0.07) 0%,var(--ink) 100%)">
+    <div class="offer-hero-inner">
+      <div>
+        <button class="offer-back" onclick="navigate('home')">← Retour aux offres</button>
+        <div class="offer-badge" style="background:rgba(201,152,74,.1);border-color:rgba(201,152,74,.25);color:var(--gold)">🎓 Offre 05 · Enseignement</div>
+        <h1 class="oh1">Intervenant<br><em>École Supérieure</em></h1>
+        <p class="offer-desc">Cours magistraux et ateliers pratiques sur l'IA, la data et l'automatisation dans les écoles de commerce et de management. Approche terrain, 100% cas réels d'entreprises.</p>
+        <div class="offer-price-badge"><span class="opb-price">60 – 120 €</span><span class="opb-note">/ heure · Bachelor & Master</span></div>
+        <div class="offer-btns">
+          <a href="mailto:contact@humantechrh.fr?subject=Candidature intervenant école" class="btn-coral">Proposer une intervention →</a>
+          <a href="mailto:contact@humantechrh.fr?subject=Fiche de cours école" class="btn-ghost">Demander une fiche de cours</a>
+        </div>
+      </div>
+      <div class="offer-mockup">
+        <svg viewBox="0 0 400 280" fill="none" width="100%">
+          <rect x="20" y="20" width="360" height="240" rx="12" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <rect x="20" y="20" width="360" height="36" rx="12" fill="rgba(201,152,74,0.1)"/>
+          <text x="200" y="43" font-size="11" fill="rgba(201,152,74,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">IA & Automatisation · Bachelor 3 Management</text>
+          <text x="32" y="78" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">Séance 1</text>
+          <rect x="32" y="84" width="320" height="12" rx="3" fill="rgba(255,255,255,0.04)"/>
+          <rect x="32" y="84" width="180" height="12" rx="3" fill="rgba(201,152,74,0.2)"/>
+          <text x="32" y="113" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">Séance 3</text>
+          <rect x="32" y="119" width="320" height="12" rx="3" fill="rgba(255,255,255,0.04)"/>
+          <rect x="32" y="119" width="220" height="12" rx="3" fill="rgba(74,154,138,0.2)"/>
+          <text x="32" y="148" font-size="9" fill="rgba(255,255,255,0.5)" font-family="monospace">Projet tutoré</text>
+          <rect x="32" y="154" width="320" height="12" rx="3" fill="rgba(255,255,255,0.04)"/>
+          <rect x="32" y="154" width="260" height="12" rx="3" fill="rgba(224,92,58,0.2)"/>
+          <!-- School logos area -->
+          <rect x="32" y="185" width="72" height="32" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="68" y="206" font-size="8.5" fill="rgba(255,255,255,0.35)" font-family="monospace" text-anchor="middle">PIGIER</text>
+          <rect x="114" y="185" width="72" height="32" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="150" y="206" font-size="8.5" fill="rgba(255,255,255,0.35)" font-family="monospace" text-anchor="middle">ISCOD</text>
+          <rect x="196" y="185" width="72" height="32" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="232" y="206" font-size="8.5" fill="rgba(255,255,255,0.35)" font-family="monospace" text-anchor="middle">ESG</text>
+          <rect x="278" y="185" width="72" height="32" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <text x="314" y="206" font-size="8.5" fill="rgba(255,255,255,0.35)" font-family="monospace" text-anchor="middle">CFA</text>
+          <rect x="32" y="232" width="336" height="18" rx="5" fill="rgba(201,152,74,0.08)" stroke="rgba(201,152,74,0.18)" stroke-width="1"/>
+          <text x="200" y="245" font-size="8.5" fill="rgba(201,152,74,0.7)" font-family="monospace" text-anchor="middle">Cours basés sur cas réels d'entreprises · Praticien actif</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Cours proposés</div><h2 class="s-title">Des cours ancrés <em>dans le terrain</em></h2></div>
+      <div class="deliv-grid">
+        <div class="deliv-card reveal"><span class="deliv-icon">🤖</span><h3>IA & Automatisation des processus</h3><p>IA générative en contexte pro, automatisation no-code/low-code, Apps Script, Make. Cas d'usage réels. Bachelor 3 / Master 1-2.</p></div>
+        <div class="deliv-card reveal rd1"><span class="deliv-icon">📊</span><h3>Data & Tableaux de bord</h3><p>Collecte, nettoyage, visualisation avec Google Sheets et Looker Studio. KPIs RH et performance commerciale. Bachelor 2-3 / Master 1.</p></div>
+        <div class="deliv-card reveal rd2"><span class="deliv-icon">🔄</span><h3>Transformation digitale</h3><p>Implanter un outil numérique, accompagner les équipes, surmonter les résistances. Basé sur expérience terrain. Master 1-2 RH.</p></div>
+        <div class="deliv-card reveal rd3"><span class="deliv-icon">💼</span><h3>Projet tutoré entreprise</h3><p>Encadrement de groupes sur de vrais projets d'automatisation ou d'analyse data pour des entreprises clientes. Tous niveaux.</p></div>
+        <div class="deliv-card reveal rd4"><span class="deliv-icon">🏫</span><h3>Écoles cibles Hauts-de-France</h3><p>PIGIER Lille, ISCOD, Campus Pro, Fac des Métiers, ESAG, UCL modules pros, EDHEC, CFA Tertialis. Priorité aux structures locales.</p></div>
+        <div class="deliv-card reveal rd5"><span class="deliv-icon">🌱</span><h3>ROI pour votre activité</h3><p>"Intervenant à [école X]" sur LinkedIn triple votre taux de conversion B2B. Les réseaux école ouvrent sur leurs entreprises partenaires.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section alt">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Réalisme financier</div><h2 class="s-title">Volume et <em>revenus estimés</em></h2></div>
+      <table class="price-table reveal" style="max-width:700px;margin-left:auto;margin-right:auto">
+        <thead><tr><th>Scénario</th><th>Volume annuel</th><th>Tarif</th><th>Revenu annuel</th></tr></thead>
+        <tbody>
+          <tr><td>1 école, 1 module 15h</td><td>15h</td><td>80€/h</td><td>1 200 €</td></tr>
+          <tr><td>2 écoles, 2 modules 20h</td><td>40h</td><td>85€/h</td><td>3 400 €</td></tr>
+          <tr class="featured"><td>3 écoles, 3-4 modules</td><td>80h</td><td>90€/h</td><td>7 200 €</td></tr>
+          <tr><td>Intervenant régulier 4+ écoles</td><td>150h+</td><td>95€/h</td><td>14 250 €</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="offer-sticky-cta">
+    <div class="label"><strong>Intervenant École Supérieure</strong> — 60 à 120€/h · Bachelor & Master</div>
+    <div class="actions">
+      <a href="mailto:contact@humantechrh.fr?subject=Fiche de cours intervenant" class="btn-ghost" style="padding:.6rem 1.2rem;font-size:.83rem">Demander une fiche de cours</a>
+      <a href="mailto:contact@humantechrh.fr?subject=Proposition intervention école" class="btn-coral" style="padding:.6rem 1.2rem;font-size:.83rem">Proposer une intervention →</a>
+    </div>
+  </div>
+</div>
+
+<!-- OFFRE 6 — ABONNEMENT -->
+<div class="page" id="page-offre-6">
+  <div class="offer-hero" style="background:linear-gradient(180deg,rgba(201,152,74,0.06) 0%,var(--ink) 100%)">
+    <div class="offer-hero-inner">
+      <div>
+        <button class="offer-back" onclick="navigate('home')">← Retour aux offres</button>
+        <div class="offer-badge" style="background:rgba(201,152,74,.1);border-color:rgba(201,152,74,.25);color:var(--gold)">🔄 Offre 06 · Récurrent</div>
+        <h1 class="oh1">Abonnement<br><em>GestionPro</em></h1>
+        <p class="offer-desc">Vos outils évoluent avec vous. Mises à jour trimestrielles, maintenance des scripts, support sous 48h. Votre système reste toujours opérationnel — sans vous en préoccuper.</p>
+        <div class="offer-price-badge"><span class="opb-price">49 – 99 €</span><span class="opb-note">/mois · sans engagement · résiliable à tout moment</span></div>
+        <div class="offer-btns">
+          <a href="mailto:contact@humantechrh.fr?subject=Abonnement GestionPro" class="btn-coral">Souscrire à l'abonnement →</a>
+          <a href="mailto:contact@humantechrh.fr?subject=Info abonnement GestionPro" class="btn-ghost">En savoir plus</a>
+        </div>
+      </div>
+      <div class="offer-mockup">
+        <svg viewBox="0 0 400 280" fill="none" width="100%">
+          <!-- Essentiel card -->
+          <rect x="20" y="20" width="170" height="240" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <rect x="20" y="20" width="170" height="44" rx="12" fill="rgba(255,255,255,0.05)"/>
+          <rect x="20" y="52" width="170" height="12" fill="rgba(255,255,255,0.05)"/>
+          <text x="105" y="48" font-size="11" fill="rgba(255,255,255,0.7)" font-family="monospace" text-anchor="middle" font-weight="bold">Essentiel</text>
+          <text x="105" y="85" font-size="18" fill="var(--text)" font-family="monospace" text-anchor="middle" font-weight="bold">49€</text>
+          <text x="105" y="100" font-size="8.5" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">/mois</text>
+          <text x="32" y="122" font-size="8" fill="rgba(74,154,138,0.8)" font-family="monospace">✓ MAJ trimestrielles</text>
+          <text x="32" y="138" font-size="8" fill="rgba(74,154,138,0.8)" font-family="monospace">✓ Support 48h</text>
+          <text x="32" y="154" font-size="8" fill="rgba(74,154,138,0.8)" font-family="monospace">✓ Nouveaux templates</text>
+          <text x="32" y="170" font-size="8" fill="rgba(74,154,138,0.8)" font-family="monospace">✓ Bilan annuel 30min</text>
+          <text x="32" y="186" font-size="8" fill="rgba(255,255,255,0.2)" font-family="monospace">— Maintenance scripts</text>
+          <!-- Pro card -->
+          <rect x="210" y="10" width="170" height="260" rx="12" fill="rgba(224,92,58,0.08)" stroke="rgba(224,92,58,0.25)" stroke-width="1.5"/>
+          <rect x="210" y="10" width="170" height="44" rx="12" fill="rgba(224,92,58,0.15)"/>
+          <rect x="210" y="42" width="170" height="12" fill="rgba(224,92,58,0.15)"/>
+          <text x="295" y="38" font-size="11" fill="rgba(224,92,58,0.95)" font-family="monospace" text-anchor="middle" font-weight="bold">Pro</text>
+          <rect x="258" y="46" width="74" height="16" rx="8" fill="rgba(224,92,58,0.2)"/>
+          <text x="295" y="58" font-size="8" fill="rgba(224,92,58,0.8)" font-family="monospace" text-anchor="middle">⭐ Recommandé</text>
+          <text x="295" y="85" font-size="18" fill="var(--text)" font-family="monospace" text-anchor="middle" font-weight="bold">99€</text>
+          <text x="295" y="100" font-size="8.5" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">/mois</text>
+          <text x="222" y="122" font-size="8" fill="rgba(74,154,138,0.8)" font-family="monospace">✓ Tout Essentiel</text>
+          <text x="222" y="138" font-size="8" fill="rgba(74,154,138,0.8)" font-family="monospace">✓ Maintenance scripts</text>
+          <text x="222" y="154" font-size="8" fill="rgba(74,154,138,0.8)" font-family="monospace">✓ 1 auto simple/trim.</text>
+          <text x="222" y="170" font-size="8" fill="rgba(74,154,138,0.8)" font-family="monospace">✓ Support 24h prioritaire</text>
+          <text x="222" y="186" font-size="8" fill="rgba(74,154,138,0.8)" font-family="monospace">✓ Dashboard mensuel</text>
+          <text x="222" y="202" font-size="8" fill="rgba(74,154,138,0.8)" font-family="monospace">✓ Newsletter mensuelle</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Ce qui est inclus</div><h2 class="s-title">Deux paliers, <em>une seule promesse</em></h2></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem">
+        <div style="background:var(--ink3);border:1px solid var(--bd);border-radius:var(--r3);padding:2rem" class="reveal">
+          <div style="margin-bottom:1.2rem"><span style="font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700">Essentiel</span> <span style="font-family:'Fraunces',serif;font-size:1.3rem;color:var(--coral);margin-left:.5rem">49€/mois</span></div>
+          <p style="color:var(--muted);font-size:.85rem;margin-bottom:1.2rem">Pour les structures avec un outil Sheets (offre 1).</p>
+          <div style="display:flex;flex-direction:column;gap:.6rem;font-size:.85rem">
+            <div style="color:var(--sage)">✓ Mises à jour trimestrielles de l'outil</div>
+            <div style="color:var(--sage)">✓ Support par message sous 48h</div>
+            <div style="color:var(--sage)">✓ Accès aux nouveaux templates</div>
+            <div style="color:var(--sage)">✓ Bilan annuel 30 min</div>
+          </div>
+        </div>
+        <div style="background:rgba(224,92,58,0.06);border:1.5px solid rgba(224,92,58,0.22);border-radius:var(--r3);padding:2rem" class="reveal rd1">
+          <div style="margin-bottom:.5rem"><span style="font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700">Pro</span> <span style="font-family:'Fraunces',serif;font-size:1.3rem;color:var(--coral);margin-left:.5rem">99€/mois</span></div>
+          <div style="display:inline-block;background:rgba(224,92,58,.12);color:var(--coral);font-size:.72rem;font-weight:600;padding:.18rem .6rem;border-radius:50px;margin-bottom:1rem">⭐ Recommandé</div>
+          <p style="color:var(--muted);font-size:.85rem;margin-bottom:1.2rem">Pour les structures avec scripts AppScript (offre 2).</p>
+          <div style="display:flex;flex-direction:column;gap:.6rem;font-size:.85rem">
+            <div style="color:var(--sage)">✓ Tout l'Essentiel inclus</div>
+            <div style="color:var(--sage)">✓ Maintenance des scripts AppScript</div>
+            <div style="color:var(--sage)">✓ 1 automatisation simple/trimestre incluse</div>
+            <div style="color:var(--sage)">✓ Support prioritaire sous 24h</div>
+            <div style="color:var(--sage)">✓ Dashboard data mensuel</div>
+            <div style="color:var(--sage)">✓ Newsletter mensuelle d'astuces</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section alt">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Projection</div><h2 class="s-title">Ce que ça représente <em>sur 18 mois</em></h2></div>
+      <table class="price-table reveal" style="max-width:700px;margin-left:auto;margin-right:auto">
+        <thead><tr><th>Nombre d'abonnés</th><th>Mix Essentiel / Pro</th><th>Revenu mensuel récurrent</th></tr></thead>
+        <tbody>
+          <tr><td>5 abonnés</td><td>3 / 2</td><td>345 €/mois</td></tr>
+          <tr><td>15 abonnés</td><td>8 / 7</td><td>1 085 €/mois</td></tr>
+          <tr class="featured"><td>25 abonnés</td><td>15 / 10</td><td>1 725 €/mois</td></tr>
+          <tr><td>40 abonnés</td><td>25 / 15</td><td>2 710 €/mois</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="offer-sticky-cta">
+    <div class="label"><strong>Abonnement GestionPro</strong> — dès 49€/mois · Sans engagement · Résiliable à tout moment</div>
+    <div class="actions">
+      <a href="mailto:contact@humantechrh.fr?subject=Info abonnement GestionPro" class="btn-ghost" style="padding:.6rem 1.2rem;font-size:.83rem">En savoir plus</a>
+      <a href="mailto:contact@humantechrh.fr?subject=Souscription abonnement GestionPro" class="btn-coral" style="padding:.6rem 1.2rem;font-size:.83rem">Souscrire →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
-      <a href="#hero" class="logo" style="margin-bottom:0">
-        <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
-          <rect width="36" height="36" rx="9" fill="url(#nf)"/>
-          <rect x="8"  y="9"  width="3"   height="18" rx="1.4" fill="white" opacity=".95"/>
-          <rect x="8"  y="16.5" width="8.5" height="2.5" rx="1.2" fill="white" opacity=".95"/>
-          <rect x="13.5" y="9" width="3"   height="18" rx="1.4" fill="white" opacity=".95"/>
-          <rect x="19" y="9"  width="9"   height="2.5" rx="1.2" fill="white" opacity=".78"/>
-          <rect x="21.75" y="9" width="3" height="18" rx="1.4" fill="white" opacity=".78"/>
-          <defs><linearGradient id="nf" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#E05C3A"/><stop offset="100%" stop-color="#C9984A"/></linearGradient></defs>
-        </svg>
-        <div>
-          <span class="logo-name">HumanTech<em>RH</em></span>
-          <span class="logo-sub">Outils · IA & Automatisation · Formation</span>
-        </div>
+      <a href="#home" class="logo" onclick="navigate('home')" style="text-decoration:none">
+        <svg width="30" height="30" viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="9" fill="url(#nf)"/><rect x="8" y="9" width="3" height="18" rx="1.4" fill="white" opacity=".95"/><rect x="8" y="16.5" width="8.5" height="2.5" rx="1.2" fill="white" opacity=".95"/><rect x="13.5" y="9" width="3" height="18" rx="1.4" fill="white" opacity=".95"/><rect x="19" y="9" width="9" height="2.5" rx="1.2" fill="white" opacity=".78"/><rect x="21.75" y="9" width="3" height="18" rx="1.4" fill="white" opacity=".78"/><defs><linearGradient id="nf" x1="0" y1="0" x2="36" y2="36"><stop offset="0%" stop-color="#E05C3A"/><stop offset="100%" stop-color="#C9984A"/></linearGradient></defs></svg>
+        <div><span class="logo-name">HumanTech<em>RH</em></span><span class="logo-sub">Outils · IA & Automatisation · Formation</span></div>
       </a>
-      <p class="footer-brand-desc">Outils de gestion Google Workspace sur mesure, IA & automatisation, formation et accompagnement RH pour micro-crèches, TPE et PME des Hauts-de-France.</p>
+      <p class="fbdesc">Outils de gestion Google Workspace sur mesure, IA & automatisation, formation et accompagnement RH pour micro-crèches, TPE et PME des Hauts-de-France.</p>
     </div>
-    <div class="footer-col">
-      <h4>Offres</h4>
-      <a href="#services">Pack Clé en Main</a>
-      <a href="#services">Automatisation</a>
-      <a href="#services">Formation Entreprise</a>
-      <a href="#services">Abonnement</a>
+    <div class="fc"><h4>Nos offres</h4>
+      <a href="#offre-1" onclick="navigate('offre-1')">Pack Clé en Main</a>
+      <a href="#offre-2" onclick="navigate('offre-2')">Automatisation</a>
+      <a href="#offre-3" onclick="navigate('offre-3')">Formation collective</a>
+      <a href="#offre-4" onclick="navigate('offre-4')">Formation B2B</a>
+      <a href="#offre-5" onclick="navigate('offre-5')">Intervenant École</a>
+      <a href="#offre-6" onclick="navigate('offre-6')">Abonnement</a>
     </div>
-    <div class="footer-col">
-      <h4>À propos</h4>
-      <a href="#process">Notre approche</a>
-      <a href="#why">Nos engagements</a>
-      <a href="#testimonials">Témoignages</a>
-      <a href="#cta">Contact</a>
+    <div class="fc"><h4>À propos</h4>
+      <a href="#home" onclick="navigate('home')">Accueil</a>
+      <a href="#home" onclick="navigate('home');setTimeout(()=>document.getElementById('why')?.scrollIntoView({behavior:'smooth'}),300)">Engagements</a>
+      <a href="#home" onclick="navigate('home');setTimeout(()=>document.getElementById('testimonials')?.scrollIntoView({behavior:'smooth'}),300)">Témoignages</a>
     </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
+    <div class="fc"><h4>Contact</h4>
       <a href="mailto:contact@humantechrh.fr">contact@humantechrh.fr</a>
       <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-      <a href="#cta">Audit gratuit →</a>
+      <a href="mailto:contact@humantechrh.fr?subject=Audit gratuit">Audit gratuit →</a>
     </div>
   </div>
   <div class="footer-bot">
     <p>© 2025 HumanTechRH — Tous droits réservés · Hauts-de-France</p>
-    <div class="f-socials">
-      <a href="https://linkedin.com" class="soc" target="_blank">in</a>
-      <a href="mailto:contact@humantechrh.fr" class="soc">@</a>
-    </div>
+    <div class="fsoc"><a href="https://linkedin.com" class="soc" target="_blank">in</a><a href="mailto:contact@humantechrh.fr" class="soc">@</a></div>
   </div>
 </footer>
 
 </main>
 
 <script>
-/* ── TYPEWRITER ── */
+/* ═══ ROUTING ═══ */
+const pages=['home','offre-1','offre-2','offre-3','offre-4','offre-5','offre-6'];
+
+function navigate(id){
+  // Hide all
+  document.querySelectorAll('.page').forEach(p=>{
+    p.classList.remove('active','visible');
+  });
+  const target=document.getElementById('page-'+id);
+  if(!target)return;
+  window.scrollTo(0,0);
+  target.classList.add('active');
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      target.classList.add('visible');
+      initReveals();
+      initCounters();
+    });
+  });
+  window.location.hash=id==='home'?'':id;
+  closeMenu();
+}
+
+// Init on load from hash
+window.addEventListener('DOMContentLoaded',()=>{
+  const hash=window.location.hash.replace('#','');
+  navigate(pages.includes(hash)?hash:'home');
+});
+window.addEventListener('hashchange',()=>{
+  const hash=window.location.hash.replace('#','');
+  if(pages.includes(hash)) navigate(hash);
+});
+
+/* ═══ TYPEWRITER ═══ */
 const phrases=['sa mesure','vos équipes','votre secteur','vos besoins','votre réalité'];
 let pi=0,ci=0,del=false;
 function type(){
-  const el=document.getElementById('tw'), p=phrases[pi];
-  if(!del){ el.textContent=p.slice(0,++ci); if(ci===p.length){del=true;setTimeout(type,2000);return} }
-  else{ el.textContent=p.slice(0,--ci); if(ci===0){del=false;pi=(pi+1)%phrases.length;setTimeout(type,350);return} }
+  const el=document.getElementById('tw');
+  if(!el)return;
+  const p=phrases[pi];
+  if(!del){el.textContent=p.slice(0,++ci);if(ci===p.length){del=true;setTimeout(type,2000);return}}
+  else{el.textContent=p.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;setTimeout(type,350);return}}
   setTimeout(type,del?55:85);
 }
 setTimeout(type,900);
 
-/* ── NAV SCROLL ── */
-const nav=document.getElementById('navbar');
-window.addEventListener('scroll',()=> nav.classList.toggle('scrolled',window.scrollY>30),{passive:true});
+/* ═══ NAV SCROLL ═══ */
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>30),{passive:true});
 
-/* ── ACTIVE LINK ── */
-const secs=document.querySelectorAll('section[id],div[id]');
-const nLinks=document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  secs.forEach(s=>{ if(window.scrollY>=s.offsetTop-120) cur=s.id });
-  nLinks.forEach(a=> a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
-},{passive:true});
+/* ═══ SCROLL REVEALS ═══ */
+let ro;
+function initReveals(){
+  if(ro) ro.disconnect();
+  ro=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')});
+  },{threshold:.08});
+  document.querySelectorAll('.page.active .reveal').forEach(el=>{
+    el.classList.remove('vis');
+    ro.observe(el);
+  });
+}
 
-/* ── SCROLL REVEAL ── */
-const ro=new IntersectionObserver(e=>e.forEach(x=>{ if(x.isIntersecting) x.target.classList.add('vis') }),{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+/* ═══ COUNTERS ═══ */
+let co;
+function initCounters(){
+  if(co) co.disconnect();
+  co=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const el=e.target,t=+el.dataset.t;let c=0;
+        const s=t/50,i=setInterval(()=>{c=Math.min(c+s,t);el.textContent=Math.round(c);if(c>=t)clearInterval(i)},20);
+        co.unobserve(el);
+      }
+    });
+  },{threshold:.5});
+  document.querySelectorAll('.page.active .cnt').forEach(el=>co.observe(el));
+}
 
-/* ── COUNTERS ── */
-const co=new IntersectionObserver(e=>e.forEach(x=>{
-  if(x.isIntersecting){
-    const el=x.target, t=+el.dataset.t; let c=0;
-    const s=t/50, i=setInterval(()=>{ c=Math.min(c+s,t); el.textContent=Math.round(c); if(c>=t)clearInterval(i) },20);
-    co.unobserve(el);
-  }
-}),{threshold:.5});
-document.querySelectorAll('.cnt').forEach(el=>co.observe(el));
+/* ═══ FAQ ═══ */
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
 
-/* ── MOBILE MENU ── */
+/* ═══ MOBILE MENU ═══ */
 function toggleMenu(){
   document.getElementById('mobDrawer').classList.toggle('open');
   document.getElementById('hbg').classList.toggle('open');
@@ -1069,23 +1289,23 @@ function closeMenu(){
   document.getElementById('hbg').classList.remove('open');
 }
 
-/* ── CUSTOM CURSOR ── */
+/* ═══ CURSOR ═══ */
 (function(){
-  if(!matchMedia('(pointer:fine)').matches) return;
-  const dot=document.getElementById('cdot'), ring=document.getElementById('cring');
+  if(!matchMedia('(pointer:fine)').matches)return;
+  const dot=document.getElementById('cdot'),ring=document.getElementById('cring');
   let mx=0,my=0,rx=0,ry=0;
   const lerp=(a,b,t)=>a+(b-a)*t;
-  (function loop(){ rx=lerp(rx,mx,.13); ry=lerp(ry,my,.13); ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop) })();
-  document.addEventListener('mousemove',e=>{ mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px' },{passive:true});
+  (function loop(){rx=lerp(rx,mx,.13);ry=lerp(ry,my,.13);ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'},{passive:true});
   document.addEventListener('mousedown',()=>document.body.classList.add('cc'));
   document.addEventListener('mouseup',()=>document.body.classList.remove('cc'));
   document.addEventListener('mouseover',e=>{
-    const cl='a,button,.offer-card,.why-card,.testi-card,.ps,.stat-cell,.h-card';
+    const cl='a,button,.oc,.wc,.tcrd,.deliv-card,.rel-card,.sc,.hcard,.ps,.faq-item';
     document.body.classList.toggle('ch',!!e.target.closest(cl));
     document.body.classList.toggle('ct',!!e.target.closest('input,textarea'));
   },{passive:true});
-  document.addEventListener('mouseleave',()=>{ dot.style.opacity='0'; ring.style.opacity='0' });
-  document.addEventListener('mouseenter',()=>{ dot.style.opacity='1'; ring.style.opacity='1' });
+  document.addEventListener('mouseleave',()=>{dot.style.opacity='0';ring.style.opacity='0'});
+  document.addEventListener('mouseenter',()=>{dot.style.opacity='1';ring.style.opacity='1'});
 })();
 </script>
 </body>
