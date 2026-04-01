@@ -363,6 +363,8 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
   .related-grid{grid-template-columns:1fr 1fr}
   .deliv-grid{grid-template-columns:1fr 1fr}
   #approche>div{grid-template-columns:1fr!important;gap:2.5rem!important}
+  #why-top [style*="grid-template-columns:1.2fr"]{grid-template-columns:1fr!important}
+  #why-top [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr 1fr!important}
 }
 @media(max-width:768px){
   .nav-links{display:none}
@@ -377,6 +379,8 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
   .footer-grid{grid-template-columns:1fr 1fr}
   .deliv-grid{grid-template-columns:1fr}
   .related-grid{grid-template-columns:1fr}
+  #why-top [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important}
+  #services [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
 }
 @media(max-width:480px){
   .stats-grid{grid-template-columns:1fr 1fr}
@@ -411,12 +415,19 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
     <a href="#home" onclick="navigate('home')">Accueil</a>
     <div class="nav-dropdown">
       <a href="#">Nos offres</a>
-      <div class="dropdown-menu">
-        <a href="#offre-1" onclick="navigate('offre-1')"><span class="dm-icon">🎯</span>Pack Clé en Main</a>
-        <a href="#offre-2" onclick="navigate('offre-2')"><span class="dm-icon">⚡</span>Automatisation</a>
-        <a href="#offre-3" onclick="navigate('offre-3')"><span class="dm-icon">📚</span>Formation collective</a>
-        <a href="#offre-4" onclick="navigate('offre-4')"><span class="dm-icon">🏢</span>Formation B2B</a>
-        <a href="#offre-5" onclick="navigate('offre-5')"><span class="dm-icon">🎓</span>Intervenant École</a>
+      <div class="dropdown-menu" style="min-width:300px">
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);padding:.4rem .85rem .2rem;opacity:.8">TPE — 2 à 20 salariés</div>
+        <a href="#offre-1" onclick="navigate('offre-1')"><span class="dm-icon">🎯</span>Pack Gestion TPE</a>
+        <a href="#offre-2" onclick="navigate('offre-2')"><span class="dm-icon">⚡</span>Automatisation TPE</a>
+        <a href="#offre-3" onclick="navigate('offre-3')"><span class="dm-icon">📚</span>Formation TPE</a>
+        <div style="height:1px;background:var(--bd);margin:.4rem .85rem"></div>
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);padding:.4rem .85rem .2rem;opacity:.8">PME — 20 à 250 salariés</div>
+        <a href="#offre-pme-1" onclick="navigate('offre-pme-1')"><span class="dm-icon">🏗</span>Accompagnement PME</a>
+        <a href="#offre-pme-2" onclick="navigate('offre-pme-2')"><span class="dm-icon">⚙️</span>Automatisation PME</a>
+        <a href="#offre-pme-3" onclick="navigate('offre-pme-3')"><span class="dm-icon">🏢</span>Formation PME</a>
+        <div style="height:1px;background:var(--bd);margin:.4rem .85rem"></div>
+        <div style="font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);padding:.4rem .85rem .2rem;opacity:.8">Formation &amp; Enseignement</div>
+        <a href="#offre-5" onclick="navigate('offre-5')"><span class="dm-icon">🎓</span>Intervenant École supérieure</a>
         <a href="#offre-6" onclick="navigate('offre-6')"><span class="dm-icon">🔄</span>Abonnement GestionPro</a>
       </div>
     </div>
@@ -433,13 +444,17 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
 <!-- Mobile drawer -->
 <div class="mob-drawer" id="mobDrawer">
   <a href="#home" onclick="navigate('home');closeMenu()">Accueil</a>
-  <div class="mob-section">Nos offres</div>
-  <a href="#offre-1" onclick="navigate('offre-1');closeMenu()">🎯 Pack Clé en Main</a>
-  <a href="#offre-2" onclick="navigate('offre-2');closeMenu()">⚡ Automatisation</a>
-  <a href="#offre-3" onclick="navigate('offre-3');closeMenu()">📚 Formation collective</a>
-  <a href="#offre-4" onclick="navigate('offre-4');closeMenu()">🏢 Formation B2B</a>
-  <a href="#offre-5" onclick="navigate('offre-5');closeMenu()">🎓 Intervenant École</a>
-  <a href="#offre-6" onclick="navigate('offre-6');closeMenu()">🔄 Abonnement</a>
+  <div class="mob-section" style="color:var(--coral)">🏪 TPE — 2 à 20 salariés</div>
+  <a href="#offre-1"     onclick="navigate('offre-1');closeMenu()">🎯 Pack Gestion TPE</a>
+  <a href="#offre-2"     onclick="navigate('offre-2');closeMenu()">⚡ Automatisation TPE</a>
+  <a href="#offre-3"     onclick="navigate('offre-3');closeMenu()">📚 Formation TPE</a>
+  <div class="mob-section" style="color:var(--gold)">🏢 PME — 20 à 250 salariés</div>
+  <a href="#offre-pme-1" onclick="navigate('offre-pme-1');closeMenu()">🏗 Accompagnement PME</a>
+  <a href="#offre-pme-2" onclick="navigate('offre-pme-2');closeMenu()">⚙️ Automatisation PME</a>
+  <a href="#offre-pme-3" onclick="navigate('offre-pme-3');closeMenu()">🏢 Formation PME</a>
+  <div class="mob-section" style="color:var(--sage)">🎓 Formation &amp; Enseignement</div>
+  <a href="#offre-5"     onclick="navigate('offre-5');closeMenu()">🎓 Intervenant École supérieure</a>
+  <a href="#offre-6"     onclick="navigate('offre-6');closeMenu()">🔄 Abonnement GestionPro</a>
   <a href="mailto:contact@humantechrh.fr" class="mob-cta">Audit gratuit — 45 min →</a>
 </div>
 
@@ -451,23 +466,103 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
 
-  <div class="home-hero">
-    <div>
-      <div class="eyebrow"><div class="ed"></div>Outils sur mesure · IA & Automatisation · Formation · Accompagnement RH</div>
-      <h1 class="hh1">Des outils conçus<br><span class="l2">pour VOUS,</span><br><span class="ac">pas pour les autres.</span></h1>
-      <p class="hero-desc">HumanTechRH crée vos outils de gestion Google Workspace sur mesure, automatise vos processus grâce à l'IA et forme vos équipes pour que chaque structure dispose d'outils <span class="tw-pill"><span id="tw">sur-mesure</span></span>.</p>
-      <div class="hero-btns">
-        <a href="mailto:a.mortreupro@gmail.com" class="btn-coral">Audit gratuit de 45 min →</a>
-        <a href="#offre-1" class="btn-ghost" onclick="navigate('offre-1')">Voir les offres</a>
+  <!-- ══ SECTION OUVERTURE UNIFIÉE : Hero + WHY ══ -->
+  <section id="why-top" style="padding:clamp(4rem,8vw,6.5rem) clamp(1rem,4vw,2.5rem) clamp(3rem,6vw,5rem)">
+    <div style="max-width:var(--maxw);margin:0 auto">
+
+      <!-- Eyebrow -->
+      <div class="eyebrow reveal" style="margin-bottom:1.8rem">
+        <div class="ed"></div>TPE · PME · Outils sur mesure · IA &amp; Automatisation · Accompagnement RH
+      </div>
+
+      <!-- Hero 2 colonnes : texte gauche / stats droite -->
+      <div style="display:grid;grid-template-columns:1.2fr .8fr;align-items:start;gap:4rem;margin-bottom:4rem">
+
+        <!-- Gauche -->
+        <div>
+          <h1 class="hh1" style="font-size:clamp(2.8rem,6vw,5rem);margin-bottom:1.4rem">
+            Des outils conçus<br>
+            <span class="l2">pour VOUS,</span><br>
+            <span class="ac">pas pour les autres.</span>
+          </h1>
+          <p class="hero-desc" style="font-size:clamp(.95rem,1.5vw,1.1rem);margin-bottom:2.2rem">
+            HumanTechRH crée vos outils de gestion Google Workspace sur mesure, automatise vos processus grâce à l'IA et forme vos équipes — pour que chaque structure dispose d'outils à <span class="tw-pill"><span id="tw">sa mesure</span></span>.
+          </p>
+          <div class="hero-btns">
+            <a href="mailto:contact@humantechrh.fr" class="btn-coral">Audit gratuit de 45 min →</a>
+            <a href="#services" class="btn-ghost" onclick="document.getElementById('services')?.scrollIntoView({behavior:'smooth'})">Voir les offres</a>
+          </div>
+        </div>
+
+        <!-- Droite : stats cards -->
+        <div class="hero-cards" style="flex-direction:column;display:flex;gap:.75rem">
+          <div class="hcard"><div class="hcard-l">Heures récupérées</div><div class="hcard-v">70 h</div><div class="hcard-s">sur une seule mission</div><div class="hcard-bar"><div class="hcard-fill" style="width:95%;background:var(--coral)"></div></div></div>
+          <div class="hcard"><div class="hcard-l">Support inclus</div><div class="hcard-v">30 j</div><div class="hcard-s">après chaque livraison</div><div class="hcard-bar"><div class="hcard-fill" style="width:75%;background:var(--sage)"></div></div></div>
+          <div class="hcard"><div class="hcard-l">Délai de livraison</div><div class="hcard-v">7 j</div><div class="hcard-s">outil prêt en une semaine</div><div class="hcard-bar"><div class="hcard-fill" style="width:60%;background:var(--gold)"></div></div></div>
+        </div>
+      </div>
+
+      <!-- Séparateur visuel -->
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem" class="reveal">
+        <div style="height:1px;flex:1;background:var(--bd)"></div>
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap">Pourquoi HumanTechRH</span>
+        <div style="height:1px;flex:1;background:var(--bd)"></div>
+      </div>
+
+      <!-- WHY — 6 cartes intégrées -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border-radius:var(--r3);overflow:hidden" class="reveal rd1">
+
+        <div style="background:var(--ink2);padding:1.8rem">
+          <div style="font-size:1.6rem;margin-bottom:.7rem">⏱</div>
+          <h3 style="font-family:'Fraunces',serif;font-size:1rem;font-weight:600;margin-bottom:.45rem">Manque de temps</h3>
+          <p style="color:var(--muted);font-size:.83rem;line-height:1.65">6 à 10 heures par semaine perdues sur des saisies manuelles, des tableurs dépassés, des relances oubliées. Du temps volé à votre cœur de métier.</p>
+        </div>
+
+        <div style="background:var(--ink3);padding:1.8rem;position:relative">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--coral),transparent)"></div>
+          <div style="font-size:1.6rem;margin-bottom:.7rem">🤖</div>
+          <h3 style="font-family:'Fraunces',serif;font-size:1rem;font-weight:600;margin-bottom:.45rem">IA incomprise</h3>
+          <p style="color:var(--muted);font-size:.83rem;line-height:1.65">Tout le monde parle d'IA. Personne ne sait comment l'intégrer concrètement à ses outils de gestion, sans risque et sans budget de DSI.</p>
+        </div>
+
+        <div style="background:var(--ink2);padding:1.8rem">
+          <div style="font-size:1.6rem;margin-bottom:.7rem">🔧</div>
+          <h3 style="font-family:'Fraunces',serif;font-size:1rem;font-weight:600;margin-bottom:.45rem">Outils inadaptés</h3>
+          <p style="color:var(--muted);font-size:.83rem;line-height:1.65">Les SaaS coûtent cher et ne correspondent jamais à vos flux réels. Les Excel bricolés ne tiennent pas à l'échelle. Il manque quelque chose entre les deux.</p>
+        </div>
+
+        <div style="background:var(--ink2);padding:1.8rem">
+          <div style="font-size:1.6rem;margin-bottom:.7rem">📊</div>
+          <h3 style="font-family:'Fraunces',serif;font-size:1rem;font-weight:600;margin-bottom:.45rem">Données dispersées</h3>
+          <p style="color:var(--muted);font-size:.83rem;line-height:1.65">Les données vivent dans des fichiers, des emails et des têtes. Aucune vision d'ensemble. Aucune décision basée sur des chiffres fiables.</p>
+        </div>
+
+        <div style="background:var(--ink3);padding:1.8rem;position:relative">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)"></div>
+          <div style="font-size:1.6rem;margin-bottom:.7rem">🤝</div>
+          <h3 style="font-family:'Fraunces',serif;font-size:1rem;font-weight:600;margin-bottom:.45rem">Impossible à déléguer</h3>
+          <p style="color:var(--muted);font-size:.83rem;line-height:1.65">Sans outil structuré, tout repose sur 1 ou 2 personnes. Former un nouveau collaborateur prend des semaines. Chaque départ est une catastrophe.</p>
+        </div>
+
+        <div style="background:rgba(224,92,58,.06);padding:1.8rem;border:1px solid rgba(224,92,58,.12)">
+          <div style="font-size:1.6rem;margin-bottom:.7rem">💡</div>
+          <h3 style="font-family:'Fraunces',serif;font-size:1rem;font-weight:600;margin-bottom:.45rem;color:var(--coral)">Notre réponse</h3>
+          <p style="color:var(--muted);font-size:.83rem;line-height:1.65">Des outils construits sur vos flux réels, automatisés avec l'IA, documentés et adoptés par vos équipes. Sur Google Workspace que vous avez déjà.</p>
+          <div style="display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap">
+            <a href="#cible-tpe" class="btn-coral" style="padding:.5rem 1rem;font-size:.8rem" onclick="document.getElementById('cible-tpe').scrollIntoView({behavior:'smooth'})">TPE →</a>
+            <a href="#cible-pme" class="btn-ghost" style="padding:.5rem 1rem;font-size:.8rem" onclick="document.getElementById('cible-pme').scrollIntoView({behavior:'smooth'})">PME →</a>
+          </div>
+        </div>
+
       </div>
     </div>
-    <div class="hero-cards">
-      <div class="hcard"><div class="hcard-l">Heures récupérées</div><div class="hcard-v">70 h</div><div class="hcard-s">sur une seule mission</div><div class="hcard-bar"><div class="hcard-fill" style="width:95%;background:var(--coral)"></div></div></div>
-      <div class="hcard"><div class="hcard-l">Financement OPCO</div><div class="hcard-v">100%</div><div class="hcard-s">formations prises en charge</div><div class="hcard-bar"><div class="hcard-fill" style="width:100%;background:var(--gold)"></div></div></div>
-      <div class="hcard"><div class="hcard-l">Support inclus</div><div class="hcard-v">30 j</div><div class="hcard-s">après chaque livraison</div><div class="hcard-bar"><div class="hcard-fill" style="width:75%;background:var(--sage)"></div></div></div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll" style="position:relative;bottom:auto;left:auto;transform:none;margin-top:3rem">
+      <div class="sm"><div class="sw"></div></div>
+      <span>Défiler</span>
     </div>
-    <div class="hero-scroll"><div class="sm"><div class="sw"></div></div><span>Défiler</span></div>
-  </div>
+  </section>
 
   <!-- Stats -->
   <div class="stats-bar">
@@ -482,18 +577,117 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
   <!-- Offers -->
   <section id="services" style="background:var(--ink)">
     <div class="offers-intro">
-      <div class="reveal"><div class="s-tag">Nos offres</div><h2 class="s-title">Un outil qui vous <em>ressemble</em></h2></div>
-      <p class="s-sub reveal rd1">Chaque structure est différente. Ses processus, ses équipes, ses contraintes le sont aussi. Nous construisons vos outils à partir de votre réalité terrain.</p>
+      <div class="reveal"><div class="s-tag">Nos offres</div><h2 class="s-title">Structuré pour <em>votre réalité</em></h2></div>
+      <p class="s-sub reveal rd1">Chaque offre TPE a son équivalent PME — même logique, même qualité, périmètre et complexité adaptés. Les formations couvrent les deux, ainsi que l'enseignement supérieur.</p>
     </div>
-    <div class="offers-grid">
-      <a href="#offre-1" class="oc reveal" onclick="navigate('offre-1')"><div class="on">01</div><span class="oi">🎯</span><h3>Pack Gestion Clé en Main</h3><p>Audit, outil Sheets sur mesure, installation, formation équipe. Livré en 7 jours, documenté, accompagné.</p><span class="tag tc">490 € · One-shot</span></a>
-      <a href="#offre-2" class="oc ft reveal rd1" onclick="navigate('offre-2')"><div class="on">02</div><span class="oi">⚡</span><h3>Automatisation Apps Script</h3><p>Connexion formulaires, génération auto de documents, alertes intelligentes. Basé sur 70h économisées réelles.</p><span class="tag tc">350 – 2 000 €</span></a>
-      <a href="#offre-3" class="oc reveal rd2" onclick="navigate('offre-3')"><div class="on">03</div><span class="oi">📚</span><h3>Formation collective</h3><p>Atelier 3h présentiel ou visio. Outils Sheets + IA au quotidien. 6 à 10 participants max.</p><span class="tag ts">190 € / participant</span></a>
-      <a href="#offre-4" class="oc reveal rd3" onclick="navigate('offre-4')"><div class="on">04</div><span class="oi">🏢</span><h3>Formation Entreprise B2B</h3><p>Modules intra-entreprise, finançables OPCO à 100%. Groupes de 6 à 15 collaborateurs.</p><span class="tag tc">800 – 4 500 € · OPCO</span></a>
-      <a href="#offre-5" class="oc reveal rd4" onclick="navigate('offre-5')"><div class="on">05</div><span class="oi">🎓</span><h3>Intervenant École supérieure</h3><p>Cours magistraux et ateliers IA, data et automatisation dans les écoles de commerce.</p><span class="tag ts">60 – 120 €/h</span></a>
-      <a href="#offre-6" class="oc reveal rd5" onclick="navigate('offre-6')"><div class="on">06</div><span class="oi">🔄</span><h3>Abonnement GestionPro</h3><p>Mises à jour trimestrielles, maintenance scripts, support 48h. Sans engagement.</p><span class="tag tg">49 – 99 €/mois</span></a>
+
+    <!-- ── BLOC TPE ── -->
+    <div id="cible-tpe" style="max-width:var(--maxw);margin:0 auto 2.5rem">
+      <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem" class="reveal">
+        <div style="height:1px;flex:1;background:var(--bd)"></div>
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);white-space:nowrap">🏪 TPE · 2 à 20 salariés</span>
+        <div style="height:1px;flex:1;background:var(--bd)"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border-radius:var(--r3);overflow:hidden">
+        <a href="#offre-1" class="oc ft reveal" onclick="navigate('offre-1')">
+          <div class="on">T1</div><span class="oi">🎯</span>
+          <h3>Pack Gestion TPE</h3>
+          <p>Audit terrain 1 journée, questionnaire pré-rempli, outil Sheets sur mesure, installation et formation de votre équipe. Livré en 7 jours, documenté, accompagné 30j.</p>
+          <span class="tag tc">Porte d'entrée · One-shot</span>
+        </a>
+        <a href="#offre-2" class="oc reveal rd1" onclick="navigate('offre-2')">
+          <div class="on">T2</div><span class="oi">⚡</span>
+          <h3>Automatisation TPE</h3>
+          <p>Scripts Apps Script sur mesure : formulaires connectés, emails automatiques, génération de documents, alertes. Basé sur vos processus réels.</p>
+          <span class="tag tc">Gain de temps immédiat</span>
+        </a>
+        <a href="#offre-3" class="oc reveal rd2" onclick="navigate('offre-3')">
+          <div class="on">T3</div><span class="oi">📚</span>
+          <h3>Formation TPE</h3>
+          <p>Atelier 3h en présentiel ou visio. Google Sheets + IA au quotidien. 6 à 10 participants. Pour vos équipes, à votre rythme, sur vos données réelles.</p>
+          <span class="tag ts">Formation · Groupe</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── BLOC PME ── -->
+    <div id="cible-pme" style="max-width:var(--maxw);margin:0 auto 2.5rem">
+      <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem" class="reveal">
+        <div style="height:1px;flex:1;background:var(--bd)"></div>
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);white-space:nowrap">🏢 PME · 20 à 250 salariés</span>
+        <div style="height:1px;flex:1;background:var(--bd)"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border-radius:var(--r3);overflow:hidden">
+        <a href="#offre-pme-1" class="oc ft reveal" onclick="navigate('offre-pme-1')">
+          <div class="on">P1</div><span class="oi">🏗</span>
+          <h3>Accompagnement PME</h3>
+          <p>Audit approfondi 2-3 jours, multi-services, cartographie des flux de données, construction d'une architecture d'outils complète, déploiement par phases.</p>
+          <span class="tag tg">Transformation digitale</span>
+        </a>
+        <a href="#offre-pme-2" class="oc reveal rd1" onclick="navigate('offre-pme-2')">
+          <div class="on">P2</div><span class="oi">⚙️</span>
+          <h3>Automatisation PME</h3>
+          <p>Architectures complexes multi-sources, dashboards de pilotage, alertes réglementaires, rapports automatiques direction. Accompagnement équipes inclus.</p>
+          <span class="tag tg">Haute valeur · Multi-équipes</span>
+        </a>
+        <a href="#offre-pme-3" class="oc reveal rd2" onclick="navigate('offre-pme-3')">
+          <div class="on">P3</div><span class="oi">🎓</span>
+          <h3>Formation PME</h3>
+          <p>Modules intra-entreprise personnalisés : Sheets avancé, Apps Script, IA & productivité, Data & pilotage RH. Programmes construits sur vos données réelles.</p>
+          <span class="tag tg">Intra-entreprise · Sur mesure</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── ABONNEMENT (commun TPE + PME) ── -->
+    <div style="max-width:var(--maxw);margin:0 auto 2.5rem">
+      <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem" class="reveal">
+        <div style="height:1px;flex:1;background:var(--bd)"></div>
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap">🔄 Suivi continu · TPE &amp; PME</span>
+        <div style="height:1px;flex:1;background:var(--bd)"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:1px;background:var(--bd);border-radius:var(--r3);overflow:hidden">
+        <a href="#offre-6" class="oc reveal" onclick="navigate('offre-6')" style="display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.5rem;padding:1.5rem 2rem">
+          <span style="font-size:2rem">🔄</span>
+          <div>
+            <h3 style="margin-bottom:.35rem">Abonnement GestionPro</h3>
+            <p style="margin:0">Mises à jour trimestrielles de vos outils, maintenance de vos scripts, support sous 48h. Deux paliers : Essentiel (TPE) et Pro (PME avec scripts). Sans engagement.</p>
+          </div>
+          <span class="tag tg" style="white-space:nowrap;align-self:flex-start">Essentiel · Pro</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── FORMATION & ÉCOLES ── -->
+    <div style="max-width:var(--maxw);margin:0 auto">
+      <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem" class="reveal">
+        <div style="height:1px;flex:1;background:var(--bd)"></div>
+        <span style="font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);white-space:nowrap">🎓 Formation &amp; Enseignement</span>
+        <div style="height:1px;flex:1;background:var(--bd)"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border-radius:var(--r3);overflow:hidden">
+        <a href="#offre-3" class="oc reveal" onclick="navigate('offre-3')">
+          <div class="on">F1</div><span class="oi">📚</span>
+          <h3>Formation TPE</h3>
+          <p>Atelier 3h pour gérants et équipes de TPE. Google Sheets + IA pratique. Sur vos outils existants. 6 à 10 participants. Présentiel ou visio.</p>
+          <span class="tag ts">TPE · Groupe · 3h</span>
+        </a>
+        <a href="#offre-4" class="oc ft reveal rd1" onclick="navigate('offre-4')">
+          <div class="on">F2</div><span class="oi">🏢</span>
+          <h3>Formation PME</h3>
+          <p>Modules intra-entreprise sur mesure : Sheets avancé, automatisation, IA & productivité, data RH. Construits sur vos données réelles. Groupes de 6 à 15 personnes.</p>
+          <span class="tag ts">PME · Intra · Multi-modules</span>
+        </a>
+        <a href="#offre-5" class="oc reveal rd2" onclick="navigate('offre-5')">
+          <div class="on">F3</div><span class="oi">🎓</span>
+          <h3>Intervenant École Supérieure</h3>
+          <p>Cours magistraux et ateliers pratiques IA, data et automatisation. Bachelor & Master. Approche terrain, 100% cas réels. Hauts-de-France priorité.</p>
+          <span class="tag ts">Écoles · Bachelor &amp; Master</span>
+        </a>
+      </div>
     </div>
   </section>
+
 
   <!-- Why -->
   <!-- ── NOTRE APPROCHE avec carousel dashboards ── -->
@@ -1484,6 +1678,250 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
   </div>
 </div>
 
+<!-- ▓▓▓ OFFRE PME 1 — ACCOMPAGNEMENT PME ▓▓▓ -->
+<div class="page" id="page-offre-pme-1">
+  <div class="offer-hero" style="background:linear-gradient(180deg,rgba(201,152,74,0.07) 0%,var(--ink) 100%)">
+    <div class="offer-hero-inner">
+      <div>
+        <button class="offer-back" onclick="navigate('home')">← Retour aux offres</button>
+        <div class="offer-badge" style="background:rgba(201,152,74,.1);border-color:rgba(201,152,74,.25);color:var(--gold)">🏗 PME · Offre P1 · Transformation</div>
+        <h1 class="oh1">Accompagnement<br><em>PME sur mesure</em></h1>
+        <p class="offer-desc">Audit approfondi 2 à 3 jours, cartographie complète de vos flux de données, architecture d'outils construite avec vos équipes et déployée par phases. Accompagnement de bout en bout.</p>
+        <div class="offer-price-badge"><span class="opb-price">Sur devis</span><span class="opb-note">audit inclus · déploiement par phases · suivi trimestriel</span></div>
+        <div class="offer-btns">
+          <a href="mailto:contact@humantechrh.fr?subject=Accompagnement PME" class="btn-coral">Demander un audit →</a>
+          <a href="mailto:contact@humantechrh.fr?subject=Info accompagnement PME" class="btn-ghost">En savoir plus</a>
+        </div>
+      </div>
+      <div class="offer-mockup">
+        <svg viewBox="0 0 400 300" fill="none" width="100%">
+          <rect x="16" y="16" width="368" height="268" rx="12" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <text x="200" y="50" font-size="11" fill="rgba(201,152,74,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">Architecture PME — Cartographie des flux</text>
+          <!-- Service boxes -->
+          <rect x="30" y="70" width="80" height="36" rx="7" fill="rgba(224,92,58,0.12)" stroke="rgba(224,92,58,0.25)" stroke-width="1"/>
+          <text x="70" y="93" font-size="9" fill="rgba(224,92,58,0.85)" font-family="monospace" text-anchor="middle" font-weight="bold">RH</text>
+          <rect x="160" y="70" width="80" height="36" rx="7" fill="rgba(201,152,74,0.12)" stroke="rgba(201,152,74,0.25)" stroke-width="1"/>
+          <text x="200" y="93" font-size="9" fill="rgba(201,152,74,0.85)" font-family="monospace" text-anchor="middle" font-weight="bold">Finance</text>
+          <rect x="290" y="70" width="80" height="36" rx="7" fill="rgba(74,154,138,0.12)" stroke="rgba(74,154,138,0.25)" stroke-width="1"/>
+          <text x="330" y="93" font-size="9" fill="rgba(74,154,138,0.85)" font-family="monospace" text-anchor="middle" font-weight="bold">Ops</text>
+          <!-- Arrows down -->
+          <line x1="70" y1="106" x2="70" y2="140" stroke="rgba(224,92,58,0.4)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="200" y1="106" x2="200" y2="140" stroke="rgba(201,152,74,0.4)" stroke-width="1" stroke-dasharray="3 2"/>
+          <line x1="330" y1="106" x2="330" y2="140" stroke="rgba(74,154,138,0.4)" stroke-width="1" stroke-dasharray="3 2"/>
+          <!-- Central Sheets -->
+          <rect x="100" y="140" width="200" height="44" rx="9" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+          <text x="200" y="158" font-size="10" fill="rgba(255,255,255,0.7)" font-family="monospace" text-anchor="middle" font-weight="bold">Google Sheets Maître</text>
+          <text x="200" y="174" font-size="8.5" fill="rgba(255,255,255,0.35)" font-family="monospace" text-anchor="middle">Source unique de vérité</text>
+          <!-- Outputs -->
+          <rect x="30" y="212" width="90" height="32" rx="6" fill="rgba(61,142,255,0.1)" stroke="rgba(61,142,255,0.2)" stroke-width="1"/>
+          <text x="75" y="232" font-size="8.5" fill="rgba(61,142,255,0.8)" font-family="monospace" text-anchor="middle">Dashboard</text>
+          <rect x="155" y="212" width="90" height="32" rx="6" fill="rgba(224,92,58,0.1)" stroke="rgba(224,92,58,0.2)" stroke-width="1"/>
+          <text x="200" y="232" font-size="8.5" fill="rgba(224,92,58,0.8)" font-family="monospace" text-anchor="middle">Rapports auto</text>
+          <rect x="280" y="212" width="90" height="32" rx="6" fill="rgba(74,154,138,0.1)" stroke="rgba(74,154,138,0.2)" stroke-width="1"/>
+          <text x="325" y="232" font-size="8.5" fill="rgba(74,154,138,0.8)" font-family="monospace" text-anchor="middle">Alertes IA</text>
+          <line x1="200" y1="184" x2="75" y2="212" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <line x1="200" y1="184" x2="200" y2="212" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <line x1="200" y1="184" x2="325" y2="212" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <rect x="108" y="260" width="184" height="22" rx="6" fill="rgba(201,152,74,0.1)" stroke="rgba(201,152,74,0.2)" stroke-width="1"/>
+          <text x="200" y="275" font-size="8.5" fill="rgba(201,152,74,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">⚡ Architecture 100% automatisée</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Ce qui est inclus</div><h2 class="s-title">Plus profond qu'une <em>simple mission</em></h2></div>
+      <div class="deliv-grid">
+        <div class="deliv-card reveal"><span class="deliv-icon">🔍</span><h3>Audit multi-services (2-3 jours)</h3><p>Shadowing des équipes RH, finance, ops. Observation des vrais flux — pas la version "présentable". Cartographie complète des données et des goulots d'étranglement.</p></div>
+        <div class="deliv-card reveal rd1"><span class="deliv-icon">🗺</span><h3>Architecture de données</h3><p>Unification des sources dispersées en un Sheets maître. Chaque service y connecte ses données. Une seule source de vérité pour toutes les décisions.</p></div>
+        <div class="deliv-card reveal rd2"><span class="deliv-icon">⚙️</span><h3>Déploiement par phases</h3><p>On ne livre pas tout en même temps. Chaque phase apporte une valeur visible avant de passer à la suivante. Moins de résistance, plus d'adoption.</p></div>
+        <div class="deliv-card reveal rd3"><span class="deliv-icon">👥</span><h3>Accompagnement équipes</h3><p>Identification d'un référent interne par service. Formation ciblée. On s'assure que chaque outil est vraiment utilisé — pas juste livré.</p></div>
+        <div class="deliv-card reveal rd4"><span class="deliv-icon">📋</span><h3>Documentation complète</h3><p>Rapport d'audit, dossiers techniques, guides utilisateurs, FAQ par service. L'entreprise comprend ce qu'elle a et peut évoluer en autonomie.</p></div>
+        <div class="deliv-card reveal rd5"><span class="deliv-icon">📊</span><h3>Suivi trimestriel</h3><p>Bilan trimestriel avec la direction : ce qui fonctionne, ce qui peut s'améliorer, les nouvelles automatisations à ROI maximal. Relation sur la durée.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section alt">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Différence TPE / PME</div><h2 class="s-title">Même logique, <em>périmètre adapté</em></h2></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem">
+        <div style="background:var(--ink);border:1px solid var(--bd);border-radius:var(--r2);padding:1.5rem" class="reveal">
+          <div style="font-size:.8rem;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem">Offre TPE</div>
+          <div style="font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;gap:.5rem">
+            <div>→ 1 journée d'audit</div>
+            <div>→ 1 interlocuteur (dirigeant)</div>
+            <div>→ 1 à 2 processus prioritaires</div>
+            <div>→ Scripts simples à intermédiaires</div>
+            <div>→ 1 session de formation équipe</div>
+            <div>→ 30 jours de support</div>
+          </div>
+        </div>
+        <div style="background:rgba(201,152,74,0.05);border:1px solid rgba(201,152,74,0.2);border-radius:var(--r2);padding:1.5rem" class="reveal rd1">
+          <div style="font-size:.8rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.8rem">Offre PME</div>
+          <div style="font-size:.85rem;color:var(--muted);display:flex;flex-direction:column;gap:.5rem">
+            <div>→ 2 à 3 jours d'audit multi-services</div>
+            <div>→ DRH + Managers + Direction</div>
+            <div>→ 3 à 5 processus interdépendants</div>
+            <div>→ Architectures complexes multi-sources</div>
+            <div>→ Programme multi-sessions par service</div>
+            <div>→ Suivi trimestriel + abonnement Pro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">FAQ</div><h2 class="s-title">Vos questions <em>sur l'offre PME</em></h2></div>
+      <div class="faq">
+        <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)"><span>Par où commencer si on ne sait pas ce dont on a besoin ?</span></div><div class="faq-a"><p>C'est exactement pour ça que l'audit existe. Vous ne savez pas ce qu'il vous faut — et ce n'est pas votre rôle de le savoir. Notre rôle est de l'identifier avec vous sur le terrain. L'audit est l'étape zéro de toute collaboration.</p></div></div>
+        <div class="faq-item reveal rd1"><div class="faq-q" onclick="toggleFaq(this)"><span>Combien de temps cela mobilise-t-il nos équipes ?</span></div><div class="faq-a"><p>L'audit mobilise 2 à 3 heures par personne sur les 2-3 jours. Ensuite, le déploiement est géré en autonomie — vous n'avez pas de projet à piloter. On livre, on forme, on suit. Votre équipe reste focalisée sur son travail.</p></div></div>
+        <div class="faq-item reveal rd2"><div class="faq-q" onclick="toggleFaq(this)"><span>Google Workspace est-il obligatoire ?</span></div><div class="faq-a"><p>Nous sommes spécialisés Google Workspace. Si vous utilisez Microsoft 365, certaines solutions sont transposables, mais l'automatisation Apps Script est spécifique à l'écosystème Google. Nous pouvons en discuter lors du premier rendez-vous.</p></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section alt">
+    <div class="offer-section-inner reveal"><div class="s-tag">Offres complémentaires</div><h2 class="s-title">À combiner <em>avec l'accompagnement PME</em></h2></div>
+    <div class="related-grid">
+      <a href="#offre-pme-2" class="rel-card reveal rd1" onclick="navigate('offre-pme-2')"><span class="rel-icon">⚙️</span><h4>Automatisation PME</h4><p>Scripts avancés et architectures complexes en complément de vos nouveaux outils.</p></a>
+      <a href="#offre-pme-3" class="rel-card reveal rd2" onclick="navigate('offre-pme-3')"><span class="rel-icon">🏢</span><h4>Formation PME</h4><p>Former vos équipes à utiliser et maintenir les outils déployés.</p></a>
+      <a href="#offre-6" class="rel-card reveal rd3" onclick="navigate('offre-6')"><span class="rel-icon">🔄</span><h4>Abonnement Pro</h4><p>Maintenance et évolution continue de vos outils. Suivi trimestriel inclus.</p></a>
+    </div>
+  </div>
+  <div class="offer-sticky-cta">
+    <div class="label"><strong>Accompagnement PME</strong> — Audit 2-3 jours · Déploiement par phases · Documentation complète</div>
+    <div class="actions">
+      <a href="mailto:contact@humantechrh.fr?subject=Info accompagnement PME" class="btn-ghost" style="padding:.6rem 1.2rem;font-size:.83rem">En savoir plus</a>
+      <a href="mailto:contact@humantechrh.fr?subject=Demande audit PME" class="btn-coral" style="padding:.6rem 1.2rem;font-size:.83rem">Demander un audit →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ▓▓▓ OFFRE PME 2 — AUTOMATISATION PME ▓▓▓ -->
+<div class="page" id="page-offre-pme-2">
+  <div class="offer-hero" style="background:linear-gradient(180deg,rgba(201,152,74,0.06) 0%,var(--ink) 100%)">
+    <div class="offer-hero-inner">
+      <div>
+        <button class="offer-back" onclick="navigate('home')">← Retour aux offres</button>
+        <div class="offer-badge" style="background:rgba(201,152,74,.1);border-color:rgba(201,152,74,.25);color:var(--gold)">⚙️ PME · Offre P2 · Automatisation avancée</div>
+        <h1 class="oh1">Automatisation<br><em>PME avancée</em></h1>
+        <p class="offer-desc">Architectures multi-sources, dashboards de pilotage en temps réel, alertes réglementaires, rapports automatiques direction. L'équivalent PME de l'offre automatisation TPE — à plus grande échelle et avec accompagnement équipes intégré.</p>
+        <div class="offer-price-badge"><span class="opb-price">Sur devis</span><span class="opb-note">selon complexité · documentation complète · accompagnement équipes</span></div>
+        <div class="offer-btns">
+          <a href="mailto:contact@humantechrh.fr?subject=Automatisation PME" class="btn-coral">Discuter de mon projet →</a>
+          <a href="mailto:contact@humantechrh.fr?subject=Audit automatisation PME" class="btn-ghost">Audit gratuit</a>
+        </div>
+      </div>
+      <div class="offer-mockup">
+        <svg viewBox="0 0 400 300" fill="none" width="100%">
+          <rect x="10" y="100" width="90" height="50" rx="8" fill="rgba(61,142,255,0.12)" stroke="rgba(61,142,255,0.25)" stroke-width="1"/>
+          <text x="55" y="120" font-size="8.5" fill="rgba(61,142,255,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">Multi-sources</text>
+          <text x="55" y="134" font-size="7.5" fill="rgba(61,142,255,0.5)" font-family="monospace" text-anchor="middle">RH · Finance · Ops</text>
+          <line x1="100" y1="125" x2="140" y2="125" stroke="rgba(224,92,58,0.6)" stroke-width="1.5" marker-end="url(#arr1)"/>
+          <rect x="140" y="88" width="120" height="74" rx="8" fill="rgba(224,92,58,0.1)" stroke="rgba(224,92,58,0.3)" stroke-width="1.5"/>
+          <text x="200" y="110" font-size="9" fill="rgba(224,92,58,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">⚡ Apps Script</text>
+          <text x="200" y="124" font-size="7.5" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">Architecture PME</text>
+          <text x="200" y="136" font-size="7.5" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">Multi-process</text>
+          <text x="200" y="150" font-size="7.5" fill="rgba(255,255,255,0.3)" font-family="monospace" text-anchor="middle">Alertes IA intégrées</text>
+          <line x1="260" y1="105" x2="300" y2="75" stroke="rgba(201,152,74,0.6)" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <rect x="300" y="50" width="88" height="36" rx="6" fill="rgba(74,154,138,0.12)" stroke="rgba(74,154,138,0.25)" stroke-width="1"/>
+          <text x="344" y="68" font-size="8.5" fill="rgba(74,154,138,0.9)" font-family="monospace" text-anchor="middle">Dashboard live</text>
+          <line x1="260" y1="125" x2="300" y2="125" stroke="rgba(201,152,74,0.6)" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <rect x="300" y="107" width="88" height="36" rx="6" fill="rgba(224,92,58,0.12)" stroke="rgba(224,92,58,0.25)" stroke-width="1"/>
+          <text x="344" y="125" font-size="8.5" fill="rgba(224,92,58,0.9)" font-family="monospace" text-anchor="middle">Rapports PDF</text>
+          <line x1="260" y1="145" x2="300" y2="170" stroke="rgba(201,152,74,0.6)" stroke-width="1.5" marker-end="url(#arr2)"/>
+          <rect x="300" y="158" width="88" height="36" rx="6" fill="rgba(61,142,255,0.1)" stroke="rgba(61,142,255,0.2)" stroke-width="1"/>
+          <text x="344" y="176" font-size="8.5" fill="rgba(61,142,255,0.85)" font-family="monospace" text-anchor="middle">Alertes direction</text>
+          <rect x="30" y="195" width="170" height="50" rx="8" fill="rgba(201,152,74,0.08)" stroke="rgba(201,152,74,0.2)" stroke-width="1"/>
+          <text x="115" y="215" font-size="8.5" fill="rgba(201,152,74,0.7)" font-family="monospace" text-anchor="middle">Référence Adeo Group</text>
+          <text x="115" y="233" font-size="13" fill="rgba(201,152,74,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">70h économisées/an</text>
+          <defs><marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 2L8 5L2 8" stroke="rgba(224,92,58,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/></marker><marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M2 2L8 5L2 8" stroke="rgba(201,152,74,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/></marker></defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Ce qui vous distingue de l'offre TPE</div><h2 class="s-title">Même puissance, <em>architecture PME</em></h2></div>
+      <div class="deliv-grid">
+        <div class="deliv-card reveal"><span class="deliv-icon">🔗</span><h3>Multi-sources connectées</h3><p>Plusieurs services alimentent un Sheets maître automatiquement. Fini les exports/imports manuels entre RH, finance et opérations.</p></div>
+        <div class="deliv-card reveal rd1"><span class="deliv-icon">📊</span><h3>Dashboard direction temps réel</h3><p>KPIs consolidés accessibles à la direction en permanence. Taux d'occupation, coûts, productivité, alertes réglementaires — tout en un coup d'œil.</p></div>
+        <div class="deliv-card reveal rd2"><span class="deliv-icon">📄</span><h3>Rapports automatiques</h3><p>Rapports mensuels générés et envoyés automatiquement aux bons interlocuteurs. Bilan social, rapports sectoriels, tableaux de bord direction — sans intervention humaine.</p></div>
+        <div class="deliv-card reveal rd3"><span class="deliv-icon">🔔</span><h3>Système d'alertes IA</h3><p>Le système surveille en permanence : contrats expirants, seuils légaux, anomalies de données, factures impayées. Vous êtes alertés avant que le problème devienne critique.</p></div>
+        <div class="deliv-card reveal rd4"><span class="deliv-icon">👥</span><h3>Accompagnement équipes</h3><p>Formation des référents internes par service. Dossier technique commenté. L'entreprise n'est pas dépendante — elle peut faire évoluer les scripts en interne.</p></div>
+        <div class="deliv-card reveal rd5"><span class="deliv-icon">🛡️</span><h3>Maintenance & évolution</h3><p>1 mois de maintenance inclus. Les scripts évoluent avec votre activité via l'abonnement Pro. Nouvelles automatisations, mises à jour réglementaires, corrections incluses.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="offer-sticky-cta">
+    <div class="label"><strong>Automatisation PME</strong> — Architecture multi-sources · Documentation complète · Accompagnement équipes</div>
+    <div class="actions">
+      <a href="mailto:contact@humantechrh.fr?subject=Audit automatisation PME" class="btn-ghost" style="padding:.6rem 1.2rem;font-size:.83rem">Audit gratuit</a>
+      <a href="mailto:contact@humantechrh.fr?subject=Projet automatisation PME" class="btn-coral" style="padding:.6rem 1.2rem;font-size:.83rem">Discuter de mon projet →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ▓▓▓ OFFRE PME 3 — FORMATION PME ▓▓▓ -->
+<div class="page" id="page-offre-pme-3">
+  <div class="offer-hero" style="background:linear-gradient(180deg,rgba(201,152,74,0.06) 0%,var(--ink) 100%)">
+    <div class="offer-hero-inner">
+      <div>
+        <button class="offer-back" onclick="navigate('home')">← Retour aux offres</button>
+        <div class="offer-badge" style="background:rgba(201,152,74,.1);border-color:rgba(201,152,74,.25);color:var(--gold)">🏢 PME · Offre P3 · Formation intra</div>
+        <h1 class="oh1">Formation<br><em>Entreprise PME</em></h1>
+        <p class="offer-desc">Modules intra-entreprise sur mesure construits à partir de vos données réelles. Google Sheets avancé, automatisation Apps Script, IA & productivité, Data & pilotage RH. L'équivalent PME de la formation collective TPE — plus profond, multi-sessions, multi-services.</p>
+        <div class="offer-price-badge"><span class="opb-price">Sur devis</span><span class="opb-note">programme personnalisé · basé sur vos données réelles · multi-sessions</span></div>
+        <div class="offer-btns">
+          <a href="mailto:contact@humantechrh.fr?subject=Formation PME intra-entreprise" class="btn-coral">Demander un programme →</a>
+          <a href="mailto:contact@humantechrh.fr?subject=Info formation PME" class="btn-ghost">En savoir plus</a>
+        </div>
+      </div>
+      <div class="offer-mockup">
+        <svg viewBox="0 0 400 280" fill="none" width="100%">
+          <rect x="20" y="20" width="360" height="240" rx="12" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+          <rect x="20" y="20" width="360" height="38" rx="12" fill="rgba(201,152,74,0.1)"/>
+          <text x="200" y="44" font-size="11" fill="rgba(201,152,74,0.9)" font-family="monospace" text-anchor="middle" font-weight="bold">Programme PME — Intra-entreprise</text>
+          <rect x="32" y="70" width="155" height="52" rx="8" fill="rgba(61,142,255,0.08)" stroke="rgba(61,142,255,0.18)" stroke-width="1"/>
+          <text x="109" y="90" font-size="9" fill="rgba(61,142,255,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">Module A</text>
+          <text x="109" y="104" font-size="8" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="middle">Sheets Avancé · Demi-j.</text>
+          <rect x="213" y="70" width="155" height="52" rx="8" fill="rgba(224,92,58,0.08)" stroke="rgba(224,92,58,0.18)" stroke-width="1"/>
+          <text x="290" y="90" font-size="9" fill="rgba(224,92,58,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">Module B</text>
+          <text x="290" y="104" font-size="8" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="middle">Automatisation · Journée</text>
+          <rect x="32" y="136" width="155" height="52" rx="8" fill="rgba(74,154,138,0.08)" stroke="rgba(74,154,138,0.18)" stroke-width="1"/>
+          <text x="109" y="156" font-size="9" fill="rgba(74,154,138,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">Module C</text>
+          <text x="109" y="170" font-size="8" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="middle">IA &amp; Productivité · Demi-j.</text>
+          <rect x="213" y="136" width="155" height="52" rx="8" fill="rgba(201,152,74,0.08)" stroke="rgba(201,152,74,0.18)" stroke-width="1"/>
+          <text x="290" y="156" font-size="9" fill="rgba(201,152,74,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">Module D</text>
+          <text x="290" y="170" font-size="8" fill="rgba(255,255,255,0.4)" font-family="monospace" text-anchor="middle">Data &amp; Pilotage RH · Journée</text>
+          <rect x="80" y="206" width="240" height="24" rx="7" fill="rgba(201,152,74,0.1)" stroke="rgba(201,152,74,0.2)" stroke-width="1"/>
+          <text x="200" y="222" font-size="9" fill="rgba(201,152,74,0.8)" font-family="monospace" text-anchor="middle" font-weight="bold">Basé sur vos données réelles · Sur mesure</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="offer-section">
+    <div class="offer-section-inner">
+      <div class="reveal tc"><div class="s-tag">Les 4 modules</div><h2 class="s-title">Formation ancrée <em>dans la pratique</em></h2></div>
+      <div class="deliv-grid">
+        <div class="deliv-card reveal"><span class="deliv-icon">📊</span><h3>Module A — Sheets Avancé</h3><p>Formules avancées (INDEX/MATCH, QUERY), tableaux croisés dynamiques, dashboards automatiques. Tout sur vos fichiers existants. Demi-journée.</p></div>
+        <div class="deliv-card reveal rd1"><span class="deliv-icon">⚡</span><h3>Module B — Automatisation</h3><p>Introduction Apps Script : déclencher, lire des données, envoyer des emails auto, générer des documents. Cas d'usage issus de votre entreprise. Journée.</p></div>
+        <div class="deliv-card reveal rd2"><span class="deliv-icon">🤖</span><h3>Module C — IA & Productivité</h3><p>ChatGPT/Gemini dans le quotidien pro : rédaction, résumés, analyse data, automatisation emails. Zéro compétence technique requise. Demi-journée.</p></div>
+        <div class="deliv-card reveal rd3"><span class="deliv-icon">📈</span><h3>Module D — Data & Pilotage RH</h3><p>Tableau de bord RH opérationnel : absences, coûts, KPIs managériaux. Connecté à vos données réelles. Journée complète.</p></div>
+        <div class="deliv-card reveal rd4"><span class="deliv-icon">🎁</span><h3>Pack Transformation Digitale</h3><p>Modules A+B+C en 2 jours. Audit process offert + formation 100% sur données réelles + outil fonctionnel livré à la fin de la session.</p></div>
+        <div class="deliv-card reveal rd5"><span class="deliv-icon">✅</span><h3>Livrables systématiques</h3><p>Pour chaque formation : attestation individuelle, feuille d'émargement, quiz de validation des acquis, plan d'action post-formation par participant.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="offer-sticky-cta">
+    <div class="label"><strong>Formation PME</strong> — Intra-entreprise · Modules personnalisés · Basé sur vos données réelles</div>
+    <div class="actions">
+      <a href="mailto:contact@humantechrh.fr?subject=Info formation PME" class="btn-ghost" style="padding:.6rem 1.2rem;font-size:.83rem">En savoir plus</a>
+      <a href="mailto:contact@humantechrh.fr?subject=Devis formation PME intra" class="btn-coral" style="padding:.6rem 1.2rem;font-size:.83rem">Demander un programme →</a>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -1523,7 +1961,7 @@ h1.oh1 em{font-style:italic;font-weight:300;color:rgba(238,233,224,.7)}
 
 <script>
 /* ═══ ROUTING ═══ */
-const pages=['home','offre-1','offre-2','offre-3','offre-4','offre-5','offre-6'];
+const pages=['home','offre-1','offre-2','offre-3','offre-4','offre-5','offre-6','offre-pme-1','offre-pme-2','offre-pme-3'];
 
 function navigate(id){
   // Hide all
